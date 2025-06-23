@@ -1,2 +1,2 @@
 # AutoMISC
-Automatic Classification of Motivational Interviewing Behavioural Codes
+Automatic MISC 2.5 Annotation of Motivational Interviewing Transcripts
