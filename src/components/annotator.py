@@ -61,12 +61,26 @@ class Annotator:
         else:
             raise ValueError(f"Invalid context mode: {context_mode}")
 
-        formatted_lines = [
-            f"{row['speaker']}: {row['utt_text']}" for _, row in context_df.iterrows()
-        ]
+        formatted_segments = []
+        prev_speaker = None
+        segment = ""
 
-        return "\n".join(formatted_lines)
+        for _, row in context_df.iterrows():
+            speaker = row['speaker']
+            text = row['utt_text']
+            if speaker != prev_speaker:
+                if segment:
+                    formatted_segments.append(segment.strip())
+                segment = f"{speaker}: {text}"
+            else:
+                segment += f" {text}"
+            prev_speaker = speaker
 
+        if segment:
+            formatted_segments.append(segment.strip())
+
+        return "\n".join(formatted_segments)
+    
     def annotate_corpus(self, corp: Corpus):
         """
         """
