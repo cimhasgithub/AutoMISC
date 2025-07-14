@@ -1,0 +1,9 @@
+hydra-core
+jinja2
+lmstudio
+omegaconf
+openai
+pandas
+pydantic
+PyYAML
+tqdm

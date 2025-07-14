@@ -1,2 +1,7 @@
-data/
+data/annotated/
+data/test/
+outputs/
 .DS_Store
+multirun/
+**/__pycache__/
+*.py[cod]
