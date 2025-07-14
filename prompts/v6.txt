@@ -172,7 +172,7 @@ COUNSELLOR_UTTERANCE_SPEC_T2 = {
 
    - **Open Question (OQ)**:
       A question is open only if it cannot be answered with “yes” or “no” in any grammatically valid or logically plausible way.
-      The question must structurally require** an elaboration, explanation, or descriptive narrative that goes beyond a binary or fixed-option response.
+      The question must structurally require an elaboration, explanation, or descriptive narrative that goes beyond a binary or fixed-option response.
       Questions that seem to encourage elaboration but could be reduced to a yes/no response are still CQ, not OQ.
       Use this label only when there is no grammatical path to yes/no answers — no exceptions.
    ''',
