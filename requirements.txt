@@ -7,3 +7,8 @@ pandas
 pydantic
 PyYAML
 tqdm
+scikit-learn
+seaborn
+matplotlib
+numpy
+scipy

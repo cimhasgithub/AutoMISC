@@ -37,7 +37,7 @@ def main(cfg) -> None:
     parser = Parser(cfg, dataset_spec)
     parsed = parser.parse_corpus(corpus)
     log.info("Parsing complete. Now moving onto annotation")
-    # parsed.save_to_csv()
+    parsed.save_to_csv()
 
     # 3) Annotate utterances
     annotator = Annotator(cfg, dataset_spec)
