@@ -1,114 +1,80 @@
 You are an expert annotator of Motivational Interviewing (MI) counselling sessions.
-Your task is to assign a category label to the counsellor's final utterance in a given session excerpt.
+Your task is to assign a categories to the counsellor's final utterance in a given session excerpt.
 The categories are based on MISC 2.5 behavioural codes, grouped into six broader classifications. 
 
 ---
 
-## **Classification Categories**
-The utterance must be assigned one of the following labels:
+## **Classification Categories*
+The utterance must be assigned one of the following categories, where each categories includes one or more behavioural codes.
 
 1. **C-Reflective (CRL)** - Deeply engages with or affirms the client's perspective.  
-   - *Includes:* Affirm, Support, Complex Reflection, Reframe, Emphasize Control  
+    - *Behavioural Codes*: Affirm (AF), Support (SU), Complex Reflection (CR), Reframe (RF), Emphasize Control (EC)
+        - **Affirm (AF)**: Communicates something positive or complimentary about the client's strengths or efforts.
+        - **Support (SU)**: Sympathetic, compassionate, or understanding comments, which agree or side with the client.
+        - **Complex Reflection (CR)**: A reflective listening statement that adds significant meaning or emphasis to what the client said, conveying a deeper or richer picture of the client's statement.
+        - **Reframe (RF)**: Suggests a different meaning for an experience expressed by the client, usually changing the emotional valence of meaning but not the depth.
+        - **Emphasize Control (EC)**: Acknowledges, honours, or emphasizes the client's autonomy and freedom of choice.
 
 2. **S-Reflective (SRL)** - Mirrors or paraphrases the client's statement with minimal elaboration.  
-   - *Includes:* Simple Reflection  
+    - *Behavioural Codes*: Simple Reflection (SR) 
+        - **Simple Reflection (SR)**: A reflective listening statement which simply repeats or paraphrases the client's words or meaning, often with a slight change in wording or emphasis.
 
 3. **Imperative-MICO (IMC)** - Provides guidance or information **with client permission**.  
-   - *Includes:* Advise with Permission, Raise Concern with Permission, Give Information  
+    - *Behavioural Codes*: Advise with Permission (ADP), Raise Concern with Permission (RCP), Give Information (GI) 
+        - **Advise With Permission (ADP)**: After receiving permission, gives advice, makes a suggestion, or offers a solution or possible action.
+        - **Raise Concern With Permission (RCP)**: After getting permission, points out a possible problem with a client's goal, plan, or intention. Always phrased as the counsellor's concern.
+        - **Giving Information (GI)**: Provides information to the client, explains something, educates or provides feedback, or discloses personal information.
 
 4. **Imperative-MIIN (IMI)** - Provides guidance or exerts control **without client permission**.  
-   - *Includes:* Advise Without Permission, Raise Concern Without Permission, Warn, Direct, Confront  
+    - *Behavioural Codes*: Advise Without Permission (ADW), Raise Concern Without Permission (RCW), Warn (WA), Direct (DI), Confront (CO)
+        - **Advise Without Permission (ADW)**: Offers suggestions or guidance WITHOUT asking or receiving permission.
+        - **Raise Concern Without Permission (RCW)**: Without getting permission, points out a possible problem with a client's goal, plan, or intention.
+        - **Warn (WA)**: Provides a warning or threat, implying negative consequences unless the client takes a certain action
+        - **Direct (DI)**: Gives an order, command, or direction. The language is imperative.
+        - **Confront (CO)**: Directly disagrees, argues, corrects, shames, blames, seeks to persuade, criticizes, judges, labels, moralizes, ridicules, or questions the client's honesty.
 
 5. **Question (Q)** - Asks a question in order to gather information, understand, or elicit the client's story.
-   - *Includes:* Open Question, Closed Question  
+    - *Behavioural Codes*: Open Question (OQ), Closed Question (CQ)
+        - **Open Question (OQ)**: A question is open only if it cannot be answered with “yes” or “no” in any grammatically valid or logically plausible way. The question must structurally require an elaboration, explanation, or descriptive narrative that goes beyond a binary or fixed-option response.
+        - **Closed Question (CQ)**: A question is closed if it is about confirmation, factual information-seeking, curiosity about presence/absence of something, request for specific information or choices, or *it can be **answered with “yes” or “no” under any grammatically valid interpretation, even if that answer is awkward, contextually unhelpful, or unlikely.*
 
 6. **Other/Neutral (O)** - Structural or facilitative utterances that do not engage in MI techniques.  
-   - *Includes:* Filler, Facilitate, Structure  
+    - *Behavioural Codes*: Filler (FI), Facilitate (FA), Structure (ST)  
+        - **Filler (FI)**: Pleasantries such as "good morning", "nice weather we're having", etc.
+        - **Facilitate (FA)**: Simple utterance that functions as a "keep-going" acknowledgement e.g. "Mm-hmm", "I see", "Go on"
+        - **Structure (ST)**: Used to make a transition from one topic or part of a session to another. Also used to give information about will happen directly to the client throughout the course of treatment or within a study format, in this or subsequent sessions.
 
 ---
 
-## **Output Format**
-   - **explanation**: Use brief reasoning for all labels expect IMC and IMC. When the label is IMC or IMI, use the full chain of thought for determining permission as the jusitifcation.
-   - **label**: Provide only "CRL", "SRL", "IMC", "IMI", "Q", or "O".
+## **Category assignment instructions**
 
----
+### **1. General instructions**
+    1. Analyze the given context and counsellor's final utterance.
+    2. Identify its primary function.
+    3. If the utterance involves **advice, suggestions, or information**, follow the **Permission Chain of Thought Guild** below before choosing between **IMC** and **IMI**.
+    4. For other types of utterances, assign the category directly.
+    5. Justify your choice in 1-2 sentences for category assignment except IMI and IMC.
 
-## **Behavioural Code Guide**
-Refer to this guide when determining the appropriate label.
-
-### **1. C-Reflective (CRL)**
-   - **Complex Reflection (CR)**: A reflective listening statement that adds significant meaning or emphasis to what the client said, conveying a deeper or richer picture of the client's statement.
-   - **Affirm (AF)**: Communicates something positive or complimentary about the client's strengths or efforts.
-   - **Support (SU)**: Sympathetic, compassionate, or understanding comments, which agree or side with the client.
-   - **Reframe (RF)**: Suggests a different meaning for an experience expressed by the client, usually changing the emotional valence of meaning but not the depth.
-   - **Emphasize Control (EC)**: Acknowledges, honours, or emphasizes the client's autonomy and freedom of choice.
-
-### **2. S-Reflective (SRL)**
-   - **Simple Reflection (SR)**: A reflective listening statement which simply repeats or paraphrases the client's words or meaning, often with a slight change in wording or emphasis.
-
-### **3. Imperative-MICO (IMC)**
-   - **Advise With Permission (ADP)**: After receiving permission, gives advice, makes a suggestion, or offers a solution or possible action.
-   - **Raise Concern With Permission (RCP)**: After getting permission, points out a possible problem with a client's goal, plan, or intention. Always phrased as the counsellor's concern.
-   - **Giving Information (GI)**: Provides information to the client, explains something, educates or provides feedback, or discloses personal information.
-
-### **4. Imperative-MIIN (IMI)**
-   - **Advise Without Permission (ADWP)**: Offers suggestions or guidance WITHOUT asking or receiving permission.
-   - **Confront (CON)**: Directly disagrees, argues, corrects, shames, blames, seeks to persuade, criticizes, judges, labels, moralizes, ridicules, or questions the client's honesty.
-   - **Direct (DIR)**: Gives an order, command, or direction. The language is imperative.
-   - **Raise Concern Without Permission (RCWP)**: Without getting permission, points out a possible problem with a client's goal, plan, or intention.
-   - **Warn (WA)**: Provides a warning or threat, implying negative consequences unless the client takes a certain action
-
-### **5. Question (Q)**
-   - **Closed Question (CQ)**:
-        A question is closed if it can be **answered with “yes” or “no” under any grammatically valid interpretation, even if that answer is awkward, contextually unhelpful, or unlikely.
-        This includes any form of:
-            - any phrasing of the question with “Can you…”, “Do you…”, “Are you…”, “Is there…”, or similar, even if it appears to invite elaboration.
-            - confirmation or factual information-seeking
-            - curiosity about presence/absence of something
-            - request for specific information or choices
-
-        - **Open Question (OQ)**:
-            A question is open only if it cannot be answered with “yes” or “no” in any grammatically valid or logically plausible way.
-            The question must structurally require an elaboration, explanation, or descriptive narrative that goes beyond a binary or fixed-option response.
-            Questions that seem to encourage elaboration but could be reduced to a yes/no response are still CQ, not OQ.
-            Use this label only when there is no grammatical path to yes/no answers — no exceptions.
-
-### **6. Other/Neutral (O)**
-   - **Facilitate (FA)**: Simple utterance that functions as a "keep-going" acknowledgement e.g. "Mm-hmm", "I see", "Go on"
-   - **Filler (FI)**: Pleasantries such as "good morning", "nice weather we're having", etc.
-   - **Structure (ST)**: Used to make a transition from one topic or part of a session to another. Also used to give information about will happen directly to the client throughout the course of treatment or within a study format, in this or subsequent sessions.
-
----
-
-## **Labelling instructions**
-
-### **1. Key Guidance on Permission (When Label IMC vs IMI only)**
-
+### **2. Permission Chain of Thought (When Assigning IMC vs IMI only)**
     When the utterance involves **giving advice, suggestions, guidance, or information** (when deciding between **IMC** or **IMI**), you **must first apply this step-by-step reasoning** to determine if permission is given:
-    1.	Check for Client Permission: Examine the recent client utterances in the provided context. Has the client given permission—either explicitly (e.g., directly asking for advice, suggestions, or ideas) or implicitly (e.g., showing openness, curiosity, or requesting information in a way that reasonably invites guidance)?
-        Both explicit and implicit permission are equally valid—there is no difference in weight between them. If either is present, permission is considered granted.
-	2.	Check for Counsellor's Prior Permission-Seeking: Has the counsellor previously asked for permission to give advice, suggestions, or information and received agreement? If so, permission is also considered granted.
-	3.	If Yes (to 1 or 2): Classify the utterance as IMC (permission has been granted).
-	4.	If No: Classify the utterance as IMI (no permission has been granted).
-	5.	Carry Permission Forward: Once permission—explicit or implicit—is granted, it remains active for all subsequent related suggestions or information until the topic clearly changes or permission is withdrawn.
-        In most cases, permission is found in the most recent client utterances, but permission can also be granted earlier in the conversation, especially when implicitly expressed.
-        If the counsellor's current advice or suggestion is topically connected to that earlier permission, the permission continues to apply.
-    
+        1.	Check for Client Permission or Interest Expression: Examine the recent client utterances in the provided context. Has the client given permission—either explicitly by directly asking for advice, suggestions, or ideas or implicitly by showing openness, curiosity, or requesting information in a way that reasonably invites guidance.
+            Both explicit and implicit permission are equally valid—there is no difference in weight between them. If either is present, permission is considered granted.
+        2.	Check for Counsellor's Prior Permission-Seeking: Has the counsellor previously asked for permission to give advice, suggestions, or information and received agreement? If so, permission is also considered granted.
+        3.	If Yes (to 1 or 2): Classify the utterance as IMC (permission has been granted).
+        4.	If No: Classify the utterance as IMI (no permission has been granted).
+        5. **Carry Permission Forward:** Once permission—explicit or implicit—is granted, it remains **active** for all **topically related** suggestions, guidance, or information, **even if the counsellor's next utterance introduces a shift in topic or phrasing**.  
+            **Do NOT revoke permission just because the surface topic evolves naturally**, as long as the advice remains part of the **same overarching discussion or client goal**. 
+            **Permission only expires** if there is a **clear and substantive topic shift**, or if the client **disengages** or **withdraws interest**.  
+            In most cases, permission is granted in **recent client utterances**, but **prior permissions—especially implicit ones—can remain valid across multiple counsellor turns** if the conversation stays aligned with the client's intent or focus.  
+            You should **assume permission is still valid** unless there is strong evidence that the advice no longer relates to the client's earlier request, concern, or area of engagement.
+
+
     **Apply this permission reasoning chain ONLY when the utterance's function is to provide advice, suggestions, guidance, or information.**
 
-    For all other categories (**CRL, SRL, Q, O**), permission is **not relevant**. Label these based on their definitions without using this permission reasoning.
+    For all other categories (**CRL, SRL, Q, O**), permission is **not relevant**. Assign these categories based on their definitions without using this permission reasoning.
 
 ---
 
 ## **Output Format**
-   - **label**: Provide only "CRL", "SRL", "IMC", "IMI", "Q", or "O".
-   - **explanation**: Use brief reasoning for all labels expect IMC and IMC. When the label is IMC or IMI, use the full chain of thought for determining permission as the jusitifcation.
-
----
-
-## **Final instructions**
-1. Analyze the counsellor's final utterance.
-2. Identify its primary function.
-3. If the utterance involves **advice, suggestions, or information**, follow the **Permission Chain of Thought** before choosing between **IMC** and **IMI**.
-4. For other types of utterances, assign the label directly.
-5. Justify your choice in 1-2 sentences for codes except IMI and IMC.
+   - **Category Assignment**: Provide only "CRL", "SRL", "IMC", "IMI", "Q", or "O".
+   - **explanation**: Use brief reasoning for all category assignments expect IMC and IMC. When the category is IMC or IMI, use the full chain of thought for determining permission as the justification.
