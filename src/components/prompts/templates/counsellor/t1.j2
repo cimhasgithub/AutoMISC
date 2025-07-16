@@ -28,7 +28,7 @@ The utterance must be assigned one of the following labels:
 ---
 
 ## **Output Format**
-   - **explanation**: Briefly justify your choice in 1-2 sentences.
+   - **explanation**: Use brief reasoning for all labels expect IMC and IMC. When the label is IMC or IMI, use the full chain of thought for determining permission as the jusitifcation.
    - **label**: Provide only "CRL", "SRL", "IMC", "IMI", "Q", or "O".
 
 ---
@@ -60,19 +60,19 @@ Refer to this guide when determining the appropriate label.
 
 ### **5. Question (Q)**
    - **Closed Question (CQ)**:
-      A question is closed if it can be **answered with “yes” or “no” under any grammatically valid interpretation, even if that answer is awkward, contextually unhelpful, or unlikely.
-      This includes any form of:
-         - any phrasing of the question with “Can you…”, “Do you…”, “Are you…”, “Is there…”, or similar, even if it appears to invite elaboration.
-         - confirmation or factual information-seeking
-         - curiosity about presence/absence of something
-         - request for specific information or choices
+        A question is closed if it can be **answered with “yes” or “no” under any grammatically valid interpretation, even if that answer is awkward, contextually unhelpful, or unlikely.
+        This includes any form of:
+            - any phrasing of the question with “Can you…”, “Do you…”, “Are you…”, “Is there…”, or similar, even if it appears to invite elaboration.
+            - confirmation or factual information-seeking
+            - curiosity about presence/absence of something
+            - request for specific information or choices
 
-   - **Open Question (OQ)**:
-      A question is open only if it cannot be answered with “yes” or “no” in any grammatically valid or logically plausible way.
-      The question must structurally require an elaboration, explanation, or descriptive narrative that goes beyond a binary or fixed-option response.
-      Questions that seem to encourage elaboration but could be reduced to a yes/no response are still CQ, not OQ.
-      Use this label only when there is no grammatical path to yes/no answers — no exceptions.
-      
+        - **Open Question (OQ)**:
+            A question is open only if it cannot be answered with “yes” or “no” in any grammatically valid or logically plausible way.
+            The question must structurally require an elaboration, explanation, or descriptive narrative that goes beyond a binary or fixed-option response.
+            Questions that seem to encourage elaboration but could be reduced to a yes/no response are still CQ, not OQ.
+            Use this label only when there is no grammatical path to yes/no answers — no exceptions.
+
 ### **6. Other/Neutral (O)**
    - **Facilitate (FA)**: Simple utterance that functions as a "keep-going" acknowledgement e.g. "Mm-hmm", "I see", "Go on"
    - **Filler (FI)**: Pleasantries such as "good morning", "nice weather we're having", etc.
@@ -80,9 +80,35 @@ Refer to this guide when determining the appropriate label.
 
 ---
 
+## **Labelling instructions**
+
+### **1. Key Guidance on Permission (When Label IMC vs IMI only)**
+
+    When the utterance involves **giving advice, suggestions, guidance, or information** (when deciding between **IMC** or **IMI**), you **must first apply this step-by-step reasoning** to determine if permission is given:
+    1.	Check for Client Permission: Examine the recent client utterances in the provided context. Has the client given permission—either explicitly (e.g., directly asking for advice, suggestions, or ideas) or implicitly (e.g., showing openness, curiosity, or requesting information in a way that reasonably invites guidance)?
+        Both explicit and implicit permission are equally valid—there is no difference in weight between them. If either is present, permission is considered granted.
+	2.	Check for Counsellor's Prior Permission-Seeking: Has the counsellor previously asked for permission to give advice, suggestions, or information and received agreement? If so, permission is also considered granted.
+	3.	If Yes (to 1 or 2): Classify the utterance as IMC (permission has been granted).
+	4.	If No: Classify the utterance as IMI (no permission has been granted).
+	5.	Carry Permission Forward: Once permission—explicit or implicit—is granted, it remains active for all subsequent related suggestions or information until the topic clearly changes or permission is withdrawn.
+        In most cases, permission is found in the most recent client utterances, but permission can also be granted earlier in the conversation, especially when implicitly expressed.
+        If the counsellor's current advice or suggestion is topically connected to that earlier permission, the permission continues to apply.
+    
+    **Apply this permission reasoning chain ONLY when the utterance's function is to provide advice, suggestions, guidance, or information.**
+
+    For all other categories (**CRL, SRL, Q, O**), permission is **not relevant**. Label these based on their definitions without using this permission reasoning.
+
+---
+
+## **Output Format**
+   - **label**: Provide only "CRL", "SRL", "IMC", "IMI", "Q", or "O".
+   - **explanation**: Use brief reasoning for all labels expect IMC and IMC. When the label is IMC or IMI, use the full chain of thought for determining permission as the jusitifcation.
+
+---
+
 ## **Final instructions**
 1. Analyze the counsellor's final utterance.
-2. Identify its primary function and intent.
-3. Assign the appropriate label based on the categories provided above.
-4. Provide a brief explanation for your choice.
-
+2. Identify its primary function.
+3. If the utterance involves **advice, suggestions, or information**, follow the **Permission Chain of Thought** before choosing between **IMC** and **IMI**.
+4. For other types of utterances, assign the label directly.
+5. Justify your choice in 1-2 sentences for codes except IMI and IMC.
