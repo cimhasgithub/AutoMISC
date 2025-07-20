@@ -102,14 +102,14 @@ def cohens_kappa(cfg, auto_anno_path, manual_path, tier, rater):
 
     total_correct_counsellor = np.trace(counsellor_conf_matrix)
     log.info(f"Total Correct Predictions (Counsellor): {total_correct_counsellor} / {len(counsellor_human_labels)} = {co_po*100:.2f}%")
-    # print(f"Agreement ({tier} Counsellor): {co_po:.2f}")
 
     plt.figure(figsize=(8, 6))
     sns.heatmap(counsellor_conf_matrix_df, annot=True, fmt="d", cmap="Blues")
-    plt.title(f"Confusion Matrix: {tier} Counsellor Talk")
-    plt.xlabel("AutoMISC")
-    plt.ylabel("Human")
-    plt.savefig(exp_output_dir / f"results/{tier}_counsellor_confusion_matrix.png")
+    # plt.title(f"Confusion Matrix: {tier} Counsellor Talk")
+    plt.xlabel("AutoMISC", fontsize=20)
+    plt.ylabel("Consensus Labels", fontsize=20)
+    plt.tight_layout()
+    plt.savefig(exp_output_dir / f"results/{tier}_counsellor_confusion_matrix.pdf", format="pdf", bbox_inches='tight')
     plt.close()
 
     class_report_counsellor = classification_report(counsellor_human_labels, counsellor_automisc_labels, labels=counsellor_codes, output_dict=True, zero_division=0)
@@ -129,9 +129,6 @@ def cohens_kappa(cfg, auto_anno_path, manual_path, tier, rater):
 
     log.info(f"Cohen's Kappa ({tier} Client Codes): {kappa_score_client:.2f}")
     log.info(f"Manual Cohen's Kappa ({tier} Client): {man_cl:.2f}")
-    # print(f"Agreement ({tier} Client): {cl_po:.2f}")
- 
-    
     log.info(f"Asymptotic Variance ({tier} Client): {av_client}")
     log.info(f"P-value ({tier} Client): {p_client:.15e}")
 
@@ -150,11 +147,12 @@ def cohens_kappa(cfg, auto_anno_path, manual_path, tier, rater):
 
 
     plt.figure(figsize=(8, 6))
-    sns.heatmap(client_conf_matrix_df, annot=True, fmt="d", cmap="Greens")
-    plt.title(f"Confusion Matrix: {tier} Client Talk")
-    plt.xlabel("AutoMISC")
-    plt.ylabel("Human")
-    plt.savefig(exp_output_dir / f"results/{tier}_client_confusion_matrix.png")
+    sns.heatmap(client_conf_matrix_df, annot=True, fmt="d", cmap="Oranges")
+    # plt.title(f"Confusion Matrix: {tier} Client Talk")
+    plt.xlabel("AutoMISC", fontsize=20)
+    plt.ylabel("Consensus Labels", fontsize=20)
+    plt.tight_layout()
+    plt.savefig(exp_output_dir / f"results/{tier}_client_confusion_matrix.pdf", format="pdf", bbox_inches='tight')
     plt.close()
 
     class_report_client = classification_report(client_human_labels, client_automisc_labels, labels=client_codes, output_dict=True, zero_division=0)
@@ -168,6 +166,8 @@ def cohens_kappa(cfg, auto_anno_path, manual_path, tier, rater):
     return
 
 def IRR(cfg: DictConfig) -> None:
+    plt.rcParams["font.family"] = "Times New Roman"
+    plt.rcParams["font.size"] = 20
     auto_anno_path = Path('data/annotated') / (
         f"{cfg.input_dataset.name}_"
         f"{cfg.input_dataset.subset}_"
