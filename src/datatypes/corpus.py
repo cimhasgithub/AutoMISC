@@ -1,6 +1,5 @@
 from pathlib import Path
 from typing import Literal
-from .dataset import DatasetSpec
 import pandas as pd
 from hydra.utils import log
 import hydra
@@ -37,35 +36,18 @@ class Conversation:
         return f"Conversation(id={self.conv_id}, volleys={len(self.volleys)})"
 
 class Corpus:
-    def __init__(self, cfg, dataset_spec: DatasetSpec, num_conversations: int | None = None):
+    def __init__(self, cfg):
         self.cfg = cfg
         self.state: Literal['loaded', 'parsed', 'annotated'] = 'loaded'
-        self.dataset_spec = dataset_spec
         self.conversations: list[Conversation] = self.load_dataframe_new()
-
-    def load_dataframe(self, num_conversations: int | None):
-        dataset_path = Path("data") / self.dataset_spec.filename
-        df = pd.read_csv(dataset_path)
-        id_col = self.dataset_spec.id_col
-        if num_conversations is not None:
-            ids = df[id_col].drop_duplicates().head(num_conversations)
-            df = df[df[id_col].isin(ids)]
-        if self.dataset_spec.name in ['MIV6.3A', 'MIV6.3B']:
-            demographics_fn = DEMO_DICT[self.dataset_spec.name]
-
-            if self.cfg.input_dataset.subset == 'lowconf':
-                demo_info = pd.read_csv(Path("data") / demographics_fn)
-                lowconf = demo_info[demo_info['Status'] == 'low-confidence-or-discordant']
-                df = df[df[id_col].isin(lowconf['Participant id'])]
-        return df
     
     def filtered_ids(self, ids):
         # TODO: make sure lowconf is put before highconf in the output
         # TODO: make sure this works with HLQC, AnnoMI
         log.info("Filtering IDs based on dataset specifications")
         log.info(f"Dataset total unique IDs: {ids.nunique()}")
-        if self.dataset_spec.name in ['MIV6.3A', 'MIV6.3B']:
-            demographics_fn = DEMO_DICT[self.dataset_spec.name]
+        if self.cfg.input_dataset.name in ['MIV6.3A', 'MIV6.3B']:
+            demographics_fn = DEMO_DICT[self.cfg.input_dataset.name]
             subset_str = self.cfg.input_dataset.subset
             if subset_str == 'lowconf':
                 status = 'low-confidence-or-discordant'
@@ -89,16 +71,15 @@ class Corpus:
         create list of Conversation objects 
         '''
         conversations: list[Conversation] = []
-        dataset_path = Path("data") / self.dataset_spec.filename
+        dataset_path = Path("data") / f'{self.cfg.input_dataset.name}.csv'
         df = pd.read_csv(dataset_path)
-        id_col = self.dataset_spec.id_col
-        valid_ids = self.filtered_ids(df[id_col])
+        valid_ids = self.filtered_ids(df['conv_id'])
         for id in valid_ids:
-            conv_df = df[df[id_col] == id]
+            conv_df = df[df['conv_id'] == id]
             volleys = []
             for _, row in conv_df.iterrows():
-                volley_text = str(row[self.dataset_spec.volley_text])
-                speaker_raw = row[self.dataset_spec.speaker_col].lower()
+                volley_text = str(row['vol_text'])
+                speaker_raw = row['speaker'].lower()
                 speaker = (
                     'counsellor' if speaker_raw in ['counsellor', 'therapist']
                     else 'client' if speaker_raw in ['client', 'patient']
@@ -106,9 +87,9 @@ class Corpus:
                 )
                 volleys.append(Volley(text=volley_text, speaker=speaker))
             conversation = Conversation(conv_id=id, volleys=volleys)
-            # log.info(f"Adding conversation {conversation.conv_id} with {len(conversation.volleys)} volleys")
+            log.info(f"Adding conversation {conversation.conv_id} with {len(conversation.volleys)} volleys")
             conversations.append(conversation)
-        log.info(f"Loaded {len(conversations)} conversations from dataset {self.dataset_spec.name}")
+        log.info(f"Loaded {len(conversations)} conversations from dataset {self.cfg.input_dataset.name}")
 
         return conversations
         
@@ -172,12 +153,11 @@ class Corpus:
         exp_save_path = exp_output_dir / fn
         df = self.to_df()
         df.to_csv(exp_save_path, index=False)
-        log.info(f"Saved {self.dataset_spec.name}-{self.state} dataframe to {exp_save_path}")
+        log.info(f"Saved {self.cfg.input_dataset.name}-{self.state} dataframe to {exp_save_path}")
 
     def __repr__(self):
         avg_len = sum(len(conv.volleys) for conv in self.conversations) / len(self.conversations) if self.conversations else 0
         return (f"Corpus info:\n"
-                f"Dataset: {self.cfg.input_dataset.name}\n"
-                f"File: {self.dataset_spec.filename}\n"
+                f"Dataset: {self.cfg.input_dataset.name}.csv\n"
                 f"Conversations: {len(self.conversations)}\n"
                 f"Average conversation length: {avg_len:.2f} volleys")
