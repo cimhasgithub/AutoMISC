@@ -9,7 +9,7 @@ from hydra.utils import log
 from omegaconf import OmegaConf
 from lmstudio import BaseModel
 import yaml
-from components.utils import call_chat_model
+from components.utils import call_chat_model, get_provider
 from tqdm import tqdm
 from components.prompts.loader import render_prompt, render_user_prompt
 
@@ -25,12 +25,12 @@ from .prompts.response_formats import (
 class Annotator:
     """Annotator for adding annotations to Utterance objects."""
 
-    def __init__(self, cfg, dataset_spec):
+    def __init__(self, cfg):
         """
         Initialize annotator with configuration.
         """
         self.cfg = cfg
-        self.dataset_spec = dataset_spec
+        self.provider = get_provider(cfg.annotator.model)
 
     def get_context_excerpt(self, df, utt_idx: int, context_mode: Literal["all", "cumulative", "interval"], num_context_turns: int = 0
                             ) -> str:
@@ -141,13 +141,15 @@ class Annotator:
                                 {'role': 'system', 'content': t1_system_prompt},
                                 {'role': 'user', 'content': user_prompt}
                             ]
-                            # print(f"t1_messages: {t1_messages}")
+                            print(f"t1_messages: {t1_messages}")
                             t1 = call_chat_model(
-                                model=self.cfg.annotator.model, 
                                 messages=t1_messages,
+                                model=self.cfg.annotator.model, 
+                                provider=self.provider,
                                 response_format=CounsellorUtterance_t1 if speaker=="counsellor" else ClientUtterance_t1,
                                 temperature=self.cfg.annotator.temperature
                             )
+                            print(f"t1: {t1}")
                             # Tier 2 prompt using render_prompt and render_user_prompt, and passing t1.label
                             t2_system_prompt = render_prompt(speaker=speaker,structure="t2",label=t1['label'])
                             t2_messages = [
@@ -155,8 +157,9 @@ class Annotator:
                                 {'role': 'user', 'content': user_prompt}
                             ]
                             t2 = call_chat_model(
-                                model=self.cfg.annotator.model, 
                                 messages=t2_messages,
+                                model=self.cfg.annotator.model, 
+                                provider=self.provider,
                                 response_format=CounsellorUtterance_t2 if speaker=="counsellor" else ClientUtterance_t2,
                                 temperature=self.cfg.annotator.temperature
                             )
@@ -175,8 +178,9 @@ class Annotator:
                             ]
                             # print(f"messages: {messages}")
                             res = call_chat_model(
-                                model=self.cfg.annotator.model, 
                                 messages=messages,
+                                model=self.cfg.annotator.model, 
+                                provider=self.provider,
                                 response_format=CounsellorUtterance_flat if speaker=="counsellor" else ClientUtterance_flat,
                                 temperature=self.cfg.annotator.temperature
                             )

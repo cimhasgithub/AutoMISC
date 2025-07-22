@@ -1,4 +1,4 @@
-from scipy.stats import linregress, pearsonr
+from scipy.stats import linregress, pearsonr, spearmanr
 from omegaconf import DictConfig
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -86,9 +86,10 @@ def linear_regression(df, delta_with="week_later"):
             y = results[col]
             if x.isna().any() or y.isna().any():
                 continue  # skip columns with missing data
-            r, p = pearsonr(x, y)
+            # r, p = pearsonr(x, y)
+            r, p = spearmanr(x, y)
             corr_results.append((col, r, p))
-    corr_df = pd.DataFrame(corr_results, columns=["variable", "pearson_r", "p_value"])
+    corr_df = pd.DataFrame(corr_results, columns=["variable", "spearman_r", "p_value"])
 
     # Optional: return both the results and the correlations
     exp_output_dir = Path(hydra.core.hydra_config.HydraConfig.get().runtime.output_dir)
@@ -99,7 +100,8 @@ def linear_regression(df, delta_with="week_later"):
     log.info(f"Saved aggregated results to {exp_output_dir / 'results/agg.csv'}")
     log.info(f"Saved correlation results to {exp_output_dir / 'results/correlation_results.csv'}")
 
-    r, p = pearsonr(results['slope'], results['delta_confidence'])
+    # r, p = pearsonr(results['slope'], results['delta_confidence'])
+    r, p = spearmanr(results['slope'], results['delta_confidence'])
     # print(f"Pearson correlation between slope and delta: r = {r:.2f}, p = {p:.4f}")
 
     X = add_constant(results['slope'])
@@ -128,7 +130,8 @@ def loocv(df, delta_with="week_later"):
         .apply(lambda group: compute_row(group, delta_with=delta_with))
         .dropna(subset=["delta_confidence"])
     )
-    features = ['slope', 'pre_confidence', '%MIC', 'R:Q', '%CT']
+    # features = ['slope', 'pre_confidence', '%MIC', 'R:Q', '%CT']
+    features = ['slope']
     X = results[features].values
     y = results['delta_confidence'].values
     conv_ids = results['conv_id'].values

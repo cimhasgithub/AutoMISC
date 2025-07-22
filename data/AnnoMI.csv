@@ -1,4 +1,4 @@
-transcript_id,utterance_id,AnnoMI Label,utterance_text,interlocutor
+conv_id,utterance_id,AnnoMI Label,vol_text,speaker
 0,0,['OQ'],Thanks for filling it out. We give this form to everyone once a year regardless of why they come in. It helps us provide better care. Is it okay if I take a look at what you put down?,therapist
 0,1,['N'],Sure.,client
 0,2,['GI'],"So, let's see. It looks that you put-- You drink alcohol at least four times a week on average-",therapist

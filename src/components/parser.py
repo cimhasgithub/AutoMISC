@@ -3,7 +3,7 @@
 from datatypes.corpus import Conversation, Corpus
 from datatypes.corpus import Utterance
 from datatypes.corpus import Volley
-from .utils import call_chat_model
+from .utils import call_chat_model, get_provider
 from hydra.utils import log
 import hydra
 import pandas as pd
@@ -41,12 +41,12 @@ class MISCParser(BaseModel):
 class Parser:
     """Parser for converting Conversation objects into sequences of Utterance objects."""
 
-    def __init__(self, cfg, dataset_spec):
+    def __init__(self, cfg):
         """
         Initialize parser with configuration.
         """
         self.cfg = cfg
-        self.dataset_spec = dataset_spec
+        self.provider = get_provider(cfg.parser.model)
 
     def parse_conversation(self, conv: Conversation, existing_df: pd.DataFrame):
         '''parse a single conversation'''
@@ -97,11 +97,12 @@ class Parser:
             utterances = call_chat_model(
                 messages=messages,
                 model=getattr(self.cfg.parser, 'model', None),
+                provider=self.provider,
                 temperature=getattr(self.cfg.parser, 'temperature', 0.0),
                 response_format=MISCParser
             )
 
-            for utt in utterances.utterances:
+            for utt in utterances['utterances']:
                 vol.parsed_utterances.append(Utterance(text=utt, speaker=speaker))
 
         return
