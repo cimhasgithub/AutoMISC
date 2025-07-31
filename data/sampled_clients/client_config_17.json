@@ -1,0 +1,15 @@
+{
+  "sample_id": 17,
+  "participant_id": "5e12194094d5ee89089a78d2",
+  "age": 59,
+  "sex": "female",
+  "num_cigarettes_per_day": 20,
+  "first_cigarette": "Within 5 minutes",
+  "pre_importance": 5,
+  "pre_confidence": 3,
+  "pre_readiness": 3,
+  "pre_num_attempts": 0,
+  "pre_attempt_made": false,
+  "client_C": 1.0,
+  "client_S": 3.0
+}

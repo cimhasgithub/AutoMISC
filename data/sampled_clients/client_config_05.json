@@ -1,0 +1,15 @@
+{
+  "sample_id": 5,
+  "participant_id": "629e42a3800b66722644beda",
+  "age": 27,
+  "sex": "male",
+  "num_cigarettes_per_day": 8,
+  "first_cigarette": "31 to 60 minutes",
+  "pre_importance": 7,
+  "pre_confidence": 4,
+  "pre_readiness": 4,
+  "pre_num_attempts": 2,
+  "pre_attempt_made": true,
+  "client_C": 10.0,
+  "client_S": 1.0
+}

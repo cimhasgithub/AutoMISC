@@ -1,8 +1,8 @@
 input_dataset:
-  name: MIV6.3A
-  subset: lowconf
+  name: random_install_multiBC_20convos
+  subset: all
 
-n_conversations: 10
+n_conversations: 20
 
 parser:
   model: openai/gpt-4o

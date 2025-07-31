@@ -14,10 +14,7 @@ import openai
 import logging
 
 DATASET_SPEC: list[DatasetSpec] = [
-    DatasetSpec(name="MIV6.3A",     filename="MIV6.3A.csv",     id_col="Prolific ID",   volley_text="Volley",           speaker_col="Speaker"),
-    DatasetSpec(name="MIV6.3B",     filename="MIV6.3B.csv",     id_col="Prolific ID",   volley_text="Volley",           speaker_col="Speaker"),
-    DatasetSpec(name="HLQC",        filename="HLQC.csv",        id_col="conv_id",       volley_text="vol_text",         speaker_col="speaker"),
-    DatasetSpec(name="AnnoMI",      filename="AnnoMI.csv",      id_col="transcript_id", volley_text="utterance_text",   speaker_col="interlocutor"),
+    DatasetSpec(name="random_install_multiBC_20convos",     filename="random_install_multiBC_20convos.csv",     id_col="Prolific ID",   volley_text="Volley",           speaker_col="Speaker"),
 ]
 
 @hydra.main(config_path="../conf", config_name="config", version_base=None)

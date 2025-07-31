@@ -101,7 +101,7 @@ class Parser:
                 response_format=MISCParser
             )
 
-            for utt in utterances.utterances:
+            for utt in utterances['utterances']:
                 vol.parsed_utterances.append(Utterance(text=utt, speaker=speaker))
 
         return
