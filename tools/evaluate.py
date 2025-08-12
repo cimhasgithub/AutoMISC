@@ -2,6 +2,10 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import json
+from scipy import stats
+from sklearn.linear_model import LinearRegression
+from sklearn.metrics import r2_score
 
 
 def read_and_preprocess_csv(path):
@@ -171,6 +175,141 @@ def display_pie_chart_examples(df, pattern_col, title, threshold, original_df):
     print("=" * 80)
 
 
+def load_client_data(conv_id):
+    """Load client C and S counts from JSON config file."""
+    file_path = f"/Users/joeberson/Developer/AutoMISC/data/sampled_clients/client_config_{conv_id:02d}.json"
+    
+    try:
+        with open(file_path, 'r') as f:
+            data = json.load(f)
+            return data.get('client_C', 0), data.get('client_S', 0)
+    except FileNotFoundError:
+        print(f"Warning: Could not find file {file_path}")
+        return None, None
+
+
+def calculate_client_change_fraction(conv_id):
+    """Calculate client change fraction C/(C+S) for a given conversation."""
+    c_count, s_count = load_client_data(conv_id)
+    if c_count is None or s_count is None:
+        return None
+    
+    total = c_count + s_count
+    if total == 0:
+        return None
+    
+    return c_count / total
+
+
+def calculate_average_bcs_per_turn(df, conv_id):
+    """Calculate average number of unique BCs per counsellor turn in a conversation."""
+    # Filter for specific conversation and counsellor utterances
+    conv_df = df[(df['conv_id'] == conv_id) & (df['speaker'].str.lower() == 'counsellor')]
+    
+    if conv_df.empty:
+        return None
+    
+    # Group by volley and get unique BCs per volley (using T1 labels)
+    unique_bcs_per_volley = conv_df.groupby('corp_vol_idx')['t1_label_auto'].apply(lambda x: len(set(x)))
+    
+    # Calculate average unique BCs per turn
+    avg_unique_bcs = unique_bcs_per_volley.mean()
+    
+    return avg_unique_bcs
+
+
+def perform_linear_regression_analysis(df):
+    """Perform linear regression of average BCs per counsellor turn vs client change fraction."""
+    conv_ids = sorted(df['conv_id'].unique())
+    
+    change_fractions = []
+    avg_bcs_per_turn = []
+    valid_conv_ids = []
+    
+    # Calculate metrics for each conversation
+    for conv_id in conv_ids:
+        change_frac = calculate_client_change_fraction(conv_id)
+        avg_bcs = calculate_average_bcs_per_turn(df, conv_id)
+        
+        if change_frac is not None and avg_bcs is not None:
+            change_fractions.append(change_frac)
+            avg_bcs_per_turn.append(avg_bcs)
+            valid_conv_ids.append(conv_id)
+    
+    if len(change_fractions) < 2:
+        print("Not enough valid data points for regression analysis")
+        return
+    
+    # Convert to numpy arrays for regression
+    # Change fraction is independent variable (X), avg BCs is dependent variable (y)
+    X = np.array(change_fractions).reshape(-1, 1)
+    y = np.array(avg_bcs_per_turn)
+    
+    # Perform linear regression
+    model = LinearRegression()
+    model.fit(X, y)
+    y_pred = model.predict(X)
+    
+    # Calculate statistics
+    slope = model.coef_[0]
+    intercept = model.intercept_
+    r2 = r2_score(y, y_pred)
+    
+    # Calculate correlation and p-value
+    correlation, p_value = stats.pearsonr(change_fractions, avg_bcs_per_turn)
+    
+    # Create visualization
+    plt.figure(figsize=(10, 8))
+    
+    # Scatter plot
+    plt.scatter(change_fractions, avg_bcs_per_turn, alpha=0.6, s=100, label='Conversations')
+    
+    # Regression line
+    plt.plot(change_fractions, y_pred, color='red', linewidth=2, label=f'Regression line')
+    
+    # Add conversation IDs as labels
+    for i, conv_id in enumerate(valid_conv_ids):
+        plt.annotate(f'{conv_id}', (change_fractions[i], avg_bcs_per_turn[i]), 
+                    xytext=(5, 5), textcoords='offset points', fontsize=8)
+    
+    plt.xlabel('Client Change Fraction (C/(C+S))', fontsize=12)
+    plt.ylabel('Average BCs per Counsellor Turn', fontsize=12)
+    plt.title('Linear Regression: Average BCs per Turn vs Client Change Fraction', fontsize=14)
+    
+    # Add statistics to plot
+    stats_text = f'y = {slope:.3f}x + {intercept:.3f}\n'
+    stats_text += f'R² = {r2:.3f}\n'
+    stats_text += f'Correlation = {correlation:.3f}\n'
+    stats_text += f'p-value = {p_value:.4f}'
+    
+    plt.text(0.05, 0.95, stats_text, transform=plt.gca().transAxes, 
+             verticalalignment='top', bbox=dict(boxstyle='round', facecolor='wheat', alpha=0.5))
+    
+    plt.grid(True, alpha=0.3)
+    plt.legend()
+    plt.tight_layout()
+    plt.show()
+    
+    # Print detailed statistics
+    print("\nLinear Regression Analysis Results:")
+    print("=" * 50)
+    print(f"Number of conversations analyzed: {len(valid_conv_ids)}")
+    print(f"Slope: {slope:.4f}")
+    print(f"Intercept: {intercept:.4f}")
+    print(f"R-squared: {r2:.4f}")
+    print(f"Pearson correlation: {correlation:.4f}")
+    print(f"P-value: {p_value:.4f}")
+    print(f"Significant at α=0.05: {'Yes' if p_value < 0.05 else 'No'}")
+    
+    # Print data table
+    print("\nDetailed Data:")
+    print("-" * 50)
+    print(f"{'Conv ID':>8} | {'Change Fraction':>15} | {'Avg BCs/Turn':>12}")
+    print("-" * 50)
+    for i, conv_id in enumerate(valid_conv_ids):
+        print(f"{conv_id:>8} | {change_fractions[i]:>15.3f} | {avg_bcs_per_turn[i]:>12.2f}")
+
+
 def main():
     df = read_and_preprocess_csv("/Users/joeberson/Developer/AutoMISC/data/annotated/random_install_multiBC_20convos_all_tiered_gpt-4o_interval_5_annotated.csv")
     df_last = filter_last_volley_rows(df)
@@ -192,6 +331,10 @@ def main():
     client_df = df_last[df_last["speaker"].str.lower() == "client"].copy()
     plot_client_majority_distribution(client_df)
     plot_client_c_ratio_distribution(client_df)
+    
+    # NEW: Linear regression analysis
+    print("\nPerforming linear regression analysis...")
+    perform_linear_regression_analysis(df)
 
 
 if __name__ == "__main__":
