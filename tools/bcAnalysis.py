@@ -24,7 +24,7 @@ def read_and_preprocess_csv(path):
 def filter_last_volley_rows(df):
     """Filters and returns only the last volley row per Volley #."""
     cols = [
-        "conv_id", "speaker", "corp_vol_idx", "vol_text", "BC Pattern T1", "BC Pattern T2", "delta_confidence"
+        "conv_id", "speaker", "corp_vol_idx", "vol_text", "BC Pattern T1", "BC Pattern T2"
     ]
     df_filtered = df[cols]
     return df_filtered.groupby("corp_vol_idx", as_index=False).last()
@@ -64,22 +64,22 @@ def get_bc_combination_counts_per_conversation(df, pattern_col="BC Pattern T1", 
     return conv_bc_counts
 
 
-def get_delta_confidence_per_conversation(df):
+def get_delta_confidence_per_conversation(df_metadata):
     """
-    Get the delta confidence value for each conversation.
-    Assumes delta_confidence is constant within a conversation.
+    Get the delta confidence value for each conversation from metadata.
+    Maps Participant id from df_metadata to conv_id.
     """
     delta_conf = {}
-    for conv_id in df["conv_id"].unique():
-        # Get the first non-null delta_confidence value for this conversation
-        conv_data = df[df["conv_id"] == conv_id]["delta_confidence"].dropna()
-        if not conv_data.empty:
-            delta_conf[conv_id] = conv_data.iloc[0]
+    for _, row in df_metadata.iterrows():
+        participant_id = row["Participant id"]
+        delta_confidence = row["delta_confidence"]
+        if pd.notna(delta_confidence):
+            delta_conf[participant_id] = delta_confidence
     
     return delta_conf
 
 
-def perform_bc_combination_regression(df, bc_combination, pattern_col="BC Pattern T1", speaker="counsellor"):
+def perform_bc_combination_regression(df, df_metadata, bc_combination, pattern_col="BC Pattern T1", speaker="counsellor"):
     """
     Perform linear regression for a specific BC combination.
     X: Number of times the BC combination appears in a conversation
@@ -89,7 +89,7 @@ def perform_bc_combination_regression(df, bc_combination, pattern_col="BC Patter
     conv_bc_counts = get_bc_combination_counts_per_conversation(df, pattern_col, speaker)
     
     # Get delta confidence per conversation
-    delta_conf = get_delta_confidence_per_conversation(df)
+    delta_conf = get_delta_confidence_per_conversation(df_metadata)
     
     # Prepare data for regression
     conv_ids = []
@@ -177,7 +177,7 @@ def plot_bc_regression(result, save_path=None):
     plt.show()
 
 
-def analyze_all_bc_combinations(df, pattern_col="BC Pattern T1", speaker="counsellor", min_occurrences=5):
+def analyze_all_bc_combinations(df, df_metadata, pattern_col="BC Pattern T1", speaker="counsellor", min_occurrences=5):
     """
     Analyze all BC combinations that appear at least min_occurrences times across all conversations.
     Returns a sorted list of results by absolute correlation.
@@ -191,7 +191,7 @@ def analyze_all_bc_combinations(df, pattern_col="BC Pattern T1", speaker="counse
     
     results = []
     for bc_combination in frequent_bcs:
-        result = perform_bc_combination_regression(df, bc_combination, pattern_col, speaker)
+        result = perform_bc_combination_regression(df, df_metadata, bc_combination, pattern_col, speaker)
         if result:
             results.append(result)
     
@@ -218,13 +218,13 @@ def print_regression_summary(results, top_n=10):
         print(f"\n... and {len(results) - top_n} more BC combinations")
 
 
-def analyze_total_bc_diversity(df, pattern_col="BC Pattern T1", speaker="counsellor"):
+def analyze_total_bc_diversity(df, df_metadata, pattern_col="BC Pattern T1", speaker="counsellor"):
     """
     Analyze the relationship between total number of unique BC combinations used
     in a conversation and delta confidence.
     """
     speaker_df = df[df["speaker"].str.lower() == speaker]
-    delta_conf = get_delta_confidence_per_conversation(df)
+    delta_conf = get_delta_confidence_per_conversation(df_metadata)
     
     conv_ids = []
     x_values = []  # Number of unique BC combinations
@@ -294,7 +294,8 @@ def analyze_total_bc_diversity(df, pattern_col="BC Pattern T1", speaker="counsel
 
 def main():
     # Load and preprocess data
-    df = read_and_preprocess_csv("/Users/joeberson/Developer/AutoMISC/data/annotated/random_install_multiBC_20convos_all_tiered_gpt-4o_interval_5_annotated.csv")
+    df = read_and_preprocess_csv("/Users/joeberson/Developer/AutoMISC/data/MIV6.3A_lowconf_tiered_gpt-4.1-2025-04-14_interval_3_annotated_copy.csv")
+    df_metadata = pd.read_csv("/Users/joeberson/Developer/AutoMISC/data/2024-11-14-MIV6.3A-2024-11-22-MIV6.3A_all_data_delta_with_post_keep_high_conf_True_merged.csv")
     df_last = filter_last_volley_rows(df)
     
     # Analyze specific BC combinations
@@ -302,7 +303,7 @@ def main():
     print("=" * 50)
     
     # Option 1: Analyze all frequent BC combinations
-    results = analyze_all_bc_combinations(df_last, pattern_col="BC Pattern T1", 
+    results = analyze_all_bc_combinations(df_last, df_metadata, pattern_col="BC Pattern T1", 
                                          speaker="counsellor", min_occurrences=5)
     
     # Print summary of top correlations
@@ -319,7 +320,7 @@ def main():
     print("=" * 50)
     
     for bc_combo in specific_bcs:
-        result = perform_bc_combination_regression(df_last, bc_combo, 
+        result = perform_bc_combination_regression(df_last, df_metadata, bc_combo, 
                                                   pattern_col="BC Pattern T1", 
                                                   speaker="counsellor")
         if result:
@@ -332,11 +333,11 @@ def main():
     
     # Option 3: Analyze BC diversity (number of unique combinations used)
     print("\n\nAnalyzing BC diversity vs Delta Confidence...")
-    analyze_total_bc_diversity(df_last, pattern_col="BC Pattern T1", speaker="counsellor")
+    analyze_total_bc_diversity(df_last, df_metadata, pattern_col="BC Pattern T1", speaker="counsellor")
     
     # You can also analyze T2 patterns
     print("\n\nAnalyzing T2 BC patterns...")
-    results_t2 = analyze_all_bc_combinations(df_last, pattern_col="BC Pattern T2", 
+    results_t2 = analyze_all_bc_combinations(df_last, df_metadata, pattern_col="BC Pattern T2", 
                                             speaker="counsellor", min_occurrences=3)
     print_regression_summary(results_t2, top_n=5)
 
