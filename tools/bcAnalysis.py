@@ -150,10 +150,7 @@ def plot_bc_regression(result, save_path=None):
     # Regression line
     plt.plot(result['x_values'], result['y_pred'], color='red', linewidth=2, label='Regression line')
     
-    # Add conversation IDs as labels (optional, can be commented out if too cluttered)
-    for i, conv_id in enumerate(result['conv_ids']):
-        plt.annotate(f'{conv_id}', (result['x_values'][i], result['y_values'][i]), 
-                    xytext=(5, 5), textcoords='offset points', fontsize=8, alpha=0.5)
+    # Conversation IDs removed for cleaner visualization
     
     plt.xlabel(f"Count of '{result['bc_combination']}' BC Combination", fontsize=12)
     plt.ylabel('Delta Confidence', fontsize=12)
@@ -261,9 +258,7 @@ def analyze_total_bc_diversity(df, df_metadata, pattern_col="BC Pattern T1", spe
     plt.scatter(x_values, y_values, alpha=0.6, s=100, label='Conversations')
     plt.plot(x_values, y_pred, color='red', linewidth=2, label='Regression line')
     
-    for i, conv_id in enumerate(conv_ids):
-        plt.annotate(f'{conv_id}', (x_values[i], y_values[i]), 
-                    xytext=(5, 5), textcoords='offset points', fontsize=8, alpha=0.5)
+    # Conversation IDs removed for cleaner visualization
     
     plt.xlabel('Number of Unique BC Combinations Used', fontsize=12)
     plt.ylabel('Delta Confidence', fontsize=12)
@@ -303,7 +298,7 @@ def main():
     print("=" * 50)
     
     # Option 1: Analyze all frequent BC combinations
-    results = analyze_all_bc_combinations(df_last, df_metadata, pattern_col="BC Pattern T1", 
+    results = analyze_all_bc_combinations(df_last, df_metadata, pattern_col="BC Pattern T2", 
                                          speaker="counsellor", min_occurrences=5)
     
     # Print summary of top correlations
@@ -314,32 +309,27 @@ def main():
     for i, result in enumerate(results[:3]):
         plot_bc_regression(result)
     
-    # Option 2: Analyze specific BC combinations of interest
-    specific_bcs = ["R", "S", "R, S", "Q, R", "Q, R, S"]  # Modify as needed
-    print("\n\nAnalyzing specific BC combinations:")
-    print("=" * 50)
+    # # Option 2: Analyze specific BC combinations of interest
+    # specific_bcs = ["R", "S", "R, S", "Q, R", "Q, R, S"]  # Modify as needed
+    # print("\n\nAnalyzing specific BC combinations:")
+    # print("=" * 50)
     
-    for bc_combo in specific_bcs:
-        result = perform_bc_combination_regression(df_last, df_metadata, bc_combo, 
-                                                  pattern_col="BC Pattern T1", 
-                                                  speaker="counsellor")
-        if result:
-            print(f"\n{bc_combo}:")
-            print(f"  Correlation: {result['correlation']:.4f}")
-            print(f"  P-value: {result['p_value']:.4f}")
-            print(f"  R²: {result['r2']:.4f}")
-            # Optionally plot
-            # plot_bc_regression(result)
+    # for bc_combo in specific_bcs:
+    #     result = perform_bc_combination_regression(df_last, df_metadata, bc_combo, 
+    #                                               pattern_col="BC Pattern T2", 
+    #                                               speaker="counsellor")
+    #     if result:
+    #         print(f"\n{bc_combo}:")
+    #         print(f"  Correlation: {result['correlation']:.4f}")
+    #         print(f"  P-value: {result['p_value']:.4f}")
+    #         print(f"  R²: {result['r2']:.4f}")
+    #         # Optionally plot
+    #         # plot_bc_regression(result)
     
     # Option 3: Analyze BC diversity (number of unique combinations used)
     print("\n\nAnalyzing BC diversity vs Delta Confidence...")
-    analyze_total_bc_diversity(df_last, df_metadata, pattern_col="BC Pattern T1", speaker="counsellor")
+    analyze_total_bc_diversity(df_last, df_metadata, pattern_col="BC Pattern T2", speaker="counsellor")
     
-    # You can also analyze T2 patterns
-    print("\n\nAnalyzing T2 BC patterns...")
-    results_t2 = analyze_all_bc_combinations(df_last, df_metadata, pattern_col="BC Pattern T2", 
-                                            speaker="counsellor", min_occurrences=3)
-    print_regression_summary(results_t2, top_n=5)
 
 
 if __name__ == "__main__":
