@@ -79,6 +79,21 @@ def get_delta_confidence_per_conversation(df_metadata):
     return delta_conf
 
 
+def get_care_ratings_per_conversation(df_care_ratings):
+    """
+    Get the average care rating value for each conversation from care ratings data.
+    Maps id from df_care_ratings to conv_id.
+    """
+    care_ratings = {}
+    for _, row in df_care_ratings.iterrows():
+        conv_id = row["id"]
+        avg_care_rating = row["average_care_rating"]
+        if pd.notna(avg_care_rating):
+            care_ratings[conv_id] = avg_care_rating
+    
+    return care_ratings
+
+
 def perform_bc_combination_regression(df, df_metadata, bc_combination, pattern_col="BC Pattern T1", speaker="counsellor"):
     """
     Perform linear regression for a specific BC combination.
@@ -137,7 +152,65 @@ def perform_bc_combination_regression(df, df_metadata, bc_combination, pattern_c
     }
 
 
-def plot_bc_regression(result, save_path=None):
+def perform_bc_combination_care_rating_regression(df, df_care_ratings, bc_combination, pattern_col="BC Pattern T1", speaker="counsellor"):
+    """
+    Perform linear regression for a specific BC combination against care ratings.
+    X: Number of times the BC combination appears in a conversation
+    Y: Average care rating of the conversation
+    """
+    # Get BC combination counts per conversation
+    conv_bc_counts = get_bc_combination_counts_per_conversation(df, pattern_col, speaker)
+    
+    # Get care ratings per conversation
+    care_ratings = get_care_ratings_per_conversation(df_care_ratings)
+    
+    # Prepare data for regression
+    conv_ids = []
+    x_values = []  # Count of specific BC combination
+    y_values = []  # Average care rating
+    
+    for conv_id in conv_bc_counts.keys():
+        if conv_id in care_ratings:
+            # Get count of specific BC combination (0 if not present)
+            bc_count = conv_bc_counts[conv_id].get(bc_combination, 0)
+            x_values.append(bc_count)
+            y_values.append(care_ratings[conv_id])
+            conv_ids.append(conv_id)
+    
+    if len(x_values) < 2:
+        print(f"Not enough data points for care rating regression analysis of '{bc_combination}'")
+        return None
+    
+    # Convert to numpy arrays
+    X = np.array(x_values).reshape(-1, 1)
+    y = np.array(y_values)
+    
+    # Perform linear regression
+    model = LinearRegression()
+    model.fit(X, y)
+    y_pred = model.predict(X)
+    
+    # Calculate statistics
+    slope = model.coef_[0]
+    intercept = model.intercept_
+    r2 = r2_score(y, y_pred)
+    correlation, p_value = stats.pearsonr(x_values, y_values)
+    
+    return {
+        'bc_combination': bc_combination,
+        'slope': slope,
+        'intercept': intercept,
+        'r2': r2,
+        'correlation': correlation,
+        'p_value': p_value,
+        'x_values': x_values,
+        'y_values': y_values,
+        'y_pred': y_pred,
+        'conv_ids': conv_ids
+    }
+
+
+def plot_bc_regression(result, save_path=None, y_label='Delta Confidence', title_suffix='vs Delta Confidence'):
     """Plot the regression results for a BC combination."""
     if result is None:
         return
@@ -153,8 +226,8 @@ def plot_bc_regression(result, save_path=None):
     # Conversation IDs removed for cleaner visualization
     
     plt.xlabel(f"Count of '{result['bc_combination']}' BC Combination", fontsize=12)
-    plt.ylabel('Delta Confidence', fontsize=12)
-    plt.title(f"Linear Regression: '{result['bc_combination']}' vs Delta Confidence", fontsize=14)
+    plt.ylabel(y_label, fontsize=12)
+    plt.title(f"Linear Regression: '{result['bc_combination']}' {title_suffix}", fontsize=14)
     
     # Add statistics to plot
     stats_text = f'y = {result["slope"]:.4f}x + {result["intercept"]:.4f}\n'
@@ -198,9 +271,33 @@ def analyze_all_bc_combinations(df, df_metadata, pattern_col="BC Pattern T1", sp
     return results
 
 
-def print_regression_summary(results, top_n=10):
+def analyze_all_bc_combinations_care_rating(df, df_care_ratings, pattern_col="BC Pattern T1", speaker="counsellor", min_occurrences=5):
+    """
+    Analyze all BC combinations against care ratings that appear at least min_occurrences times across all conversations.
+    Returns a sorted list of results by absolute correlation.
+    """
+    # Get all BC combinations and their total counts
+    speaker_df = df[df["speaker"].str.lower() == speaker]
+    bc_counts_total = speaker_df[pattern_col].value_counts()
+    
+    # Filter by minimum occurrences
+    frequent_bcs = bc_counts_total[bc_counts_total >= min_occurrences].index.tolist()
+    
+    results = []
+    for bc_combination in frequent_bcs:
+        result = perform_bc_combination_care_rating_regression(df, df_care_ratings, bc_combination, pattern_col, speaker)
+        if result:
+            results.append(result)
+    
+    # Sort by absolute correlation
+    results.sort(key=lambda x: abs(x['correlation']), reverse=True)
+    
+    return results
+
+
+def print_regression_summary(results, top_n=10, title="Linear Regression Analysis Summary"):
     """Print a summary table of regression results."""
-    print("\nLinear Regression Analysis Summary:")
+    print(f"\n{title}:")
     print("=" * 100)
     print(f"{'BC Combination':30} | {'Slope':>10} | {'R²':>8} | {'Corr':>8} | {'p-value':>10} | {'Significant':>12}")
     print("-" * 100)
@@ -291,6 +388,7 @@ def main():
     # Load and preprocess data
     df = read_and_preprocess_csv("/Users/joeberson/Developer/AutoMISC/data/MIV6.3A_lowconf_tiered_gpt-4.1-2025-04-14_interval_3_annotated_copy.csv")
     df_metadata = pd.read_csv("/Users/joeberson/Developer/AutoMISC/data/2024-11-14-MIV6.3A-2024-11-22-MIV6.3A_all_data_delta_with_post_keep_high_conf_True_merged.csv")
+    df_care_ratings = pd.read_csv("/Users/joeberson/Developer/AutoMISC/data/care_ratings.csv")
     df_last = filter_last_volley_rows(df)
     
     # Analyze specific BC combinations
@@ -330,6 +428,21 @@ def main():
     print("\n\nAnalyzing BC diversity vs Delta Confidence...")
     analyze_total_bc_diversity(df_last, df_metadata, pattern_col="BC Pattern T2", speaker="counsellor")
     
+    # Option 4: Analyze all frequent BC combinations vs Care Ratings
+    print("\n\nAnalyzing BC combinations vs Average Care Rating...")
+    print("=" * 50)
+    
+    care_rating_results = analyze_all_bc_combinations_care_rating(df_last, df_care_ratings, 
+                                                                pattern_col="BC Pattern T2", 
+                                                                speaker="counsellor", min_occurrences=5)
+    
+    # Print summary of top correlations for care ratings
+    print_regression_summary(care_rating_results, top_n=10, title="BC Combinations vs Average Care Rating Analysis Summary")
+    
+    # Plot top 3 most correlated BC combinations for care ratings
+    print("\nPlotting top 3 most correlated BC combinations vs Care Rating...")
+    for i, result in enumerate(care_rating_results[:3]):
+        plot_bc_regression(result, y_label='Average Care Rating', title_suffix='vs Average Care Rating')
 
 
 if __name__ == "__main__":
