@@ -6,6 +6,8 @@ from scipy import stats
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import r2_score
 import textwrap
+from statsmodels.stats.multitest import multipletests
+from sklearn.model_selection import train_test_split
 
 
 def read_and_preprocess_csv(path):
@@ -182,19 +184,21 @@ def extract_volleys_for_bc_combination(df_full, df_last, bc_combination, pattern
 
 
 def analyze_significant_bc_volleys(df_full, df_last, df_metadata, pattern_col="BC Pattern T2", 
-                                  speaker="counsellor", top_n=5, volleys_per_bc=5):
+                                  speaker="counsellor", top_n=5, volleys_per_bc=5, 
+                                  print_volleys=False):
     """
     Analyze the most significant BC combinations and extract example volleys.
+    Set print_volleys=False to suppress terminal output.
     """
     # Get regression results for all BC combinations
-    results = analyze_all_bc_combinations(df_last, df_metadata, pattern_col=pattern_col, 
-                                         speaker=speaker, min_occurrences=5)
+    results = analyze_all_bc_combinations_corrected(df_last, df_metadata, pattern_col=pattern_col, 
+                                                   speaker=speaker, min_occurrences=5)
     
     if not results:
         print("No significant BC combinations found.")
         return None
     
-    # Create summary report
+    # Create summary report (keep this - it's concise)
     print("=" * 100)
     print(f"TOP {top_n} MOST SIGNIFICANT BC COMBINATIONS")
     print("=" * 100)
@@ -208,6 +212,8 @@ def analyze_significant_bc_volleys(df_full, df_last, df_metadata, pattern_col="B
         print("-" * 80)
         print(f"   Correlation: {result['correlation']:.4f}")
         print(f"   P-value: {result['p_value']:.4f}")
+        if 'p_adjusted' in result:
+            print(f"   Adjusted P-value: {result['p_adjusted']:.4f}")
         print(f"   R²: {result['r2']:.4f}")
         print(f"   Slope: {result['slope']:.4f}")
         
@@ -225,25 +231,31 @@ def analyze_significant_bc_volleys(df_full, df_last, df_metadata, pattern_col="B
                                                        max_volleys=volleys_per_bc)
         
         if not volley_df.empty:
-            print(f"\n   EXAMPLE VOLLEYS (showing up to {volleys_per_bc}):")
-            print("   " + "=" * 75)
-            
-            for j, (_, volley_row) in enumerate(volley_df.iterrows(), 1):
-                print(f"\n   Example {j}:")
-                print(f"   Conversation ID: {volley_row['conv_id']}")
-                print(f"   Volley Index: {volley_row['corp_vol_idx']}")
-                # Use truncated version for display
-                display_text = volley_row.get('display_volley_text', volley_row['full_volley_text'][:500] + '...')
-                print(f"   Text: {textwrap.fill(display_text, width=90, initial_indent='   ', subsequent_indent='        ')}")
-                print("   " + "-" * 70)
+            if print_volleys:
+                # Only print volleys if explicitly requested
+                print(f"\n   EXAMPLE VOLLEYS (showing up to {volleys_per_bc}):")
+                print("   " + "=" * 75)
+                
+                for j, (_, volley_row) in enumerate(volley_df.iterrows(), 1):
+                    print(f"\n   Example {j}:")
+                    print(f"   Conversation ID: {volley_row['conv_id']}")
+                    print(f"   Volley Index: {volley_row['corp_vol_idx']}")
+                    display_text = volley_row.get('display_volley_text', volley_row['full_volley_text'][:500] + '...')
+                    print(f"   Text: {textwrap.fill(display_text, width=90, initial_indent='   ', subsequent_indent='        ')}")
+                    print("   " + "-" * 70)
+            else:
+                # Just mention that volleys were found and saved
+                print(f"   → {len(volley_df)} example volleys found and saved to CSV")
             
             # Add to overall data
             volley_df['significance_rank'] = i
             volley_df['correlation'] = result['correlation']
             volley_df['p_value'] = result['p_value']
+            if 'p_adjusted' in result:
+                volley_df['p_adjusted'] = result['p_adjusted']
             all_volley_data.append(volley_df)
         else:
-            print(f"\n   No volleys found for this BC combination.")
+            print(f"   → No volleys found for this BC combination.")
     
     # Combine all volley data
     if all_volley_data:
@@ -252,35 +264,37 @@ def analyze_significant_bc_volleys(df_full, df_last, df_metadata, pattern_col="B
     
     return None
 
-
 def create_detailed_volley_report(df_full, df_last, df_metadata, pattern_col="BC Pattern T2", 
-                                 speaker="counsellor", output_file=None, top_n=5, volleys_per_bc=5):
+                                 speaker="counsellor", output_file=None, top_n=5, 
+                                 volleys_per_bc=5, print_volleys=False):
     """
     Create a detailed report of significant BC combinations with their volleys.
-    
-    Parameters:
-    - top_n: Number of top BC combinations to analyze
-    - volleys_per_bc: Max volleys to show per BC (None = show all)
+    Set print_volleys=False to suppress volley terminal output (DEFAULT).
     """
     combined_df = analyze_significant_bc_volleys(df_full, df_last, df_metadata, 
                                                 pattern_col=pattern_col, 
                                                 speaker=speaker, 
                                                 top_n=top_n, 
-                                                volleys_per_bc=volleys_per_bc)
+                                                volleys_per_bc=volleys_per_bc,
+                                                print_volleys=print_volleys)
     
     if combined_df is not None and output_file:
         # Save to CSV for further analysis
         combined_df.to_csv(output_file, index=False)
-        print(f"\n\nDetailed volley data saved to: {output_file}")
+        print(f"\n💾 Detailed volley data saved to: {output_file}")
+        print(f"   Total volleys saved: {len(combined_df)}")
+        print(f"   Columns: {', '.join(combined_df.columns.tolist())}")
     
     return combined_df
 
 
 def find_volleys_for_conversations_with_bc(df_full, df_last, result, bc_combination, 
-                                          pattern_col="BC Pattern T2", speaker="counsellor"):
+                                          pattern_col="BC Pattern T2", speaker="counsellor",
+                                          print_volleys=False):
     """
     For a given BC combination regression result, find the actual volleys 
     in conversations where the BC appears (count > 0).
+    Set print_volleys=False to suppress terminal output.
     """
     # Get conversations where this BC combination appears
     convs_with_bc = [(conv_id, count) for conv_id, count in 
@@ -290,14 +304,18 @@ def find_volleys_for_conversations_with_bc(df_full, df_last, result, bc_combinat
         print(f"No conversations found with BC combination '{bc_combination}'")
         return None
     
-    print(f"\nConversations with BC combination '{bc_combination}':")
-    print("=" * 80)
+    if print_volleys:
+        print(f"\nConversations with BC combination '{bc_combination}':")
+        print("=" * 80)
+    else:
+        print(f"Found {len(convs_with_bc)} conversations with BC combination '{bc_combination}'")
     
     volley_data = []
     
     for conv_id, count in convs_with_bc:
-        print(f"\nConversation: {conv_id} (appears {count} time(s))")
-        print("-" * 60)
+        if print_volleys:
+            print(f"\nConversation: {conv_id} (appears {count} time(s))")
+            print("-" * 60)
         
         # Find the volleys in this conversation with this BC
         mask = (df_last['conv_id'] == conv_id) & \
@@ -313,14 +331,15 @@ def find_volleys_for_conversations_with_bc(df_full, df_last, result, bc_combinat
             volley_utterances = df_full[df_full['corp_vol_idx'] == corp_vol_idx].sort_values('corp_utt_idx')
             full_text = ' '.join(volley_utterances['utt_text'].fillna('').astype(str))
             
-            print(f"  Volley {corp_vol_idx}:")
-            wrapped_text = textwrap.fill(full_text[:500], width=70, 
-                                        initial_indent='    ', 
-                                        subsequent_indent='    ')
-            print(wrapped_text)
-            if len(full_text) > 500:
-                print("    ...")
-            print()
+            if print_volleys:
+                print(f"  Volley {corp_vol_idx}:")
+                wrapped_text = textwrap.fill(full_text[:500], width=70, 
+                                            initial_indent='    ', 
+                                            subsequent_indent='    ')
+                print(wrapped_text)
+                if len(full_text) > 500:
+                    print("    ...")
+                print()
             
             volley_data.append({
                 'conv_id': conv_id,
@@ -454,8 +473,315 @@ def analyze_total_bc_diversity(df, df_metadata, pattern_col="BC Pattern T1", spe
     print(f"P-value: {p_value:.4f}")
     print(f"Significant at α=0.05: {'Yes' if p_value < 0.05 else 'No'}")
 
+def analyze_all_bc_combinations_corrected(df, df_metadata, pattern_col="BC Pattern T1", 
+                                        speaker="counsellor", min_occurrences=5, 
+                                        correction_method='fdr_bh'):
+    """
+    REPLACES your existing analyze_all_bc_combinations function.
+    Analyze all BC combinations with proper multiple testing correction.
+    """
+    speaker_df = df[df["speaker"].str.lower() == speaker]
+    bc_counts_total = speaker_df[pattern_col].value_counts()
+    
+    frequent_bcs = bc_counts_total[bc_counts_total >= min_occurrences].index.tolist()
+    
+    results = []
+    for bc_combination in frequent_bcs:
+        result = perform_bc_combination_regression(df, df_metadata, bc_combination, pattern_col, speaker)
+        if result:
+            results.append(result)
+    
+    # Apply multiple testing correction
+    if results and correction_method:
+        p_values = [result['p_value'] for result in results]
+        
+        if correction_method == 'fdr_bh':
+            rejected, p_adjusted, _, _ = multipletests(p_values, method='fdr_bh')
+            correction_name = "FDR (Benjamini-Hochberg)"
+        elif correction_method == 'bonferroni':
+            rejected, p_adjusted, _, _ = multipletests(p_values, method='bonferroni')
+            correction_name = "Bonferroni"
+        else:
+            p_adjusted = p_values
+            rejected = [p < 0.05 for p in p_values]
+            correction_name = "None"
+        
+        # Add corrected values to results
+        for i, result in enumerate(results):
+            result['p_adjusted'] = p_adjusted[i]
+            result['significant_raw'] = result['p_value'] < 0.05
+            result['significant_corrected'] = rejected[i]
+            result['correction_method'] = correction_name
+        
+        print(f"\nMultiple Testing Correction Applied: {correction_name}")
+        print(f"Total tests performed: {len(results)}")
+        print(f"Significant before correction: {sum(result['significant_raw'] for result in results)}")
+        print(f"Significant after correction: {sum(result['significant_corrected'] for result in results)}")
+    
+    # Sort by absolute correlation (effect size) rather than p-value
+    results.sort(key=lambda x: abs(x['correlation']), reverse=True)
+    
+    return results
 
-# Main execution function
+
+def print_corrected_summary(results, top_n=10):
+    """REPLACES your existing print_regression_summary function."""
+    print(f"\nRegression Analysis Summary (Top {top_n} by Effect Size):")
+    print("=" * 120)
+    print(f"{'BC Combination':30} | {'Corr':>8} | {'Raw p':>10} | {'Adj p':>10} | {'Raw Sig':>8} | {'Adj Sig':>8} | {'Effect':>8}")
+    print("-" * 120)
+    
+    for i, result in enumerate(results[:top_n]):
+        raw_sig = "Yes" if result.get('significant_raw', result['p_value'] < 0.05) else "No"
+        adj_sig = "Yes" if result.get('significant_corrected', False) else "No"
+        
+        # Effect size interpretation
+        abs_corr = abs(result['correlation'])
+        if abs_corr >= 0.5:
+            effect = "Large"
+        elif abs_corr >= 0.3:
+            effect = "Medium"
+        else:
+            effect = "Small"
+        
+        bc_comb = result['bc_combination'][:28] + ".." if len(result['bc_combination']) > 30 else result['bc_combination']
+        
+        raw_p = result['p_value']
+        adj_p = result.get('p_adjusted', 'N/A')
+        
+        adj_p_str = f"{adj_p:.4f}" if isinstance(adj_p, float) else str(adj_p)
+        
+        print(f"{bc_comb:30} | {result['correlation']:>8.3f} | {raw_p:>10.4f} | "
+              f"{adj_p_str:>10} | {raw_sig:>8} | {adj_sig:>8} | {effect:>8}")
+
+
+def effect_size_analysis(results, min_effect_size=0.3):
+    """NEW FUNCTION - Add this to focus on practically significant effects."""
+    print(f"\nEffect Size Analysis (|correlation| >= {min_effect_size}):")
+    print("=" * 80)
+    
+    large_effects = [r for r in results if abs(r['correlation']) >= min_effect_size]
+    
+    if not large_effects:
+        print(f"No BC combinations with correlation >= {min_effect_size}")
+        return
+    
+    print(f"BC combinations with large effect sizes: {len(large_effects)}")
+    
+    for result in large_effects:
+        direction = "positive" if result['correlation'] > 0 else "negative"
+        print(f"\nBC: '{result['bc_combination']}'")
+        print(f"  Correlation: {result['correlation']:.3f} ({direction})")
+        print(f"  Raw p-value: {result['p_value']:.4f}")
+        if 'p_adjusted' in result:
+            print(f"  Adjusted p-value: {result['p_adjusted']:.4f}")
+        print(f"  Effect size: {'Large' if abs(result['correlation']) >= 0.5 else 'Medium'}")
+
+
+def train_test_validation(df, df_metadata, pattern_col="BC Pattern T1", 
+                         speaker="counsellor", min_occurrences=5, test_size=0.5, random_state=42):
+    """NEW FUNCTION - Add this for validation."""
+    # Get unique conversation IDs
+    conv_ids = df['conv_id'].unique()
+    
+    # Split conversations into train/test
+    train_convs, test_convs = train_test_split(conv_ids, test_size=test_size, random_state=random_state)
+    
+    # Create train/test datasets
+    df_train = df[df['conv_id'].isin(train_convs)]
+    df_test = df[df['conv_id'].isin(test_convs)]
+    
+    print(f"Training conversations: {len(train_convs)}")
+    print(f"Testing conversations: {len(test_convs)}")
+    
+    # Find significant BC combinations on training data
+    train_results = analyze_all_bc_combinations_corrected(
+        df_train, df_metadata, pattern_col, speaker, min_occurrences, 'fdr_bh'
+    )
+    
+    # Test the top findings on test data
+    significant_bcs = [r['bc_combination'] for r in train_results if r.get('significant_corrected', False)]
+    
+    if not significant_bcs:
+        print("No significant BC combinations found in training data.")
+        return None
+    
+    print(f"\nTesting {len(significant_bcs)} significant BC combinations on held-out test data:")
+    
+    test_results = []
+    for bc_combination in significant_bcs:
+        test_result = perform_bc_combination_regression(df_test, df_metadata, bc_combination, pattern_col, speaker)
+        if test_result:
+            # Find corresponding training result
+            train_result = next((r for r in train_results if r['bc_combination'] == bc_combination), None)
+            if train_result:
+                test_result['train_correlation'] = train_result['correlation']
+                test_result['train_p_value'] = train_result['p_value']
+                test_result['train_significant'] = train_result.get('significant_corrected', False)
+            test_results.append(test_result)
+    
+    return train_results, test_results
+
+def compare_correction_methods(df, df_metadata, pattern_col="BC Pattern T2", 
+                              speaker="counsellor", min_occurrences=5):
+    """
+    Compare FDR and Bonferroni corrections to assess robustness of findings.
+    """
+    # Run with FDR
+    results_fdr = analyze_all_bc_combinations_corrected(
+        df, df_metadata, pattern_col, speaker, min_occurrences, 
+        correction_method='fdr_bh'
+    )
+    
+    # Run with Bonferroni
+    results_bonf = analyze_all_bc_combinations_corrected(
+        df, df_metadata, pattern_col, speaker, min_occurrences, 
+        correction_method='bonferroni'
+    )
+    
+    # Create lookup dictionaries for easier comparison
+    fdr_dict = {r['bc_combination']: r for r in results_fdr}
+    bonf_dict = {r['bc_combination']: r for r in results_bonf}
+    
+    # Compare results
+    print("\n" + "="*100)
+    print("COMPARISON OF MULTIPLE TESTING CORRECTIONS")
+    print("="*100)
+    
+    fdr_sig = [r['bc_combination'] for r in results_fdr if r['significant_corrected']]
+    bonf_sig = [r['bc_combination'] for r in results_bonf if r['significant_corrected']]
+    
+    print(f"\n📊 OVERALL STATISTICS:")
+    print(f"   Total BC combinations tested: {len(results_fdr)}")
+    print(f"   Significant with FDR (α=0.05): {len(fdr_sig)} BC combinations")
+    print(f"   Significant with Bonferroni (α=0.05): {len(bonf_sig)} BC combinations")
+    print(f"   Bonferroni correction factor: {len(results_fdr)} (number of tests)")
+    print(f"   Effective Bonferroni α threshold: {0.05/len(results_fdr):.6f}")
+    
+    # Find BC combinations that survive both corrections
+    robust_findings = set(fdr_sig) & set(bonf_sig)
+    fdr_only = set(fdr_sig) - set(bonf_sig)
+    
+    print(f"\n🔍 ROBUSTNESS ANALYSIS:")
+    print(f"   Significant with BOTH corrections (most robust): {len(robust_findings)} BC combinations")
+    print(f"   Significant with FDR only: {len(fdr_only)} BC combinations")
+    
+    # Detailed comparison table
+    print("\n" + "="*100)
+    print("DETAILED COMPARISON (Top 15 by effect size)")
+    print("="*100)
+    print(f"{'BC Combination':35} | {'Corr':>7} | {'Raw p':>10} | {'FDR p':>10} | {'Bonf p':>10} | {'FDR':>5} | {'Bonf':>5}")
+    print("-"*100)
+    
+    for i, bc_combo in enumerate(fdr_dict.keys()):
+        if i >= 15:  # Show top 15
+            break
+            
+        fdr_result = fdr_dict[bc_combo]
+        bonf_result = bonf_dict.get(bc_combo, fdr_result)  # Use FDR result if not in Bonf
+        
+        bc_display = bc_combo[:33] + ".." if len(bc_combo) > 35 else bc_combo
+        
+        fdr_sig_symbol = "✓" if fdr_result['significant_corrected'] else "✗"
+        bonf_sig_symbol = "✓" if bonf_result['significant_corrected'] else "✗"
+        
+        print(f"{bc_display:35} | {fdr_result['correlation']:>7.3f} | "
+              f"{fdr_result['p_value']:>10.4f} | "
+              f"{fdr_result['p_adjusted']:>10.4f} | "
+              f"{bonf_result['p_adjusted']:>10.4f} | "
+              f"{fdr_sig_symbol:>5} | {bonf_sig_symbol:>5}")
+    
+    if len(results_fdr) > 15:
+        print(f"\n... and {len(results_fdr) - 15} more BC combinations")
+    
+    # Show the most robust findings
+    if robust_findings:
+        print("\n" + "="*100)
+        print("MOST ROBUST BC COMBINATIONS (survive both corrections)")
+        print("="*100)
+        
+        # Sort robust findings by correlation strength
+        robust_sorted = sorted(robust_findings, 
+                             key=lambda x: abs(fdr_dict[x]['correlation']), 
+                             reverse=True)
+        
+        for i, bc in enumerate(robust_sorted[:5], 1):  # Show top 5 most robust
+            result = fdr_dict[bc]
+            bonf_result = bonf_dict[bc]
+            print(f"\n{i}. BC: '{bc}'")
+            print(f"   Correlation: {result['correlation']:.3f}")
+            print(f"   Effect size: {'Large' if abs(result['correlation']) >= 0.5 else 'Medium' if abs(result['correlation']) >= 0.3 else 'Small'}")
+            print(f"   Raw p-value: {result['p_value']:.6f}")
+            print(f"   FDR-adjusted p: {result['p_adjusted']:.6f}")
+            print(f"   Bonferroni-adjusted p: {bonf_result['p_adjusted']:.6f}")
+            
+            # Count occurrences
+            convs_with_bc = sum(1 for x in result['x_values'] if x > 0)
+            total_occurrences = sum(result['x_values'])
+            print(f"   Appears in: {convs_with_bc}/{len(result['x_values'])} conversations")
+            print(f"   Total occurrences: {total_occurrences}")
+    
+    # Show findings that are significant with FDR but not Bonferroni
+    if fdr_only:
+        print("\n" + "="*100)
+        print("BC COMBINATIONS SIGNIFICANT WITH FDR BUT NOT BONFERRONI")
+        print("(These may still be meaningful but require more caution)")
+        print("="*100)
+        
+        fdr_only_sorted = sorted(fdr_only, 
+                                key=lambda x: abs(fdr_dict[x]['correlation']), 
+                                reverse=True)
+        
+        for bc in fdr_only_sorted[:5]:  # Show top 5
+            result = fdr_dict[bc]
+            bonf_result = bonf_dict[bc]
+            print(f"\nBC: '{bc}'")
+            print(f"  Correlation: {result['correlation']:.3f}")
+            print(f"  Raw p-value: {result['p_value']:.6f}")
+            print(f"  FDR-adjusted p: {result['p_adjusted']:.6f} (< 0.05) ✓")
+            print(f"  Bonferroni-adjusted p: {bonf_result['p_adjusted']:.6f} (> 0.05) ✗")
+    
+    # Statistical power analysis
+    print("\n" + "="*100)
+    print("STATISTICAL POWER CONSIDERATIONS")
+    print("="*100)
+    print(f"With {len(results_fdr)} tests:")
+    print(f"  • Bonferroni requires p < {0.05/len(results_fdr):.6f} for significance")
+    print(f"  • This is {len(results_fdr)}x more stringent than nominal α=0.05")
+    print(f"  • FDR controls the expected proportion of false discoveries")
+    print(f"  • FDR is more appropriate for exploratory analyses like this")
+    
+    if len(bonf_sig) == 0:
+        print("\n⚠️  No findings survive Bonferroni correction!")
+        print("   This is common with many comparisons and suggests:")
+        print("   1. The study may be underpowered for such strict correction")
+        print("   2. Effect sizes may be modest")
+        print("   3. FDR is more appropriate for this exploratory analysis")
+    
+    # Save comparison results to CSV
+    comparison_df = pd.DataFrame()
+    for bc_combo in set([r['bc_combination'] for r in results_fdr]):
+        fdr_result = next((r for r in results_fdr if r['bc_combination'] == bc_combo), None)
+        bonf_result = next((r for r in results_bonf if r['bc_combination'] == bc_combo), None)
+        
+        if fdr_result:
+            comparison_df = pd.concat([comparison_df, pd.DataFrame([{
+                'bc_combination': bc_combo,
+                'correlation': fdr_result['correlation'],
+                'raw_p_value': fdr_result['p_value'],
+                'fdr_adjusted_p': fdr_result['p_adjusted'],
+                'bonf_adjusted_p': bonf_result['p_adjusted'] if bonf_result else None,
+                'significant_fdr': fdr_result['significant_corrected'],
+                'significant_bonferroni': bonf_result['significant_corrected'] if bonf_result else False,
+                'robust_finding': bc_combo in robust_findings
+            }])], ignore_index=True)
+    
+    comparison_df = comparison_df.sort_values('correlation', key=abs, ascending=False)
+    comparison_df.to_csv('correction_methods_comparison.csv', index=False)
+    print("\n💾 Comparison results saved to: correction_methods_comparison.csv")
+    
+    return results_fdr, results_bonf, robust_findings
+
 def main():
     # File paths - update these to your actual paths
     csv_path = "/Users/joeberson/Developer/AutoMISC/data/MIV6.3A_lowconf_tiered_gpt-4.1-2025-04-14_interval_3_annotated_copy.csv"
@@ -469,51 +795,104 @@ def main():
     df_care_ratings = pd.read_csv(care_ratings_path)
     df_last = filter_last_volley_rows(df_full)
     
-    # Create detailed report with volleys
-    print("\nAnalyzing most significant BC combinations and extracting volleys...")
-    # Adjust these parameters as needed:
-    # - top_n: number of BC combinations to analyze (e.g., 10 for top 10)
-    # - volleys_per_bc: max volleys to show per BC (e.g., None for all, or 20 for more examples)
+    print("Statistical Analysis with Multiple Testing Correction")
+    print("=" * 60)
+    
+    # Method 1: Use corrected analysis
+    print("\nMethod 1: Full Dataset with Multiple Testing Correction")
+    results_corrected = analyze_all_bc_combinations_corrected(
+        df_last, df_metadata,
+        pattern_col="BC Pattern T2",
+        speaker="counsellor",
+        min_occurrences=5,
+        correction_method='fdr_bh'
+    )
+    
+    # Use new summary function
+    print_corrected_summary(results_corrected)
+    effect_size_analysis(results_corrected)
+    
+    # ADD THIS NEW SECTION - BONFERRONI COMPARISON
+    print("\n" + "=" * 100)
+    print("COMPARING FDR VS BONFERRONI CORRECTIONS")
+    print("=" * 100)
+    results_fdr, results_bonf, robust_findings = compare_correction_methods(
+        df_last, df_metadata,
+        pattern_col="BC Pattern T2",
+        speaker="counsellor",
+        min_occurrences=5
+    )
+    
+    # OPTIONAL: Add train/test validation
+    print("\n" + "=" * 60)
+    print("Method 2: Train/Test Split Validation")
+    validation_results = train_test_validation(
+        df_last, df_metadata,
+        pattern_col="BC Pattern T2",
+        speaker="counsellor",
+        min_occurrences=5
+    )
+    
+    if validation_results:
+        train_results, test_results = validation_results
+        
+        print("\nValidation Results:")
+        print("-" * 40)
+        for test_result in test_results:
+            bc = test_result['bc_combination']
+            train_r = test_result.get('train_correlation', 'N/A')
+            test_r = test_result['correlation']
+            train_sig = test_result.get('train_significant', False)
+            test_sig = test_result['p_value'] < 0.05
+            
+            print(f"BC: {bc[:40]}")
+            print(f"  Train correlation: {train_r:.3f} (significant: {train_sig})")
+            print(f"  Test correlation:  {test_r:.3f} (significant: {test_sig})")
+            print(f"  Replicates: {'Yes' if abs(test_r) >= 0.1 and test_sig else 'No'}")
+            print()
+    
+    # VOLLEY ANALYSIS - WITHOUT PRINTING TO TERMINAL
+    print("\n" + "=" * 100)
+    print("DETAILED VOLLEY ANALYSIS")
+    print("=" * 100)
+    
+    # Set print_volleys=False to suppress terminal output (DEFAULT)
+    # Set print_volleys=True if you want to see volleys in terminal
     volley_report = create_detailed_volley_report(
         df_full, df_last, df_metadata,
         pattern_col="BC Pattern T2",
         speaker="counsellor",
         output_file="significant_bc_volleys.csv",
-        top_n=10,  # Analyze top 10 BC combinations
-        volleys_per_bc=None  # Show ALL volleys (no limit)
+        top_n=10,
+        volleys_per_bc=None,  # Get all volleys
+        print_volleys=False   # 🔹 This suppresses volley printing to terminal
     )
     
-    # Additional analysis: Find volleys for specific BC combinations
+    # Specific BC analysis - also suppressed
     print("\n" + "=" * 100)
     print("DETAILED ANALYSIS OF SPECIFIC BC COMBINATIONS")
     print("=" * 100)
     
-    # Get the most significant result
-    results = analyze_all_bc_combinations(df_last, df_metadata, 
-                                         pattern_col="BC Pattern T2", 
-                                         speaker="counsellor", 
-                                         min_occurrences=5)
-    
-    if results:
-        most_significant = results[0]
+    if results_corrected:
+        most_significant = results_corrected[0]
         bc_to_analyze = most_significant['bc_combination']
         
         print(f"\nMost significant BC combination: '{bc_to_analyze}'")
         volley_details = find_volleys_for_conversations_with_bc(
             df_full, df_last, most_significant, bc_to_analyze,
-            pattern_col="BC Pattern T2", speaker="counsellor"
+            pattern_col="BC Pattern T2", speaker="counsellor",
+            print_volleys=False  # 🔹 This also suppresses volley printing
         )
         
         if volley_details is not None:
-            print(f"\nFound {len(volley_details)} volleys with this BC combination")
-            
-    # Print summary of all results
-    print("\n" + "=" * 100)
-    print_regression_summary(results, top_n=10)
+            print(f"Found {len(volley_details)} volleys with this BC combination")
+            # Save this specific analysis too
+            volley_details.to_csv("most_significant_bc_volleys.csv", index=False)
+            print("💾 Specific BC volley data saved to: most_significant_bc_volleys.csv")
     
     # Optional: Plot top 3 most correlated BC combinations
     print("\nGenerating plots for top 3 most correlated BC combinations...")
-    for i, result in enumerate(results[:3]):
+    for i, result in enumerate(results_corrected[:3]):
         plot_bc_regression(result, save_path=f"bc_regression_{i+1}.png")
     
     # Optional: Analyze BC diversity
@@ -521,6 +900,8 @@ def main():
     print("ANALYZING BC DIVERSITY")
     print("=" * 100)
     analyze_total_bc_diversity(df_last, df_metadata, pattern_col="BC Pattern T2", speaker="counsellor")
+    
+    print("\n🎉 Analysis complete! Check the CSV files for detailed volley data.")
     
     return volley_report
 
