@@ -7,6 +7,7 @@ import logging
 from hydra.utils import log
 from validation.IRR import IRR
 from validation.relate_outcomes import relate_outcomes
+from validation.compare import compare
 
 @hydra.main(config_path="../conf", config_name="eval_config.yaml", version_base=None)
 def eval(cfg: DictConfig) -> None:
@@ -16,11 +17,12 @@ def eval(cfg: DictConfig) -> None:
     
     if cfg.method == 'IRR':
         IRR(cfg)
-
     elif cfg.method == 'relate_outcomes':
         relate_outcomes(cfg)
+    elif cfg.method == 'compare':
+        compare(cfg)
     else:
-        return
+        raise ValueError(f"Unknown evaluation method: {cfg.method}")
 
 if __name__ == "__main__":
     eval()

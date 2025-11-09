@@ -141,7 +141,7 @@ class Annotator:
                                 {'role': 'system', 'content': t1_system_prompt},
                                 {'role': 'user', 'content': user_prompt}
                             ]
-                            print(f"t1_messages: {t1_messages}")
+                            # print(f"t1_messages: {t1_messages}")
                             t1 = call_chat_model(
                                 messages=t1_messages,
                                 model=self.cfg.annotator.model, 
@@ -149,7 +149,7 @@ class Annotator:
                                 response_format=CounsellorUtterance_t1 if speaker=="counsellor" else ClientUtterance_t1,
                                 temperature=self.cfg.annotator.temperature
                             )
-                            print(f"t1: {t1}")
+                            # print(f"t1: {t1}")
                             # Tier 2 prompt using render_prompt and render_user_prompt, and passing t1.label
                             t2_system_prompt = render_prompt(speaker=speaker,structure="t2",label=t1['label'])
                             t2_messages = [
@@ -163,6 +163,7 @@ class Annotator:
                                 response_format=CounsellorUtterance_t2 if speaker=="counsellor" else ClientUtterance_t2,
                                 temperature=self.cfg.annotator.temperature
                             )
+                            # print(f"t2: {t2}")
                             output_rows.append({
                                 **row.to_dict(),
                                 "t1_label_auto": t1['label'],
@@ -186,8 +187,8 @@ class Annotator:
                             )
                             output_rows.append({
                                 **row.to_dict(),
-                                "label_auto": res['label'],
-                                "expl_auto": res['explanation'],
+                                "t2_label_auto": res['label'],
+                                "t2_expl_auto": res['explanation'],
                             })
 
 

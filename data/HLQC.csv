@@ -10495,3 +10495,193 @@ corp_vol_idx,conv_id,speaker,vol_text
 10493,low_103,client,Okay.
 10494,low_103,counsellor,"Okay, Thanks for coming in."
 10495,low_103,client,Thanks
+10496,low_104,client,Hi.
+10497,low_104,counsellor,How are you?
+10498,low_104,client,"Yeah, I've been sitting here saying that word."
+10499,low_104,counsellor,"Well, I don't know last time I called you and then the phone is not ringing and I'm not sure.  I'm glad you called."
+10500,low_104,client,Yup.
+10501,low_104,counsellor,And set up an appointment with me.
+10502,low_104,client,"Yup, for the last three days, we've had storms and it's been cloudy and I have not had no signal on this phone until today."
+10503,low_104,counsellor,Wow.
+10504,low_104,client,Because I had four or five people have called me.
+10505,low_104,counsellor,Really?
+10506,low_104,client,"Yeah, and I just didn't get it."
+10507,low_104,counsellor,"Well, before we begin I just want to remind you that all calls at Aetna is subject to be monitored and recorded for the quality assurance, okay."
+10508,low_104,client,"Yup, yes ma'am."
+10509,low_104,counsellor,"And then also about genetic information non discrimination act just a reminder too that because of legislation prohibits gathering genetic information so when you answer my question you don't have to include any family medical history or any information related to genetics, okay?"
+10510,low_104,client,Uh-huh.
+10511,low_104,counsellor,So how you been since I spoke to you last time?
+10512,low_104,client,"Oh, I've been fine.  I've been to the doctor; I went for my six months checkup."
+10513,low_104,counsellor,"Okay, when was that?"
+10514,low_104,client,rd of June.
+10515,low_104,counsellor,"Okay, what the doctor say?"
+10516,low_104,client,"That everything looked good, they took my blood and I haven't heard a thing from them.  Most times they usually send me something if something is wrong."
+10517,low_104,counsellor,"Usually, yeah, if you don't hear from the doctor that means good news isn't it?"
+10518,low_104,client,"Yeah, yeah."
+10519,low_104,counsellor,Because if something's wrong most definitely they will call you.
+10520,low_104,client,"Uh-huh, yup, my six month checkup."
+10521,low_104,counsellor,So you do all the cholesterol check and everything?
+10522,low_104,client,I don't do nothing.
+10523,low_104,counsellor,I mean the doctor draws your blood work.
+10524,low_104,client,"Yeah, yeah, they drew all the blood, I think they draw two vials of blood.  He said that they would notify me within about three or four days, but I never have, they usually send a piece of paper stating that everything was okay, but I didn't get nothing this time, figured it was okay."
+10525,low_104,counsellor,"Well, I just want to ask you a question this time.  I want to ask you about the tobacco that you've been using, so what kind of tobacco product you use?"
+10526,low_104,client,This is a loose leaf.
+10527,low_104,counsellor,"Okay, like a chewing tobacco?"
+10528,low_104,client,"Yes, ma'am."
+10529,low_104,counsellor,So you used the last four weeks?
+10530,low_104,client,I what?
+10531,low_104,counsellor,You have been using the last four weeks?
+10532,low_104,client,"Yeah, I've been using tobacco for the last four weeks.  Sixty years I've been doing that."
+10533,low_104,counsellor,"Sixty years, have you been to the dentist to have them check your mouth?"
+10534,low_104,client,I've got dentures.  I've had dentures ever since I was about  years old.
+10535,low_104,counsellor,Do you see a dentist?
+10536,low_104,client,"No, I don't go to a dentist."
+10537,low_104,counsellor,So you have not seen a dentist for how many years?
+10538,low_104,client,"Oh, shucks, I ain't seen a dentist since I had my teeth pulled out, I reckon.  That's probably - years ago."
+10539,low_104,counsellor,"You're kidding me, really,  to  years ago, oh my gosh.  You're probably the only person I know that don't see the dentist."
+10540,low_104,client,"If you've got dentures, what's the use of going to the dentist if you've got dentures?"
+10541,low_104,counsellor,"Well, usually dentists will check your mouth.  Sometimes if you chew tobacco you have a chance that there might have some growth or something abnormal in your mouth and you don't know, you see."
+10542,low_104,client,"Well, most of the time if I do, I usually tell, I can tell if something's maybe wrong with my mouth.  I usually take my dentures out and let them soak; I'll wash them up with warm salt water and stuff like that before I go to bed."
+10543,low_104,counsellor,So you kind of take care of your mouth?
+10544,low_104,client,Well sorta.  I think I've done pretty good.
+10545,low_104,counsellor,But you only use the leaf tobacco; you're not smoking or anything.
+10546,low_104,client,"No, I don't smoke; I never did take up the habit of smoking."
+10547,low_104,counsellor,"But, how often do you chew tobacco a day?"
+10548,low_104,client,All the time.
+10549,low_104,counsellor,All day long?
+10550,low_104,client,"All the time, all day long, all day long, from the time I get up, time I go to bed."
+10551,low_104,counsellor,So how much does that cost you?
+10552,low_104,client,"Um, this tobacco it probably cost me maybe $. a day."
+10553,low_104,counsellor,"So basically, you're not planning on cutting down; you are just going to do the same thing?"
+10554,low_104,client,"___________if it starts to gets to bothering me, I'd probably cut down."
+10555,low_104,counsellor,Okay.
+10556,low_104,client,"So far I have no problem.  I use to chew ______________ tobacco, back when they use to have ___________ tobacco, years ago, I use to, when I first started chewing I was chewing _____________."
+10557,low_104,counsellor,Have you ever used any type of medication or any nicotine to try to stop chewing tobacco?
+10558,low_104,client,"No, ma'am."
+10559,low_104,counsellor,"No, okay."
+10560,low_104,client,"No, ma'am.  I haven't found no reason to."
+10561,low_104,counsellor,And your doctor knows about it that you chew tobacco?
+10562,low_104,client,"Yes, yes, he does."
+10563,low_104,counsellor,And you have not been checked with ultrasound or anything like that?  Have you ever had an abdominal aortic aneurysm test?  Probably not.
+10564,low_104,client,"No, I don't think so."
+10565,low_104,counsellor,"If you not see a dentist, I bet you."
+10566,low_104,client,"No, I hardly ever been to a doctor.  I don't go to no dentist.  I don't go unless something bothers me.  If I get sick or something, I'll go to a doctor, as long as I stay healthy and able to work and get out here and go, I don't go see a doctor.  My wife, I tell you she goes sometimes two or three times a month."
+10567,low_104,counsellor,Did your wife use any tobacco products?
+10568,low_104,client,She smokes.
+10569,low_104,counsellor,"She use to smoke, okay."
+10570,low_104,client,"She smokes, smokes like a freight train."
+10571,low_104,counsellor,"Well, you know, a lot of time just like, what's his name Georg Burns, I think he smoke or something all his life right, and, but even though she smoked you didn't want to smoke you just only want to chew?"
+10572,low_104,client,"Well, yes.  I worked in the cigarette factory for  years?"
+10573,low_104,counsellor,"Oh, you did."
+10574,low_104,client,"Yeah, making cigarettes and I never did really take up the habit of smoking.  Yeah, all I done was chew tobacco."
+10575,low_104,counsellor,"For  years, okay."
+10576,low_104,client,"Yeah, well  years."
+10577,low_104,counsellor,years.
+10578,low_104,client,"The Reynolds Tobacco Company and I really didn't want to go to work then, but my wife made me."
+10579,low_104,counsellor,"Well, your wife make you, how did she make you?"
+10580,low_104,client,"Well, see I was working for myself and I was , about  years old when I work to work and I was doing some work for a guy and he was one of the big wheels at and he just asked me one day if I wanted to work and I told him no.  I was an outside person, I didn't want to work in a factory and I told my wife, and she said your crazy, she said you better go to work and get them benefits and insurance and all that, so I waited about two months and I went down and they hired me before I went out the door."
+10581,low_104,counsellor,"Well, it is my job that I have to inform you about the risk of smoking or not smoking but chew tobacco the risk is to get a sore or ulcer in your mouth you may not know because sometimes it might start in some area that you cannot feel, okay.  So, but when in doubt you do see the doctor you can always go to that doctor that check your lab and have them see just to be sure whenever something happen, okay."
+10582,low_104,client,"Yeah, whenever something happens I'll go."
+10583,low_104,counsellor,"Yeah, and just to make sure that because you know why if early early detection is much better then when you do them late."
+10584,low_104,client,I understand that.
+10585,low_104,counsellor,"Because when I use to work at cancer hospital and I know that have a cancer in the mouth it just not a pleasant thing.  It affects a lot of eating and things like that, you know, and if probably you have cancer in the lungs, right, you can eat, but cancer in the mouth, it's just very difficult."
+10586,low_104,client,Yup.
+10587,low_104,counsellor,"I just want to let you know that at least check your mouth, if you don't want doctor check you can check it and then you can examine yourself, you know, do your, do your gargle and things like that to kind of keep, you know, keep, because I'm a nurse and I've seen it and I just think like oh, my gosh, you know, if you have something wrong in the mouth, it's probably the most devastating because we have to eat food and when you cannot food it makes it so difficult."
+10588,low_104,client,"Well, if I didn't have to eat I wouldn't have to try to lose weight."
+10589,low_104,counsellor,You have a problem with weight gain?
+10590,low_104,client,"Not really, I usually stay about the same weight about all the time.  I'm somewhere around  to , somewhere along in there.  I gain more weight in the wintertime because I don't work as much.  I'm always sitting around and stuff like that, but in the summertime, I get out and work and sweat it all off and all that.  Most of the time, I usually lose a little bit of weight in the summertime."
+10591,low_104,counsellor,"Yeah, and you play golf."
+10592,low_104,client,"Yes, I play golf, but I haven't had much of a golf season this year.  I've been a working too hard."
+10593,low_104,counsellor,"Well, and another thing, you know, you can think about because right now you use them all the time, you know, sometime even though you quit just a little bit or something like that it could help too.  So think about that okay and then I sure appreciate you calling I always enjoy talking to you.  You always have something to tell me like, you know, how, a lot of times people don't think about taking something to kind of help with your acid and stuff like that, you have a lot of knowledge in some way, the old fashion way."
+10594,low_104,client,"Well, I guess that just comes from my family."
+10595,low_104,counsellor,"From your family, did your family smoke?"
+10596,low_104,client,"My family history and stuff like that, I don't know, I think my family was __________ like that.  They never did really get much sickness and stuff like that."
+10597,low_104,counsellor,They work hard.
+10598,low_104,client,"Yeah and always worked hard and stuff.  I can usually tell when I feel bad, if I feel bad, I usually try to work on myself for a few days and if I don't get better I go to the doctor."
+10599,low_104,counsellor,"Yeah, in a lot of old days that's how people do it."
+10600,low_104,client,Yeah.
+10601,low_104,counsellor,"You know, you not depend on with a lot of medication like what we do now."
+10602,low_104,client,"Yeah, I know it.  Back in the early 's people didn't go to the doctor hardley they used they're own remedies and stuff like that."
+10603,low_104,counsellor,"A lot of old remedies back then, you know, that people do and people use."
+10604,low_104,client,"Yeah, and I still use some of that.  I still drink my vinegar."
+10605,low_104,counsellor,Your garlic and all that stuff.
+10606,low_104,client,Yeah.
+10607,low_104,counsellor,And you take niacin.
+10608,low_104,client,That keeps me from going to a doctor.
+10609,low_104,counsellor,"Yeah, and I think, you know, just have to kind of make some sense about this okay and then I will call you next time.  I'd like to ask you a question about your diabetes."
+10610,low_104,client,"Diabetes, as far as I know, I reckon my diabetes is good.  I don't check it or nothing."
+10611,low_104,counsellor,"Okay.  I have spoke to many people that they don't check too, it doesn't surprise me now when you say that.  But anyway, let me go ahead; look to see what day I can call you okay?"
+10612,low_104,client,"Have you got the phone number to the house, the house phone?"
+10613,low_104,counsellor,"Let me take a look to see what we have.  Well, the number I dial now what is this number?"
+10614,low_104,client,This is the cell phone.
+10615,low_104,counsellor,"Okay, the cell let me look to see if I have ... .  Let me take a look at my record."
+10616,low_104,client,"I called today, this evening."
+10617,low_104,counsellor,Yes.
+10618,low_104,client,To set up this appointment and I give the young lady the number for the house just in case ... .
+10619,low_104,counsellor,"Okay, the number I have is."
+10620,low_104,client,"Yeah, you can call the house number, if you can't get me on the cell phone."
+10621,low_104,counsellor,"Okay, all right, I will do that.  Call the house that way I won't miss you."
+10622,low_104,client,"All right, more likely you'll probably catch me on that.  So if you're having bad weather you won't catch me on the cell phone."
+10623,low_104,counsellor,That's true and that's true.  Let me make an appointment to call you back on July .
+10624,low_104,client,July .
+10625,low_104,counsellor,It's Friday.
+10626,low_104,client,"Oh, let's see, make it late."
+10627,low_104,counsellor,How late?
+10628,low_104,client,Probably around  or so.
+10629,low_104,counsellor,Like today?
+10630,low_104,client,"Like today, I'm more likely to be here."
+10631,low_104,counsellor,"Well on the th I can't call you at, how about, let me take a look some other day."
+10632,low_104,client,My wife just mentioned that our son is coming in from the military and he'll be here that week.
+10633,low_104,counsellor,"How about on the th, Monday?"
+10634,low_104,client,Monday.
+10635,low_104,counsellor,On the th yes.
+10636,low_104,client,Okay.
+10637,low_104,counsellor,I can call you anytime you want me to.
+10638,low_104,client,"Well, you can call me probably; I don't reckon we'll be going off on a Monday, most of the time we might be gone on a Friday or a Saturday."
+10639,low_104,counsellor,So th would be good on Monday?
+10640,low_104,client,th would be probably be better.
+10641,low_104,counsellor,How about like  your time?
+10642,low_104,client,Okay.
+10643,low_104,counsellor,okay?
+10644,low_104,client,"Yeah, they usually call me and remind me to keep my appointment."
+10645,low_104,counsellor,Yes.
+10646,low_104,client,"But, you know, things could come up."
+10647,low_104,counsellor,"Well, I will send a reminder call two days before our appointment, okay.  But since being on the weekend, th, let me see, you'll probably get the reminder call probably maybe on the th."
+10648,low_104,client,Okay.
+10649,low_104,counsellor,"Okay, on the th and then you do have my number."
+10650,low_104,client,"Yes, ma'am."
+10651,low_104,counsellor,"And I sure appreciate your time calling me so that way I get to talk to you and then, you know, I always enjoy talking to you."
+10652,low_104,client,"I enjoy talking to you.  I've been trying to, me and my wife and I have been, she's been out here trying to teach me how to pronounce your name."
+10653,low_104,counsellor,You did great.  I mean you did great.  It's not hard.
+10654,low_104,client,"Well, if I talked to you, if I would talk to you all the time now I could get use to it."
+10655,low_104,counsellor,"Well, you do talk to me all the time, what you talking about.  I've been talking to you for so many months now.  Just like you read it, if you just read like, you know, kind of break it down into the three syllables."
+10656,low_104,client,She underlined it for me.
+10657,low_104,counsellor,"Well, don't call me by a different name, I might not answer you.  I might not know my name, you know.  That's not my name."
+10658,low_104,client,Oh gee.
+10659,low_104,counsellor,What is your wife's name?  That's a beautiful name.
+10660,low_104,counsellor,See I can call her she can call my name.
+10661,low_104,client,"Yup, yup.  She said her momma named her you know when they used to have what was it a song or something they were having a donkey named Josephine?"
+10662,low_104,counsellor,So how many children do you have?
+10663,low_104,client,I have four children.  I've got three daughters and one son and I've got  grandchildren
+10664,low_104,counsellor,"Wow, seven."
+10665,low_104,client,"Three, four great grandchildren."
+10666,low_104,counsellor,"Well, they add up quick, you know."
+10667,low_104,client,Yeah.
+10668,low_104,counsellor,"And then, and then, you've got a hard time keep track of them.  What's their name and all that."
+10669,low_104,client,"Yeah.  Which one, the grandchildren?"
+10670,low_104,counsellor,Grandchildren.
+10671,low_104,client,The grandchildren is..
+10672,low_104,counsellor,Oh wow.  You're doing good.  You remember.
+10673,low_104,client,I've got one new grandchild probably maybe three weeks old and I haven't seen it yet.  They're in the military and I haven't learned his name yet.
+10674,low_104,counsellor,"Well, you know, you're doing good but don't forget what we talked about today, okay, about your chew tobacco and your mouth and the next month I'm going to talk about your blood sugar, okay."
+10675,low_104,client,Blood sugar.  Okay.
+10676,low_104,counsellor,All right.  Thank you very much and say hello to your wife for me.
+10677,low_104,client,"Alrighty, I sure will."
+10678,low_104,counsellor,And I'll talk to you next month and I'll send you the reminder call okay?
+10679,low_104,client,"Okay, alrighty."
+10680,low_104,counsellor,"Thank you so much for calling me back, I sure appreciate it and you have a wonderful ... ."
+10681,low_104,client,I enjoy talking to you.
+10682,low_104,counsellor,And you have a wonderful month.
+10683,low_104,client,"Yeah, thank you and I hope you do too."
+10684,low_104,counsellor,"I sure will, thank you, bye-bye, goodnight."
+10685,low_104,client,"Bye-bye, goodnight."

@@ -1,0 +1,784 @@
+﻿corp_vol_idx,conv_id,speaker,vol_text
+0,high_001,counsellor,hey Monica how are you doing today
+1,high_001,client,I'm okay right now but I'm a little anxious because thinking about how Black Friday is soon and my friends want to go to the mall for Black Friday but I really can't go and I want to go but I really to interesting
+2,high_001,counsellor,so it sounds like you really want to go to Black Friday with your friends you're feeling a little anxious about it
+3,high_001,client,yeah Monaco but interesting but I was thinking about it and maybe if I could make an image or something that I could use while I'm there maybe I'd be able to go so I was wondering if I could give you that very well
+4,high_001,counsellor,that sounds like a great idea can absolutely do that
+5,high_001,client,okay
+6,high_001,counsellor,so we have some materials on the table but if you'd like to use anything else that we've used previously just let me know and I'll get them to you for you
+7,high_001,client,um do you have a Sharpie
+8,high_001,counsellor,it do did you have a color that you wanted
+9,high_001,client,black maybe
+10,high_001,counsellor,all right here
+11,high_001,client,this
+12,high_001,counsellor,welcome
+13,high_001,client,ok I think I'm done
+14,high_001,counsellor,all right is there anything you'd like to tell me about it
+15,high_001,client,well I'm sure um I drew mountains and lake because when I think about things like Unicom I think of nature so I drew a scene that I think would keep me calm
+16,high_001,counsellor,so it sounds like nature and mountains are coming to you do you think that this will be helpful I'm black Franny
+17,high_001,client,yes as long as I can remember to think about this image when I'm there but maybe I'll bring it with me when I go so I can refer to it when I'm anxious
+18,high_001,counsellor,that sounds like a great idea
+19,high_099,client,well my name is Laura I'm years old and I'm a senior in high school
+20,high_099,counsellor,okay and what kinds of things do a plan for your life
+21,high_099,client,well hopefully go to college get you know get enough grades to go to college
+22,high_099,counsellor,that's great do you have a plan as to where you might want to go or um
+23,high_099,client,I'm not sure yet might be a few schools in the area I'm looking maybe to apply out of state
+24,high_099,counsellor,oh alright being away for college cool yeah so kind of keeping your options open
+25,high_099,client,yeah definitely
+26,high_099,counsellor,great and you have an idea about what you might want to study or
+27,high_099,client,yeah maybe I'm pre-law
+28,high_099,counsellor,oh wow okay that's exciting yeah all right cool um what do you like to do for fun
+29,high_099,client,well um on the weekends I like to hang out with my friends maybe go like a party or go to the mall to shop or if there's like a school related event we'll go to like a football game or something like that yeah I like to have a good time
+30,high_099,counsellor,yeah and you have a lot of friends or a few close people or
+31,high_099,client,um I would say like a moderate amount I'm not really really popular or like I have no friends um I'm like normal alright that's a good way to be right yeah alright
+32,high_099,counsellor,so um it sounds like in general your things are going pretty well for you how are your grades right now
+33,high_099,client,um they're pretty good a zombie's so I'm doing okay okay
+34,high_099,counsellor,"well one thing I want to ask about is you know different people have sort of different values or things that are important to them they might you know be really close with family or really have you know their friends as being something particularly important I'm going to show you just a few things on this sheet and if you can look more so there's things like belonging, community, cultural identity, family, friendship, modesty, religion, respect, self-determination, and spirituality which of those do you think is sort of important to you"
+35,high_099,client,um family definitely a friendship and belonging
+36,high_099,counsellor,okay what's important to you about your family
+37,high_099,client,well I I love them so I want them to think well of me and I want them to be accepting and love me okay
+38,high_099,counsellor,and you have brothers or sisters
+39,high_099,client,yeah I have one sister
+40,high_099,counsellor,okay great and how about friendship
+41,high_099,client,friendship I've grown close to many people that I care about so I would like them to be accepting of me as well
+42,high_099,counsellor,great so being a good friend and having people who are good friends too is important and then what about belonging you mentioned that one -
+43,high_099,client,yeah just a sense of like fitting in and like being accepted you know yeah not
+44,high_099,counsellor,wanting to be part of a group yeah kind of okay great all right well one of the things I want to talk about is you know you mentioned that you like to go out with friends and party and that sort of a thing and I'm curious when you're at the parties do you ever have any alcohol
+45,high_099,client,um not much maybe like one or two drinks at the most
+46,high_099,counsellor,okay can you tell me a little bit about how alcohol fits into your overall social scene
+47,high_099,client,um I pretty much just have a drink just just have it like so it looks like I'm drinking even though I'm not so maybe people bug me about drinking or something
+48,high_099,counsellor,okay you're kind of getting pressure from other people who are drinking and it feels easier for you to hold a drink
+49,high_099,client,have one they're pretending you have it okay
+50,high_099,counsellor,and do you think that this is most weekends or occasionally how often do you think that you are one or two weekends of the most very much so one or two weekends a month you're in a situation where there is alcohol yeah okay and what sort of situations are you in
+51,high_099,client,well just I guess at a party or something someone's house
+52,high_099,counsellor,uh-huh
+53,high_099,client,or even if it's not a party like a small social gathering maybe there'll be like a few beers around
+54,high_099,counsellor,mm-hmm
+55,high_099,client,so mainly just kind of hanging out with friends pretty much
+56,high_099,counsellor,yeah are you ever places where there are parents around or are mostly just just with the kids
+57,high_099,client,mostly just with us but sometimes I'll go to like a close friend's house and like I'm close to her family as well so well I'll just hang out
+58,high_099,counsellor,and what about driving
+59,high_099,client,um like drunk driving
+60,high_099,counsellor,yeah do you ever go anywhere in a car after you've had any alcohol
+61,high_099,client,definitely no I've never drunk driven and I've never been in a car with a drunk driver
+62,high_099,counsellor,so that's something that you've sort of made a decision about
+63,high_099,client,that sounds I know that's extremely dangerous
+64,high_099,counsellor,okay what do you know about how that's dangerous
+65,high_099,client,um well alcohol definitely impairs your judgment so I mean driving under the influence of alcohol can lead to like crashes and accidents and things like that so I'd rather not be in that situation so
+66,high_099,counsellor,you're really trying to be safe and and make sure that you're not putting yourself in those situations that's great you know it's it's tough to do sometimes and I really commend you for being able to to stick with that yeah so you mentioned you pretty much will like hold a drink or maybe have a drink or two what do you thinks the most alcohol you've ever had in in one day
+67,high_099,client,no more than two drinks okay so the the absolute most yeah those two okay and
+68,high_099,counsellor,what kinds of things do you like about alcohol um
+69,high_099,client,I've never really been drunk so I can't really say that I like that being or not but it's just I I mean you're just in a good mood
+70,high_099,counsellor,mm-hmm so it just kind of makes you feel relaxed yeah okay relax okay anything else
+71,high_099,client,um no not really like I said I don't drink that much so I I wouldn't be able to tell you
+72,high_099,counsellor,okay and any not-so-good things about alcohol
+73,high_099,client,um definitely yeah I mean what about parties is stuff and it's getting a little late some people that drink like drank too much they start throwing up or they get hurt or they're really loud and obnoxious and that's not fun for anybody
+74,high_099,counsellor,so you've seen a lot of other kids you had some consequences and decided that's not for you
+75,high_099,client,yeah
+76,high_099,counsellor,got it I can understand that any other things that you can think of
+77,high_099,client,um no I mean I've never you know been friends with anybody that's got into like a serious accident and stuff it's just very like obnoxious thing
+78,high_099,counsellor,okay well so you know as someone who's not yet it is underage drinking is something that's not legal and it is something that is considered pretty risky so I'm wondering what you think about that just in terms of how it fits into your life
+79,high_099,client,um I know it's definitely risky but I mean I guess we still do it
+80,high_099,counsellor,uh-huh so it's kind of something that here it's just there it's just there okay and I'm curious you mentioned you know your friends are important to you and your family's important to you sort of fitting in as important to you and how does alcohol play a role with that
+81,high_099,client,um well definitely not in my family life because my parents don't really condone okay alcohol use but friendships I mean when I'm hanging out with my friends that were at a party or something there's usually alcohol involved okay
+82,high_099,counsellor,so from your family perspective the drinking is not something that fits very well yeah and with friends you feel like it's easier to hang out with alcohol or maybe you wouldn't have as much fun or your friends wouldn't like you as much
+83,high_099,client,I guess I mean this is just there okay so it ties in with the whole blogging okay
+84,high_099,counsellor,well when you think about your drinking and sort of looking forward and five years or ten years how do you think that drinking might fit in with your life
+85,high_099,client,um it probably will have a very small role if any
+86,high_099,counsellor,mm-hmm
+87,high_099,client,in my life considering I have big plans for my future
+88,high_099,counsellor,okay can you expand on that a little bit more what do you mean
+89,high_099,client,I mean I don't think I would be you know drinking as much or going to parties as much if I'm studying for school or in college or trying to get it off things like that
+90,high_099,counsellor,okay so the alcohol is something that might make it harder to reach your goals
+91,high_099,client,yeah definitely
+92,high_099,counsellor,so when you're sort of looking ahead how often do you think you might be drinking say when you get to college
+93,high_099,client,um maybe less than I am now I mean I don't drink much anyway so maybe like one drink every once in a blue moon
+94,high_099,counsellor,okay so you sort of have a plan to cut back on your drinking eventually how might that go
+95,high_099,client,well I mean I guess right now I would try to stop in highschool and once I get older maybe just like socially once in a while but not anything bigger
+96,high_099,counsellor,yeah you don't feel the need to make any major changes but you feel like you could make some adjustments that doesn't get ya that's a good word okay how important is it to you to make some adjustments to your drinking on a scale of one to ten where one is not at all important not something you're thinking about and ten is the most important thing
+97,high_099,client,maybe of five or six and
+98,high_099,counsellor,why did you say five or six rather than like two or three
+99,high_099,client,because um it's not something I do not care about at all but it's not something that's just constantly on my mind that I want to change about myself
+100,high_099,counsellor,okay so it is something you have thought about
+101,high_099,client,yeah
+102,high_099,counsellor,yeah okay and how confident are you that you could make a change if you decide you wanted to on that same scale
+103,high_099,client,um I'm pretty confident but I can considering that I'm not really an alcohol user say I'm not really into that whole scene so it's not going to be difficult for me
+104,high_099,counsellor,so what number do you think you'd say um on the scale one through ten favorite quit or not
+105,high_099,client,yeah maybe like an eight or nine
+106,high_099,counsellor,okay and why'd you say eight or nine rather than even like five or six
+107,high_099,client,because like I said it's not a big part of my life so it's not really types of people
+108,high_099,counsellor,okay all right well kind of keeping that in mind it sounds like you do have sort of a vague plan to make some adjustments in your drinking at some point yes and it's moderately important to you it's something you would like to do because you have these big goals for yourself and you actually feel very confident that you could be successful with it what sort of goal do you think might be good to set for today
+109,high_099,client,um probably to stop maybe next party I go to not have a drink at all
+110,high_099,counsellor,okay do you feel pretty confident that you could just stop completely
+111,high_099,client,yeah I mean I can just tell my friends my friends aren't really that pressuring it's just like outside people that I don't really know that well oh so I could just tell them hey I don't feel like having a drink today
+112,high_099,counsellor,what might be some benefits of falling through with that goal
+113,high_099,client,um definitely I'll have like all my senses there and I'll be aware of everything that's going on
+114,high_099,counsellor,uh-huh anything else
+115,high_099,client,um health concerns I guess I know alcohol is bad for your health and so that would be one
+116,high_099,counsellor,okay so it's it sounds like you're actually pretty comfortable with setting a goal of not drinking any more at least at the next party and seeing how it goes yeah okay do you think it would be alright if we met again to kind of check in on how it goes and see if it's working out for you
+117,high_099,client,yeah that would be okay
+118,high_099,counsellor,alright great and then it sounds like some of the benefits you're expecting are health benefits having an easier time with achieving your academic and career goals and just sort of not having to deal with some of the consequences that your peers do right okay well very good is there anything else that you think would be important for me to know
+119,high_099,client,um how would you advise me till I get maybe my friends to stop drinking
+120,high_099,counsellor,oh that's a great question so a lot of times kids who are trying to cut back it's harder if their friends are still drinking and one of the easiest things is trying to have more activities that don't involve alcohol but of course that's harder if you're not the one planning so some of the things that can be useful if you're at a party say and there's already alcohol there and there are other kids that maybe aren't your closest friends some of the things that I would recommend since you're interested are you know carrying around a different drink that looks like it has alcohol in it so you know even carrying an empty beer bottle or beer can or you know if people are having a mixed drink just having the coke say without any all mixed into it often having anything in your hand is a good barrier for people who are trying to offer you alcohol because you already have something in it kind of prevents them from trying to stuff something else in there do you think any of those things might work for you
+121,high_099,client,yeah for sure
+122,high_099,counsellor,okay what about in terms of talking to your friends about it have you thought about how you might approach with them or is that something else you'd like some tips about about telling them about your plan too
+123,high_099,client,I need to stop drinking I was just planning on playing them that I don't really want to drink anymore that wasn't me
+124,high_099,counsellor,uh-huh no your friends would be pretty comfortable with that
+125,high_099,client,yeah I mean now it's my closest friends for sure
+126,high_099,counsellor,okay great any other concerns or questions
+127,high_099,client,anything else I go but no I think I'm okay
+128,high_099,counsellor,okay so then like I said I'll try and see if we can meet up maybe in a few weeks and see how it's going and then if things are going great then fantastic and if you run into any stumbling blocks and we can maybe problem solve together okay great that's sound okay yeah all
+129,high_117,counsellor,hi Heather thanks for coming in sure how was your trip over
+130,high_117,client,it was okay i had trouble finding the place at first
+131,high_117,counsellor,but you know first time coming here you made it
+132,high_117,client,I made it right
+133,high_117,counsellor,fantastic and it looks like you brought some paperwork with you
+134,high_117,client,and I didn't I filled out the form
+135,high_117,counsellor,thank you for all of that how was all that for you it's a lot of papers a lot to fill out
+136,high_117,client,I I wasn't sure on some of it what to put down so I'm hoping you'll help me with that
+137,high_117,counsellor,fantastic well thanks so much for going through all of that e note was a lot to ask and I'm so glad that you're here and that you made it and we can most certainly go through any of that that would be useful for you today okay and I'm wondering if maybe at first before we get started I'd like to check in with you and just see if there's any questions things that you've been thinking about or wondering about since you first heard about our program that might have brought you here might be on your mind
+138,high_117,client,um-hmm that's a good question well I not really I know a little bit about the program actually because I was a client about seven or eight years ago and didn't really things didn't turn out well so I'm interested to know how things might be different and I'm I'm just not sure I'm just not sure with my situation if you can help me out or not
+139,high_117,counsellor,sure so you're back with us again and thinking about gosh this time might be different for you and may be wondering what that might look like
+140,high_117,client,I hope so yeah yeah
+141,high_117,counsellor,anything else that might be on your mind or even thinking about or wandering about?
+142,high_117,client,well I have I don't know if I'm getting ahead of myself or not but I have a little bit of a record for some misdemeanors when I used to drink and so I'm I just really feel like I'm not good for much I don't know who would want me for it to work
+143,high_117,counsellor,so they're really wondering right now if if if work is possible for you
+144,high_117,client,yeah
+145,high_117,counsellor,do you think it is well I hope that through our work together you'll be able to decide that for yourself hmm and my hope in our process is that that we could be partners and thinking about that together and what what work might look like for you in your life and how it might fit in for you how does that sound
+146,high_117,client,okay I thought you might just tell me what to do and I had to do it I'm so this okay I'm I'm ready like I can do that
+147,high_117,counsellor,so thinking about for yourself what you know could be possible is almost a new thought for you right now
+148,high_117,client,it is usually when I'm at home I'm pretty depressed and thinking this is the rest of my life and it's not something I'm it just doesn't make me happy when I think of it like that so to think there might be alternatives or choices interesting i'm not sure what to do with that honestly
+149,high_117,counsellor,and something brought you here today it did
+150,high_117,client,yeah
+151,high_117,counsellor,what was it that made you decide even with all of that sort of thinking about at home?
+152,high_117,client,i'm not sure if this is possible or this this may not work out for me
+153,high_117,counsellor,and yet there was something that brought you here
+154,high_117,client,well I consider my chair all day and watch TV shows I get to watch the old days and its really nostalgic and I'm in my mid so I'm thinking I could be doing this for another or years is that really okay for me my son is he's an adult he still lives with me but he's he's capable taking care of himself and I just can't imagine myself sitting in this chair for the next years and just deteriorating and I don't think I would last years i think i would ask maybe eight and I'm not ready to go
+155,high_117,counsellor,so there was a moment in time when you were sitting in your chair watching your oldies that you thought is this what the rest of my life will be like em hmm will there be something you know that be something more and also you know it's part of the time it's like yeah this is it you know you made your bed be happy with it and this is this is all there is in that's it then this other part is not too sure if that's okay
+156,high_117,client,you know I'm not really sure I want to be there yeah not as comfortable but then the end then there's a third voice that says he can't do anything and so it's just like I just feel really confused and kind of tied up in knots and I thought well I'll give you our try again it can't hurt I might get mad but why not
+157,high_117,counsellor,well I'm really glad you're here William and I look forward to finding out much more about what it is that's most important to you and what you want your life to be like in it in the future and you do know what's best for yourself you have those voices that you said that tell you what you do like and what works for you and and the voice that sort of says I'm not sure that this is what's best for me you have a lot of things kind of rolling around in your
+158,high_117,client,I do it's an just spins around in there it's really really hard sometimes yeah how exhausting that must feel mmhmm yeah and confusing and aggravating and depressing and anxiety-provoking and just all of that honestly it was kind of hard to come in here because I just like I'm feeling kind of hopeless about the whole situation so um but I like I said I just thought I can't hurt and even just talking about it in this moment
+159,high_117,counsellor,I noticed that you got a little tense and sort of it's almost like those wheels are turning again just considering it as the coaches are tracking
+160,high_117,client,it is I just think I'm i don't know i feel kind of dumb it's just like what am i what do i think i'm doing but i'll try not to be negative i'll try to think more positive it's just kind of a habit
+161,high_117,counsellor,I guess and you have some hope for your future that things can be different for you.
+162,high_117,client,I hope so. I'm sure what that looks like yet.
+163,high_117,counsellor,Don't know what it looks like.
+164,high_117,client,yeah
+165,high_117,counsellor,so what do you think if the two of us together um could potentially start exploring that journey a little bit some of the things you mentioned just in our brief interaction right now have been that you that you have a son that lives with you that is really doing okay and so you're able to start thinking about yourself in your life and that maybe you're a little concerned about what the future might bring and what some of the things in your life that you're dealing with your criminal history for instance might potentially get in your way and how could you how could you get around that what life could you have for yourself at home it's more than sitting in that easy chair watching your oldies mhm so if we may be delved into a bit more of that sort of what you're thinking about working how does
+166,high_117,client,that sound sounds really good I I haven't worked for years and or maybe eight but it's been a long time and things have changed so much I just know it won't be easy but I'm ready for that you seem like a pretty nice person to talk to so I'll give it a try
+167,high_117,counsellor,you're ready to at least explore it huh so um would this be a good time for me to share a little bit maybe about how our program might have changed from the last time
+168,high_117,client,sure I'd yes please
+169,high_117,counsellor,so how I see things is that I sort of feel like maybe a guide or a partner with you in your journey towards work in thinking about work from where you are now maybe feeling a little bit confused or not sure about what the future may bring and then to bringing you forward to however that looks for you in your life and hopefully to that place where you really want to be where you're doing something that that fits for you and feels good and that we it as a program have some resources that we could potentially utilize together our first step would be of course today to take your application for services and then after that I would be able to look at whether or not you're eligible to work together on this journey and if so we would be able to figure that out together what that path looks like so how does that sound to you?
+170,high_117,client,it sounds pretty good I'm how long does this take
+171,high_117,counsellor,that's a great question so you really you really want to know what the path forward might look like
+172,high_117,client,yeah what to expect
+173,high_117,counsellor,what to expect
+174,high_117,client,yeah I really like to know what to expect that's important to me and everyone's journey is different working
+175,high_117,counsellor,oh you and I together can potentially plan that mm-hmm we can talk about there are certainly certain time frames in our program around eligibility our first step is the application and then we have some time frames and together our hope is that we can even improve on those time frame um so I guess it's kind of a wait and see well know when it happens how long it takes absolutely but the first step is just to get started and how about if we along the way maybe kind of check in with each other around expectations and time frames would that be useful?
+176,high_117,client,hmm mm-hmm thanks
+177,high_117,counsellor,yeah yeah totally so if you'd like to get started would you mind if I take a look at your application paperwork and just make sure that there isn't anything that I may have a question about
+178,high_117,client,okay thank you very much for bringing fun like I said I
+179,high_121,client,Hi.
+180,high_121,counsellor,I'm one of the advocates here at the center.
+181,high_121,client,Nice to meet you.
+182,high_121,counsellor,And how are you? How are you today?
+183,high_121,client,"I'm fine. Thanks. Well, strange, feeling strange for this but okay."
+184,high_121,counsellor,Yeah it's something really different for you?
+185,high_121,client,"Mm-mm. I have, I have not done this before."
+186,high_121,counsellor,Well why don't you tell me a little bit about what brings you here today.
+187,high_121,client,"I'm not even sure. I heard, about this place and that you work with women who are, having trouble with their relationship and are confused and so, I thought I'd give you guys a call. And so, I'm, thank you so much for taking the time to see me."
+188,high_121,counsellor,"Yeah. So you're, you've heard a little bit about the program here. Would it help if I just explained a little bit about what, what my role might be today?"
+189,high_121,client,Yeah.
+190,high_121,counsellor,Yeah.
+191,high_121,client,Yeah. Cuz I don't know what to do.
+192,high_121,counsellor,"Yeah. What I want to reassure you of is that I'm not here to try and tell you anything that you might need to do or to try and give you advice or any information at all. I'm here to help you in whatever way is useful to you. Just sorta sort out what's going on and what if anything you'd like to do differently. So, this is really up to you. What you would like to explore today. How does that sound?"
+193,high_121,client,That sounds really hard because I'm not sure I'm very good at sorting things out myself.
+194,high_121,counsellor,"Yeah, so right now you're feeling a little overwhelmed with everything that's going on and you're not even sure where to start."
+195,high_121,client,"Yeah, that's a good way to put it. I'm kind of confused about what to do next. I have a little baby at home, so I don't, I can't think, anyway most of the time."
+196,high_121,counsellor,"Yeah. So now anything, any kind of decisions you make or anything that you do, effects both you and the, and the baby."
+197,high_121,client,"Huh, uh-huh. And, and my, boyfriend. It, it affects him. Which is why I guess I'm here, is to talking about him and me and the baby and how we work together."
+198,high_121,counsellor,"Yeah. Well, if you're interested or you're willing, why don't you tell me a little bit about your story?"
+199,high_121,client,"I don't know where to start. He and I had been together for about a year. And I got pregnant right away and we, just had this baby a little while ago. And, and before that I was working and, he and I, you know, we're on and off here and there. We, we get in fights and he disappears for a while and then he comes back. That's kind of what the years look like. And I've just been getting more and more confused on what to do, and recently I did something really that didn't even look like him. He looked like a different person, and it freaked me out. And it freaked the baby out. And, quite honestly, it freaked him out, too. He didn't, he said he, he didn't know what happened and he felt he said he felt out of control."
+200,high_121,counsellor,"So the, in the history of the relationship over this year, it's kind of been in and out in a way. And that there have been some incidents where you've had some arguments and separated for awhile and gotten back together."
+201,high_121,client,Uh-huh.
+202,high_121,counsellor,It does sound like something pretty significant happened that sort of freaked everybody out.
+203,high_121,client,Mm-hm.
+204,high_121,counsellor,"And all, all of you. The baby and you and him and, and was kinda scary."
+205,high_121,client,"Mm-hm. Mm-hm. Yeah. He, he came home. I was, a friend had come over, a, a man friend. He doesn't like me to have men friends. He came over to help me with my resume. Cuz I'm starting to think about going back to work. And he had a weird look in his eye and so I kind of, you know, sped up and I kind of let my friend leave but soon as, right after he left, he he kinda just got this dark, scary look and he pushed me onto the ground and and it was just different than anything that ever has happened to me or to us together and. It, he just got this weird kinda like he was possessed by something and he said he didn't, he would never do that again. He is such, he is a really good daddy and he really helps us out a lot."
+206,high_121,counsellor,"So in a way it doesn't, it didn't even really make sense to you or to him, because on the one hand he's really good, good with you, and good with the father, I mean good with your child, and on the other hand it was like what is this? Something really different."
+207,high_121,client,"Mm-hm, mm-hm, yeah and he's, he's he really helps us out. And I didn't know what to, to do with that. So that's why, that's, I guess that feeling that I have had since that happened has prompted me to call somebody to figure out what to do."
+208,high_121,counsellor,"What, what are your thoughts right now about some of the options out there for you to do, if, if anything? What are, what are you thinking about?"
+209,high_121,client,"I haven't talked to anybody for a year, really."
+210,high_121,counsellor,You've gotten pretty isolated.
+211,high_121,client,"Yeah. Yeah, I haven't. My parents live pretty far away, and, I guess he's kind of, my boyfriend's kind of I guess the word's jealous. He just really cares about us."
+212,high_121,counsellor,Yeah.
+213,high_121,client,"And so I haven't had a chance to really talk to people about what some ideas would be that wha, what could I do? I used to work, and I was kind of looking forward to working again. He's he's sorta made it clear that, that I don't need to work because he's gonna take care of us. He brings home diapers."
+214,high_121,counsellor,Mm-hm.
+215,high_121,client,"And gives us some money when he's around. And so, we really don't need it most of the time."
+216,high_121,counsellor,"Mm-hm. So you had been kinda thinking about maybe going back to work and doing, doing some of that on your, on your own. And, and yet he, he doesn't really, he's expressing that he'd like to be able to take care of you and-"
+217,high_121,client,Yeah.
+218,high_121,counsellor,"And when he's there he, he does take care of you?"
+219,high_121,client,"Yeah, yeah. And yeah he does take care of us. He's a, he's he makes sure that I have enough money for, you know, for the basic needs in the house, and he pays the rent, and you know, but when I, when he's gone and I run out of money, it just kind of, that's when I think, God I just wish I could take, do a little bit by myself, I'm just not sure."
+220,high_121,counsellor,"Yeah, yeah."
+221,high_121,client,How to go about doing that.
+222,high_121,counsellor,"Yeah, because that leaves you in a real bind, when you're, you're there and you don't have what you need."
+223,high_121,client,"Mm-hm, mm-hm, and I, yeah, and I don't know who to talk to about that."
+224,high_121,counsellor,Yeah.
+225,high_121,client,"I try to call him sometimes, and make up. You know, and say sorry for the fight that we had. And sometimes that works and sometimes it doesn't."
+226,high_121,counsellor,"Yeah. So you kind of find yourself when you're in that bind trying to find ways of, of getting, getting what you need met, and, yeah."
+227,high_121,client,"Mm-hm, mm-hm, mm-hm. Yeah. So I don't know to do this. I mean I don't know what to do next. I'm not very good at it."
+228,high_121,counsellor,"I just wanna say we, we can go over some things that are potential to talk about to really focus on that might help you. But I just want to let you know that this is, I really appreciate, how hard this is to be able to talk about it and it's, it's not an easy situation and you're definitely not alone and I really appreciate your willingness to talk about it."
+229,high_121,client,Thanks. It's really hard to.
+230,high_121,counsellor,"Yeah. I know. There are lots of different things that we can talk about that are, that, that many women in very similar situations find themselves. And things that we can talk about and focus our conversation on that might help you just sort of sort out and figure out what, if anything, that you want to do differently or how to, what your next step might be."
+231,high_121,client,Okay.
+232,high_121,counsellor,"And, and, some of those that we work with are like talking about the relationship. You've mentioned a few things about your, your relationship and how it kind of goes in and out and it's, can be really good and then he can be gone for a while, and just sort of sorting some of that out about where you are with that. We can certainly talk about resources, about the resources in the community that may be there for you or in terms of your own understanding, but also if you are in need of additional help we can talk about those."
+233,high_121,client,Oh.
+234,high_121,counsellor,"We can talk about safety planning, I mean one of the, one of the important things is to try and help you find a way to make sure that you feel good about keeping yourself and, and your baby safe. And we can talk about that. We can talk about finances. You mentioned you were thinking about going back to work but that you were relying on him right now."
+235,high_121,client,Mm-hm.
+236,high_121,counsellor,"We can certainly explore that a little bit more. Taking care of yourself, which-"
+237,high_121,client,Yeah right.
+238,high_121,counsellor,"Yeah, yeah. For many, many new, new moms, that's hard under any circumstances, to find a way to take care of themselves and keep themselves healthy. So that's certainly something we can talk about. And also, just the whole issue about taking care of your child, and, and your, your mothering, your parenting. How you might, how you might, focus on that and, in this situation."
+239,high_121,client,Mm-hm.
+240,high_121,counsellor,Or there might be something else that you feel is really important to deal with right up front just to start with.
+241,high_121,client,Mm-hm.
+242,high_121,counsellor,What do you think?
+243,high_121,client,"Well, it, it's it's funny, as you're showing me this, I, I've been thinking that all I've been doing is focusing on the baby, and being a good mom, and and, and yet, I'm also trying to think about getting a job, and I don't know how those two, fit together. And even as I'm just saying that out loud, I'm not even talking about taking care of him, which is weird that I'm not even. When I look at this, these circles I, I'm looking at mothering and children and finances and that seems to be important, yet I'm spend, I spend so much time thinking about him all the time. And right now I'm not."
+244,high_121,counsellor,"Mm-hm. So maybe y, y, you spend a lot of time already thinking about your relationship and really struggling with w, w, what it, where, what it means and where it is."
+245,high_121,client,Mm-hm.
+246,high_121,counsellor,"And now you are kinda think well maybe I oughta think about some other things and see where I might go with those. These things, if, if, a job and taking, learning how to be a better mother and might be might help the relationship so that might be. So it might be a way of focusing on how, how you might be able to take care of yourself. Get, get a job or look at the possibility of doing that, and the same time trying to incorporate your, taking care of your child. Tho, those things might help you and might free you up to figure out then what to do about the relationship. What to do about the relationship."
+247,high_121,client,"Yeah, what to do about the relationship. I'm not sure what to do with the relationship."
+248,high_121,counsellor,"Mm-hm. And, you know, you, you're the only one that, that really will know about that. About the dealing with the relationship. About what, when the timing is right for any decision that you make, one way or the other."
+249,high_121,client,I don't even know what to think about that. I don't know how to.
+250,high_121,counsellor,Yeah.
+251,high_121,client,I don't feel like I can make any decisions.
+252,high_121,counsellor,"Yeah. Well, and it sounds like you'd like to think about making some decisions in other areas and, and, when you think about. Was that, was that right? Would you like to focus a little bit on just the possibility of getting a job. Is that something you'd like to talk about?"
+253,high_121,client,Yeah. And how to balance that with being a mom at the same time cuz that sounds really hard.
+254,high_121,counsellor,"Well, you mentioned earlier that you had kind of been thinking about going back to work-"
+255,high_121,client,Mm-hm.
+256,high_121,counsellor,"When, after the baby was born. What, what thoughts do you have about how you might go about balancing that and, and, and thinking about, thinking about that? What have you thought about?"
+257,high_121,client,"Well, I guess I think initially that I would need his help more. He would need to help take care of the baby. He didn't do that now, so I don't know, and it'd be kind of scary, that, I don't know what that would look like. So I would have to find some other help to get, to be able to go to work, even just part time."
+258,high_121,counsellor,Mm-hm.
+259,high_121,client,"So, I've got to get some child care or something."
+260,high_121,counsellor,"Yeah. So you might have to explore some other options for the child care and, and other ways of taking care of the, the baby so that you would be still okay about going back to work."
+261,high_121,client,Yeah.
+262,high_121,counsellor,Yeah.
+263,high_121,client,Yeah. Somebody I trusted.
+264,high_121,counsellor,"Yeah, yeah."
+265,high_121,client,"And I'd have to figure out, just the timing of that and a job that would fit a schedule where I could still, breastfeed and help her with her naps and make sure that I'm there for bedtime and all those important times. But make enough money that it was worthwhile to do it."
+266,high_121,counsellor,"To, yeah, to be out and working and paying somebody. That sounds like a lot."
+267,high_121,client,Yeah.
+268,high_121,counsellor,"It really does sound, though, like you, you're really deeply committed to taking care of your child and providing the kind of structure and, and, and things, the basic needs, and really taking care of your child at the same time."
+269,high_121,client,Mm-hm.
+270,high_121,counsellor,"Yeah, yeah."
+271,high_121,client,It's very important to me.
+272,high_121,counsellor,Yeah.
+273,high_121,client,"I didn't think I was, I wanted to have children and then we did so I would like him to be a daddy in that, wow, just realized I was thinking about him not being around as a daddy and I'm not really sure what to do with that."
+274,high_121,counsellor,Yeah.
+275,high_121,client,"But the babe, the baby is the most important thing right. I didn't realize that, I'd spend so much time thinking about him all the time. And when is he gonna be back and does he love us and why the heck did he do that, that weird thing and why does he care about these other things that he cares about."
+276,high_121,counsellor,Being jealous and not wanting you to have friends.
+277,high_121,client,"Yeah, why does he. And it has nothing to do with what I'm thinking about now, which is the baby and, huh."
+278,high_121,counsellor,"But it's, you've mentioned that a couple times now that it's, that it sort of surprises you. The way you're thinking about it and the way you're approaching it. Like, you, you're recognizing or seeing that you have spent a lot of time really agonizing over, over the relationship and, and why things are happening in the relationship, or what it really means. You've spent a lot of time there. That kinda surprises you that you might be thinking about it differently."
+279,high_121,client,"Mm-hm, agonizing. I guess that's what I've been doing. I feel like I've just been hoping and wishing and it seems like all my focus is always. So, when the baby's crying, I'm, I'm worrying about him, and, and and I so the baby crying is, is just, it's hard. But but if, just now talking about it, letting go of worrying about it feels kind of freeing. That I could actually think about why the baby is crying, as opposed to why is why is he not returning my calls or why did he give me that look when I, you know, talked about getting a job and things like that. It's not, so. Interesting."
+280,high_121,counsellor,"So, you're realizing too, how much it really takes to focus attention on the baby and to be able to do it and it's like I, I, I it's hard to do both."
+281,high_121,client,Mm-hm.
+282,high_121,counsellor,It's hard to really think about doing both.
+283,high_121,client,I need his help with that.
+284,high_121,counsellor,Yeah.
+285,high_121,client,I don't need to be worrying about him too. I don't understand what safety planning means.
+286,high_121,counsellor,"Well, one of the things that we, we look at is trying to help people who are in, in a situation similar to you. Where, where there might be some, where there might be some fear about something that could, that might happen, or you know. And I know you said he, he, he had indicated that he wouldn't do it again. But sometimes it really helps people to feel, to have some plans in place for what you would do if anything came up and how to get you and your baby safe if that's what needs to happen. So if he kinda got that weird look in his eye again which, actually, I've seen before, but he just never really did anything like this before."
+287,high_121,client,Mm-hm. It just went farther this time.
+288,high_121,counsellor,"Yeah, okay so like if I recognize, if I saw that look, what to do? Is that?"
+289,high_121,client,"Yeah,"
+290,high_121,counsellor,"yeah and, and, and sometimes that ties in with, you know there might be places that you can go to, to get safe. There might be steps that you can take to, to really keep yourself safe. Or make sure that the baby's safe. Or people to call, or thing, just things that you can do based on what your life is like and what you, what resources you have available to you."
+291,high_121,client,Mm-hm.
+292,high_121,counsellor,Is that something you're interested in really exploring?
+293,high_121,client,"Sounds kinda freaky to think that I would have to keep myself safe from somebody that says he loves me and, you know, loves the baby. Sounds a little strange."
+294,high_121,counsellor,Mm-hm. Some ways it just seems like it shouldn't have to be that way.
+295,high_121,client,"No, it shouldn't have to be that way. But it, I didn't expect him to do what he did either, so. That kinda came out of nowhere."
+296,high_121,counsellor,"Yeah. It really took you by surprise. It's something that you're just trying to figure out where. How does this fit and what, what does it mean?"
+297,high_121,client,Yeah.
+298,high_121,counsellor,And what do I do with it
+299,high_121,client,Yeah.
+300,high_121,counsellor,"How do I, how do I respond to this"
+301,high_121,client,Yeah.
+302,high_121,counsellor,Yeah.
+303,high_121,client,"It doesn't seem real. So I guess, thinking about, thinking about that kind of makes sense ahead of time."
+304,high_121,counsellor,"Yeah. Well, let me see if I, if I got it all, and then we can make some decisions about where to move from here or how to take the next step with that. And I wanna make sure I, I understand a little bit about your situation."
+305,high_121,client,Okay.
+306,high_121,counsellor,"And, this, first of all, this is the first time you've come in. This is the first time that you've had something that really happened, this incident that happened where he pushed you really, prompted you to, to take some steps. Because it's scared you."
+307,high_121,client,Mm hm.
+308,high_121,counsellor,"Mm-hm. You have this relationship that's been kinda off and on and but he's been very supportive and helpful in terms of giving you, meeting your basic needs and the baby's basic needs and wants to take care of you."
+309,high_121,client,Mm-hm.
+310,high_121,counsellor,"And, and there are times when it's really good. And there are times when you've been less sure. And this is, this incident has also made you kind of think about that."
+311,high_121,client,Mm-hm.
+312,high_121,counsellor,"Some of the ways that you've been thinking about or, or thinking about it now kind of surprises you. But you're looking at thinking about the possibility of maybe working it out to go back to work a little bit. So that you can have more financial independence, if you will, or be able to take care of yourself for those times when you need to."
+313,high_121,client,Mm-hm.
+314,high_121,counsellor,And you're starting to toy with the idea of maybe it might be useful to have a really good plan to keep yourself safe. Did that kind of get it all?
+315,high_121,client,"That, yeah, that kind of captures it all. I'm not yes, yeah. I don't know. I don't know where to start."
+316,high_121,counsellor,"Mm-hm, mm-hm."
+317,high_121,client,But I guess that's why I'm talking to you.
+318,high_121,counsellor,"Yeah, yeah. So, maybe we can, we can take that next step and, and and. When, when, when we get together again and we can do that. We can just take the next step and start looking at some planning for both of those, in both of those areas."
+319,high_121,client,Mm-hm.
+320,high_121,counsellor,"For keeping yourself safe. And, and for, you know, looking at the possibilities. Cuz there are options and resources out there should you choose to, to, to make the decision to go back to work."
+321,high_121,client,Mm-hm.
+322,high_121,counsellor,There are some options for you.
+323,high_121,client,"So, there's like a good, somebody can help me work on my resume or something like that?"
+324,high_121,counsellor,"Yeah, there, there are other options for, for, for a variety of things and we can make some, have some discussions about that."
+325,high_121,client,"Okay, okay."
+326,high_121,counsellor,How does that sound?
+327,high_121,client,That sounds good. That'd be nice.
+328,high_121,counsellor,"Well, I, I really appreciate again your coming in today. And we will follow up with this conversation and in you, you will have,"
+329,high_127,client,Angelina Jolie
+330,high_127,counsellor,hi Angelina how are you doing today
+331,high_127,client,I'm doing good just I'm having a hard time finding time to exercise
+332,high_127,counsellor,I see um before we talk about that I want you know that whatever we talk about today is going to be kept confidential
+333,high_127,client,yeah
+334,high_127,counsellor,so let's talk more about what brought you in today
+335,high_127,client,i have type diabetes and i know i need to exercise to help man to my diabetes but i just cannot make time for it i wish i can find ways to manage my time
+336,high_127,counsellor,mm-hmm so you wish to make time to exercise so you can manage your diabetes
+337,high_127,client,yeah
+338,high_127,counsellor,um what are the benefits of not exercising to you
+339,high_127,client,won't look and I just I don't see any benefits of not exercising
+340,high_127,counsellor,and what are the costs of not exercising
+341,high_127,client,it will make my diabetes worse to a point where I have to start taking medication I'm saying
+342,high_127,counsellor,okay so what are the costs maybe of finding time to exercise
+343,high_127,client,mm i would have to make time out of my busy schedule and cut down on things that I like doing my family's like watching soccer
+344,high_127,counsellor,I'm see okay and what are the benefits of finding time to exercise
+345,high_127,client,if I exercise little hot marriage and will keep me from taking medication and see
+346,high_127,counsellor,so let me see if I understand this correctly so you recognize that exercising is important to control your diabetes and to prevent yourself from taking medications to prevent diabetes um so you also mentioned that to exercise you have to cut down on your family time which is also valuable to you
+347,high_127,client,exactly
+348,high_127,counsellor,okay son how long will just say from now would you think that you know you take make this change
+349,high_127,client,let's say probably within a monk
+350,high_127,counsellor,okay so and how on a scale of zero to ten like how important is it for you to make this change and zero being not not not important at all and being the most important
+351,high_127,client,I would see having nine out of ten
+352,high_127,counsellor,okay and why is it nine another two or lower number
+353,high_127,client,because like I said it is really important for me to manage time to exercise so that my diabetes can be managed and controlled
+354,high_127,counsellor,and on the same scale of zero to ten how confident are you in being able to make the change
+355,high_127,client,I soon I'm probably at eight at a time
+356,high_127,counsellor,okay and so would I be correct in saying that it's very important to you so it's nine out of ten to make time to exercise to stay healthy and mainly to avoid having to take medication to manage your diabetes and your confidence level is at eight out of ten and being able to make this change
+357,high_127,client,yeah
+358,high_127,counsellor,okay so looking back is there a reason that you haven't been able to make time talk to sighs
+359,high_127,client,hmm I just have a very busy schedule with work with kids and also my wife works awesome so it's really difficult to find coming to exercise not only understand
+360,high_127,counsellor,okay so how would you like for things to change
+361,high_127,client,I would like to have more time to exercise at the same time spending time with the plan is important to me
+362,high_127,counsellor,I see so what kind of things did you do to control your diabetes in the past
+363,high_127,client,being physically active whenever possible I see
+364,high_127,counsellor,that's good can you probably give me an example like the activities you did and when was the last time
+365,high_127,client,I used to take my I used to go to the park with my kids um go play soccer with them but then these days they're on I palatal its best everyone that was about a couple of months ago I see
+366,high_127,counsellor,and how likely are you able to find time to exercise now
+367,high_127,client,I'm sure that I'll be able to make time because if I try my best because my health is important to me
+368,high_127,counsellor,mm-hmm and what makes you feel that now it was a good time to try something different
+369,high_127,client,I think it's important to make change before it's gets gets to a point I have to that we use with medication
+370,high_127,counsellor,mm-hmm so we should like to discuss some of the things you can do to make time to exercise
+371,high_127,client,I could take the stairs inside an elevator and watching the brushy brushy store
+372,high_127,counsellor,well those are some great alternatives instead of going to gym you save a lot of time so did you we want to know did you want to know more things or ways to find time to exercise
+373,high_127,client,yes I feel like that'd be really helpful
+374,high_127,counsellor,okay so since you mentioned that spending time with your family was something that you really value ah you could probably and watching software he said you could you know put a treadmill like a exercise machine near your TV Here I am so you can exercise and watch your movie or software with your family and what you can also probably plan outdoor events or outings with your family something that your kids would enjoy so that they can be off their iPads and technology
+375,high_127,client,yeah
+376,high_127,counsellor,those are something you can do maybe go jogging with your family
+377,high_127,client,yeah yeah I think those are some really doable strategy sagging contribute to my daily schedule
+378,high_127,counsellor,mm-hmm so now that we have had this conversation um how do you feel about you know making time now to exercise
+379,high_127,client,mmm now that I have different ideas on how to exercise I feel more comfortable or capable of finding time to exercise
+380,high_127,counsellor,and would you like you know other maybe more sessions to follow up
+381,high_127,client,yeah that would be really helpful
+382,high_127,counsellor,sure and when would you like that for probably
+383,high_127,client,um next month
+384,high_127,counsellor,okay sure see you next what then and I really appreciate you showing up today and making an effort to come here to discuss your condition and you know what making time to exercise for your diabetes
+385,high_127,client,thank you
+386,high_127,counsellor,thank you for your time
+387,low_001,counsellor,hi Laura so thanks for coming in I'm not sure how much you know about why you're here or what we're supposed to talk about so basically I'm going to be meeting with all the students in the school usually once or twice per semester and we're gonna talk about you know whatever's kind of going on in your life I'll ask you some questions about you know your goals and what you like to do for fun and those sorts of things and then we'll talk a little bit about you know different behaviors and and stuff like that and so it's it's pretty casual pretty informal just sort of a chance for me to get to know you
+388,low_001,client,alright
+389,low_001,counsellor,okay why don't we start by just having you tell me a little bit about yourself
+390,low_001,client,okay um my name is Laura and I'm 17 and I'm a senior in high school
+391,low_001,counsellor,okay and what do you like to do for fun
+392,low_001,client,mostly just hang out with my friends and stuff on the weekends things like that
+393,low_001,counsellor,and when you and your friends are hanging out and what do you do
+394,low_001,client,go to ball games go to party if it's school related maybe like a game or two or go to the mall like to shop or go to the movies or something and that night maybe like a party or something someone's throwing
+395,low_001,counsellor,okay and what kind of hobbies do you have
+396,low_001,client,um I like to be and I like to go outside and like take walks and like hike and stuff I'm very outdoorsy so
+397,low_001,counsellor,oh cool what are your plans for after high school
+398,low_001,client,well I plan to apply to college and maybe you know have a good career and something like that hopefully
+399,low_001,counsellor,that's great what do you think you'll study
+400,low_001,client,well I'm I'm looking at the journalism maybe pre-law
+401,low_001,counsellor,Oh neat
+402,low_001,client,which is a little different but
+403,low_001,counsellor,yeah that's great that's a really good goal
+404,low_001,client,yeah thanks
+405,low_001,counsellor,it's a hard work to get into law school are you doing school what kind of grades do you get
+406,low_001,client,I'm doing okay I'm getting mostly A's and B's so we're pretty good okay
+407,low_001,counsellor,okay what classes are you not getting A's and B's in
+408,low_001,client,um I think all my grades raisin B's
+409,low_001,counsellor,oh
+410,low_001,client,yeah
+411,low_001,counsellor,okay and do you know where you're going to apply to college
+412,low_001,client,I'm not sure yet but I'm looking into schools if like in the area so maybe I don't know maybe I only poem or something
+413,low_001,counsellor,okay cool and and what made you decide maybe law school or journalism
+414,low_001,client,um well I'm definitely not a math or science person so I started off by there that I start looking at careers that maybe I would like so
+415,low_001,counsellor,okay great sounds like you have like I said really good goals and you're working hard in school you said that when you're going out with your friends you like to hang out and shop and stuff like that and also go to parties so do you drink alcohol
+416,low_001,client,um not really maybe one or two drinks at a party at the most
+417,low_001,counsellor,okay and how often do you think you drink
+418,low_001,client,um maybe like once or twice a month at the most
+419,low_001,counsellor,mm-hmm so like once or twice a month you're having alcohol
+420,low_001,client,yeah
+421,low_001,counsellor,okay and so that's maybe like 20 times a year
+422,low_001,client,possibly yeah
+423,low_001,counsellor,so that's actually kind of a lot of drinking then
+424,low_001,client,yeah I guess you can say that
+425,low_001,counsellor,okay what do you think's the most you've ever had
+426,low_001,client,um just two drinks at a party at the most I don't I don't like to drink a lot I don't getting drunk is not something that appeals to me so I just have like a drink in my hand so my friends won't bug me about not drinking I just like to look like I'm actually doing something most a lot of time I don't even drink at all so
+427,low_001,counsellor,but you've been drunk before
+428,low_001,client,um no not really maybe tipsy but not like drunk
+429,low_001,counsellor,okay so the most you've ever ever had is two drinks in a day
+430,low_001,client,yeah
+431,low_001,counsellor,okay interesting so do you know all the bad stuff about alcohol
+432,low_001,client,um yeah yeah
+433,low_001,counsellor,okay so one of the things that you know it's really important to talk to teenagers about is drinking and driving so you know that's actually a really big problem and and even around here we have kids die every year from getting in a drunk driving accident so that's something that you really need to make sure you're not doing all right have you ever done that have you ever done
+434,low_001,client,never drunk driven and I've never got in the car with a drunk driver
+435,low_001,counsellor,okay how much do your friends drink
+436,low_001,client,um I mean I have some friends that drink someone others like my close group of friends don't really drink as much because I'm not really interested in that but I know that there are people that
+437,low_001,counsellor,okay
+438,low_001,client,drink a lot more
+439,low_001,counsellor,what about at these parties you're going to there are other kids there who are drinking a lot
+440,low_001,client,yeah there are kids that drink a lot more than I do definitely you
+441,low_001,counsellor,and do you hang out with them
+442,low_001,client,not really closely like I know who they are and I'll say hi but not they're not really that close friends of mine
+443,low_001,counsellor,mm-hmm so you know even just hanging out around kids who are drinking a lot actually puts you at a lot more risk did you know that
+444,low_001,client,um yeah that make sense
+445,low_001,counsellor,yeah so there I mean a lot of the other dangers of drinking like not just car accidents we can have other accidents you know people you know will fall or you know break things or a lot of people actually end up breaking their bones and ending up in the emergency room because they've been drunk and fallen down or you know as a girl it's really important too that you're careful because you could be sexually assaulted
+446,low_001,client,yeah
+447,low_001,counsellor,you know especially if you've been drinking then you know you're at a lot more risk because a guy can take advantage of you did have you thought about that
+448,low_001,client,yeah yeah I have that's one of the main reasons I don't like to drink that much so
+449,low_001,counsellor,and then you know people get in fights more often when they've been drinking too also you know there have been a lot of kids even at this school gotten in trouble because they were drinking and someone took pictures with their cell phone and put it up on Facebook and then their parents find out or school finds out and you know we have a no tolerance policy here about drugs and alcohol and really can get you into trouble and could put your whole college career in jeopardy have you thought about that
+450,low_001,client,yeah definitely
+451,low_001,counsellor,but you're still drinking
+452,low_001,client,yeah I mean I guess it's the thing to do at a party so
+453,low_001,counsellor,so I mean do you think it's the thing to do if you want to be an attorney
+454,low_001,client,um definitely not that's why I don't try to drink that much just make it look like I kind of
+455,low_001,counsellor,okay hmm so I mean I guess what we need to do then is kind of talk about some goals for how to be safer
+456,low_001,client,okay
+457,low_001,counsellor,um obviously you shouldn't be drinking at all um what do you think about that
+458,low_001,client,I definitely agree I know that there are some other risks involved in alcohol other than the ones you mentioned like health-wise and things like that so I agree that alcohol may not be the best thing
+459,low_001,counsellor,so do you think you can quit
+460,low_001,client,um yeah I mean it's not like a really big part of my life so
+461,low_001,counsellor,okay so I'm gonna write down then that you've decided to quit
+462,low_001,client,okay
+463,low_001,counsellor,and that's going to be your goal and that's great you know that's really why we're here is to talk about that and make sure that you come to that decision um so I guess can you quit this weekend then
+464,low_001,client,yeah yeah definitely I'll just not have a drink
+465,low_001,counsellor,okay and then what about your friends who are still drinking
+466,low_001,client,um I really can't control what they do but I'll definitely try to get my closest friends to maybe stop like I will
+467,low_001,counsellor,okay and what if they won't
+468,low_001,client,well then I guess I'll just try to hang around unless or something or try to find things for us to do that don't involve alcohol like a party anything
+469,low_001,counsellor,yeah probably if your friends won't quit drinking you should just find new friends because you know the problem is if they're drinking they're going to pressure you into drinking and then you're going to feel awkward and you know you're going to be stuck and and not know what to do and really just be better off probably without them if they're if they're the kind of people who are going to keep drinking they're probably not a good influence
+470,low_001,client,okay yeah
+471,low_001,counsellor,and then then you'll be better set for college too because you know the issue is you're getting good grades now but when you get to college it's a lot harder and you know if you're needing really good grades to get into law school which you will need then you really can't be distracted by alcohol
+472,low_001,client,okay yeah definitely
+473,low_001,counsellor,okay so um that's great because it pretty much covers all the stuff that I think I needed to go over with you um let's see I guess we didn't talk about what would happen if your parents found out you were drinking
+474,low_001,client,they would be pretty upset yeah they don't really condone alcohol use
+475,low_001,counsellor,oh okay so yeah just another reason why you probably need to just quit then
+476,low_001,client,um okay yeah
+477,low_001,counsellor,okay so like I said I'm gonna write down here that you've decided to quit and you know I'm gonna be meeting with you again probably next semester sometime so we can kind of check in and make sure that you know that's still going well and you're still not drinking and not hanging out with any people who are drinking is there anything else you'd like to talk about while you're here
+478,low_001,client,no I think I'm good
+479,low_001,counsellor,okay um any questions or
+480,low_001,client,no no
+481,low_001,counsellor,okay you're sure okay all right um well that's probably it then you can head back to class and and thanks for coming in
+482,low_001,client,okay thanks
+483,low_026,client,and his wife has told him that if he doesn't quit drinking she's gonna leave and so he's totally the expert helping with this issue and so
+484,low_026,counsellor,supposedly is exactly the word supposedly is the key word yes okay
+485,low_026,client,so we're talking with maybe 5% or Oh net or gross five percent gross
+486,low_026,counsellor,let's see how much we make within the video let's leave let's leave let's see what you got we move on audition here we'll see really um really it comes down to how good you make me look
+487,low_026,client,okay
+488,low_026,counsellor,so
+489,low_026,client,alright
+490,low_026,counsellor,let's see about that there's a whole different motivation here a little bit my cessation here's what even agent yeah yeah I'm yeah maybe you guys can talk okay um I think I'm actually going to go ahead and just do it let's see okay so um and in his name
+491,low_026,client,um Dennis
+492,low_026,counsellor,Dennis okay alright and just so just substance abuse treatment counseling who knows exactly why he's here so
+493,low_026,client,yeah alright
+494,low_026,counsellor,so Dennis
+495,low_026,client,hey hey good good
+496,low_026,counsellor,alright well um so I got a little bit of information as to why you're here but but maybe you can go ahead and just tell me
+497,low_026,client,yeah well my wife basically just said if I don't get um final stop drinking then she's leaving
+498,low_026,counsellor,Wow okay so she's doing pretty tough stance on it
+499,low_026,client,yeah yeah she said you know she's told me for a long time that she doesn't like it and our kids have said they don't like it she's never she's kind of threatened it but I think she needs it this time I don't
+500,low_026,counsellor,okay all right so pretty important to you I mean she's taking the stance on it your kids have said similar things
+501,low_026,client,yeah
+502,low_026,counsellor,and now you're here I mean it's gotten point that you've you agreed to go ahead and go into treatment she's saying not just get treatment she's saying quit I mean Jesus she's being pretty
+503,low_026,client,yeah she just wants me to stop pretty
+504,low_026,counsellor,out of about it okay so what do you think
+505,low_026,client,well I'm thinking that I've worked hard my whole life and I should be able to to drink if I want but you know I don't you know I never been arrested you know I've got I've done really good with the money that we have you know we live a pretty good life she gets to do what you wanted I get to do what I want and this is just something that I want to do so you know I and it's been that that you know I've been drinking since I think we met
+506,low_026,counsellor,yeah
+507,low_026,client,we can vary it a long time
+508,low_026,counsellor,oh
+509,low_026,client,so I don't know what I I'm kind of like I know what the big deal is really and
+510,low_026,counsellor,all right
+511,low_026,client,I don't want to quit
+512,low_026,counsellor,what's always you feel you know I mean it's like you know you work you're responsible you do what you think is expected of you and so it kind of feels a little unfair to you know you're a man you're a head of the household you know you're doing your duty and it feels a little unfair to have people trying to dictate your behavior and telling if you've got to give this up
+513,low_026,client,yeah I don't like it people tell me what to do
+514,low_026,counsellor,yeah no no
+515,low_026,client,usually I just usually if someone tells me what to do like tell him to back off
+516,low_026,counsellor,wouldn't know what to do
+517,low_026,client,and so but she's serious it's time so I don't know what to do so
+518,low_026,counsellor,all right all right well so I guess that's kind of the that's the dilemma I guess you know on the one hand she's uh she's very out of it she's very concerned and is making her expectation very clear on the other hands you know you're being asked to give up something that you don't particularly want to give up um what do you think what do you think she's what you put why do you think she's so concerned
+519,low_026,client,well she says she's worried about my health you know cuz I have high blood pressure you know worried about because my dad died of a heart attack at a really early age so she's afraid I'm just gonna I'm just gonna drop dead you know I outlive my dad by so many years and I you know and again it's my life
+520,low_026,counsellor,yeah
+521,low_026,client,so
+522,low_026,counsellor,yeah yeah certainly it's you know people can tell you what they want
+523,low_026,client,right
+524,low_026,counsellor,you know and but all ultimately it's up to your choice what you're gonna do so you know she she can threaten you and she can she can tell you that you know if you don't do this she can you know she's gonna leave and she can leave you know it sounds like you really don't really don't want that but but you know everybody's got their choices to make in this situation okay so she's concerned about your health and has pointed out that you have a you know your father so he drank and that's but
+525,low_026,client,I was really little
+526,low_026,counsellor,okay
+527,low_026,client,when when he died so I don't know
+528,low_026,counsellor,so you're not sure if that
+529,low_026,client,we died of heart attack
+530,low_026,counsellor,okay
+531,low_026,client,you know
+532,low_026,counsellor,so you're not sure if that played a role in his heart attack or not
+533,low_026,client,I probably did probably crank song but
+534,low_026,counsellor,so you're not sure about how well you know he died did it earlier and she points that out as evidence that like you've got media genetic predisposition to having health related problems associated with drinking
+535,low_026,client,yeah the doctors have said I should quit drinking the doc or they know
+536,low_026,counsellor,okay you're not convinced
+537,low_026,client,but with the doc don't exactly that 20 years ago I need to quit drinking and
+538,low_026,counsellor,okay so it almost seems like evidence to the opposite they told you to quit drinking 20 years ago and here you are it's still alive then
+539,low_026,client,I pretty much do whatever I want when I
+540,low_026,counsellor,yeah
+541,low_026,client,you know
+542,low_026,counsellor,surely
+543,low_026,client,no life because the way it's been I've given everybody wrong
+544,low_026,counsellor,yeah
+545,low_026,client,of everybody
+546,low_026,counsellor,okay
+547,low_026,client,so else you can say the live
+548,low_026,counsellor,yeah
+549,low_026,client,you can say that
+550,low_026,counsellor,okay max
+551,low_026,client,I'll work my way up I'm working my way up and once really high up my confident for a retiree
+552,low_026,counsellor,okay huh
+553,low_026,client,you've always thought I would do it
+554,low_026,counsellor,so it's kind of you know the state you know you have this determination you're the kind of person that you know you you do what you trust your gut and you do what you think you should do and you know you work real really hard and you and you've had a lot of success in your life
+555,low_026,client,is right
+556,low_026,counsellor,it seems like in your in your job and and and with your family the fact that you're a married man with kids and you know you've raised them up and you know I think there's no denying that you had a lot of success in real life in it and and you know and you know better than anyone how hard you had to work could she be back so um and
+557,low_026,client,she doesn't get she doesn't she wasn't I don't think she recognized how hard I worked for it to have what we have
+558,low_026,counsellor,okay
+559,low_026,client,you know and I wish she just let me live the life I've always wanted to live you know and then part of its drinking I like drinking so
+560,low_026,counsellor,okay okay all right so she's got all these concerns about it how do you and you mentioned your kids have some concerns - they talk about it I mean what is your sense of and it sounds like so far you feel like well I've beaten the odds and I'm this kind of guy like I'm always a kind of guy that sort of pushes the envelope and you know has proven a lot of people wrong over the years and so you're very skeptical when anyone tells you that drinking is going to kill you like
+561,low_026,client,yeah is it
+562,low_026,counsellor,it's almost like if somebody tells you that you're gonna say you know you're not gonna believe that I mean you just don't believe that's the truth
+563,low_026,client,well I would yeah because it might kill other people but I'm not going to let kill me
+564,low_026,counsellor,okay okay all right so what so what if anything in what they're telling you do you believe it turns out like a possible negative effects that I may have obviously it has not killed you you're standing here right now
+565,low_026,client,yeah
+566,low_026,counsellor,okay so as it killed you but do you think but have you seen any do you think there's anything to anything any validity to what your wife is saying your kids and the doctors with regards to having a negative effect on your health or otherwise I mean just just very honestly if you sit there and you look back and kind of go well and is there anything that you think that is going on that that it's valid right now
+567,low_026,client,if I if I tell you what I'm really thinking are you tell my wife but
+568,low_026,counsellor,no no I mean confidentiality is such that no I want you to know I'd never feel comfortable talking
+569,low_026,client,I do not assess us but you know I think you you I think you kind of get me kind understanding so I really you know my um my son's in AAA
+570,low_026,counsellor,okay
+571,low_026,client,and and you know when he went into his treat treatment and he really was hard on me like he said that he blamed me for him you know get you know going down that path and and and I really felt like maybe I could have done more he and i were really close now we're not as close because he I can tell you this doesn't like to be around me as I drink and my daughter is she sent me a letter a while ago saying that she loved me and that she didn't want me to die and wanted my kids to be around her but her kids to be around me but she um she didn't want him around as much because cuz she didn't like it when I'm drinking so well so yeah I've had I've had those couple things that that maybe go maybe maybe that maybe I need to rethink this yeah and then I'm always one way and that's really like I still want to lose her I just don't
+572,low_026,counsellor,well you know gosh I really appreciate the Jew did you feel comfortable sharing with me to know who those things with me and and I can see that you know this has been very painful and I just I can't commend you enough for being willing to put yourself out there and come in and trust this process it's not easy to do so I really appreciate the fact that you've done that
+573,low_026,client,thank thanks for talking again together I'll be hopping your straight shooter I really appreciate that
+574,low_026,counsellor,alright okay thank you very much
+575,low_026,client,thanks
+576,low_031,counsellor,I you know you don't have to sign up if you don't want to but you know I'm kind of here to like fix things for you and just make sure everything goes no real smoothly with the different issues that you've been having and just kind of oh you know kind of manage things and just take care of stuff so you know it's again if you want the service you can have it but it's kind of up to you but I am here if you want me to be and you know I'll couldn't kind of teach you about things you might not know about or tell you some things about your house and you know just Marlys make sure everything goes okay so you know you think that might be something you'd be interested in wanting to be a part of because I'd you know really like to help you
+577,low_031,client,okay well sure when you put it that way sure
+578,low_031,counsellor,because it seems like I you know you've expressed some health issues lately and I know you've had a lot of problems with your weight so that's certainly something we can talk about and I know a lot about you know weight loss and have helped a lot of people with you know managing their weight and figuring out what they need to do so you know what are your main problems about your weight I mean why is it a problem for you
+579,low_031,client,um I eat too much
+580,low_031,counsellor,you eat too much
+581,low_031,client,yeah
+582,low_031,counsellor,so why do you eat too much I mean how is that a problem
+583,low_031,client,because whenever I'm stressed out about anything it makes me feel relaxed and calm
+584,low_031,counsellor,so you like it you just like eating food so you just kind of eat more than you know you should be eating yes like do you know about portion control has anyone told you about like you know a card size for a piece of meat or some salad I mean have you has anyone showed you that cuz I can pull out our
+585,low_031,client,yeah yeah
+586,low_031,counsellor,samples and give you those that I could probably tell you about it
+587,low_031,client,you could tell me about it
+588,low_031,counsellor,I mean about what you should be eating for yeah meat size and like you know baseball size for fruit so it's not that you don't know about it you you you do know about poor lighting control
+589,low_031,client,yeah
+590,low_031,counsellor,so if you know how much you should be eating and then how is it a means you know how much you should be eating then how do you stop
+591,low_031,client,well I guess you told me that you know a lot and you can fix my problem so that that's interesting I'm that's one of the reasons why I decided to participate so I was wondering if you could tell me
+592,low_031,counsellor,well that's great I could do about this yeah because you know there's there's just so many different things when it comes to like weight loss you know and really being able to have some self-control I mean that's a really really important factor this is really being able to have some self-control and you know I found a lot of people just really need to increase their fruits and their vegetables and just not eat any processed foods and you know not eat any anything that might be kind of junk but then you know not not cheat either I mean you want to be able let yourself have some ice cream or some things that you might really like from time to time because you know you don't want to completely not let yourself have good stuff either so
+593,low_031,client,It sounds though that you're seeing some opposite things because when one moment you're saying not have any don't have any junk but then allow yourself ice cream once in a while. So that would make it really confusing for me.
+594,low_031,counsellor,oh I see well you know obviously you want to make sure you're not eating you know junk food all day long but on the other hand you want to make sure that you give yourself some opportunities to have that bite of brownie or cake or you know I for myself personally I really love like lemon meringue pie so I always have to you know save that little piece for myself in the fridge to make sure I have my little bite of lemon meringue pie and then I can feel good about you know where I where I was eating good the rest of the day then I could still have my lemon meringue pie so something like that might kind of work better you know for you to really take a look at your portion sizes and then you know making sure you get out there and exercising me if you're not exercising that's certainly not going to help you with being able to get off the weight either so that's that's critical how are you doing on weight loss as far as exercising
+595,low_031,client,oh I haven't been exercising lately
+596,low_031,counsellor,oh so see that's really key right that's a really key portion to it so it sounds like when we talk next time if you kind of kind of give me an idea maybe keep a journal for a week and tell me what you've been eating and we can really look at you know what good things that I can tell you what things you shouldn't be eating out of that plan and then I really think it'd be important if you just start maybe even just start walking three times a week if you could just start that really slowly and then you Muenster now we can kind of see if that's helped some and we can talk about the items you've had on your journal and we can go from there and all kind of direct you from there what you shouldn't be eating how does that sound
+597,low_031,client,well what does walking three times a week like for how long really like you know
+598,low_031,counsellor,sure whatever whatever is comfortable for you so you know start out small so that you can feel really good about having some success and doing some exercise so you know if you feel tired at ten fifteen minutes really just kind of paste it along for yourself and feel what's right so that you can feel like you're getting out there and getting moving because it's all about taking a small step and you know at least getting active
+599,low_031,client,okay
+600,low_031,counsellor,and then I think the flute journal would be really important because then we'll really have a better idea what you what you truly are eating and how many calories and then we can go from there and deciding you know how many calories you really should be eating in your diet and that way you can do a better job of monitoring it
+601,low_031,client,okay
+602,low_031,counsellor,so how about we meet back and say three to four weeks and we can kind of see how that journal is going so
+603,low_031,client,that seems like a long time I mean I think in three to four weeks a lot of things can happen and I think these things
+604,low_031,counsellor,yeah if you have any problems along the way before then feel free to give me a call I'm always available so if there is something that you find that's just not working just give me a call we can kind of discuss it but then we can meet in person because we really should probably have about a month of your journal you know kind of down but if there's something that comes up I mean by all means just give me a call there's my extension so you'll call me if you you know
+605,low_031,client,my weights been coming up so I think things will come up in a month
+606,low_031,counsellor,yeah well I I would hope that with some you know with some exercise and with starting to be more aware by writing down what you eat you may find it as you have to write it down that you may find that you will avoid eating certain things because you don't want to you know as you write it down it may make you feel like well now I'm not so sure I should eat this like if you're gonna eat a whole container of ice cream you know you might not want to have to write that down so you may just limit yourself to a scoop or two of ice cream so there is some kind of pieces that help with having to write things down and I think we're just gonna take it step by step but again there's my phone and my extension so I'm here if you need me
+607,low_031,client,okay
+608,low_031,counsellor,so let's just continue on our conversation that's so Tonya I'm really glad you were able to kind of come in and just talk with me for a couple minutes as I explained kind of briefly on the phone as part of your insurance benefit I'm available for you as your own personal coach you know I am a nurse but I have a lot of background in wellness so I've been really here to help guide people and kind of as a case manager I'm able to help you there help empower you don't kind of work towards your goals of what you're trying to work on with your health and I know you would express on the phone a little bit but I would love it if you tell me some more about you know what is one of maybe the main things you've been thinking about in relation to your health right now
+609,low_031,client,okay well basically I feel like if I don't if I don't stay on certain habits and routines then everything just kind of goes kaput
+610,low_031,counsellor,so the structure is really important to you in your life in order to manage your house
+611,low_031,client,yeah I realize there's certain things I have to do in order to stay on on track yeah or else everything just kind of then I start noticing that I get into this whole this whole myriad of unhealthy unhealthy things I feel yucky basically
+612,low_031,counsellor,so it almost sounds like a house of cards if one kind of shifts away from from that
+613,low_031,client,hmm
+614,low_031,counsellor,they just kind of all fall down very quickly and then you start to not feel good about yourself or you don't start to feel good in general physically
+615,low_031,client,yeah I don't start field of it in general physically and then I you know I I yeah I can feel a change in my body and I just feel yucky because I'm then I end up not doing anything really
+616,low_031,counsellor,oh okay so because you start feeling poorly or you started feeling badly then you just kind of say well whatever or
+617,low_031,client,yeah yeah it's kind of I move on and good habit reinforces on the so they build upon each other and it's sort of like if I don't have that collection of good habits then yeah I start to feel it because I'm not exercising and then I start to feel you know the fat come on and yeah
+618,low_031,counsellor,for you it feels like this whole kind of circle of things almost the quickl you're not doing what you need to be doing then you start to feel a weight difference in your weight
+619,low_031,client,yeah
+620,low_031,counsellor,so it just kind of builds on itself
+621,low_031,client,yeah
+622,low_031,counsellor,so what do you see is the key goal that you're trying to focus on right now or maybe a group of goals what are what are your key things that you are wanting to have happen
+623,low_031,client,well I think just doing those things that do make me feel good you know
+624,low_031,counsellor,tell me a little bit about those
+625,low_031,client,drinking water eating a certain amount of fruits and vegetables per day giving a certain amount of activity in per day and I was just thinking lately what's important to me is having one kind of thing that I do around physical activity that's social so I'm around other people and I realized that that makes a big difference to
+626,low_031,counsellor,Oh social physical activity
+627,low_031,client,yeah
+628,low_031,counsellor,that you get to be out and be with people like
+629,low_031,client,yeah j
+630,low_031,counsellor,Just doing on your own right like even going to a gym and just being around other people working out. We're going to some kind of exercise class just to be around other people who they're their general goal is to you know do physical activity and feel better through it.
+631,low_031,client,hmm so that you kind of feel like you're in a partnership together
+632,low_031,counsellor,yeah
+633,low_031,client,that's rather than just you're wrong
+634,low_031,counsellor,yeah
+635,low_031,client,yeah I'm working toward this together as a group
+636,low_031,counsellor,yeah so you've talked about several different kind of pieces that are important to you if we just took a look at that one activity because that sounds like a newer thing that you're really trying to push with where would you put yourself on how important this is to you want to say on a scale of one to ten just just on importance
+637,low_031,client,yeah right now I realized that it would be this is just something I came to realization today so it would be about I think it's an eight
+638,low_031,counsellor,Wow eight yeah it's really really up there
+639,low_031,client,yeah
+640,low_031,counsellor,it's not a four or five right why would you say an eight not a four or five
+641,low_031,client,because I that it's a it is important for me to have social interaction and be around people who are doing like I guess you'd say like-minded like-minded things and then it becomes less just about me and more about you know just sharing
+642,low_031,counsellor,oh okay it's about sharing there's that yeah really that piece of connectedness that's really important for you
+643,low_031,client,yeah
+644,low_031,counsellor,so if we were to ask your second question and that's kind of where the rubber meets the road how confident are you that you could start finding a group activity let's say in the next two weeks
+645,low_031,client,oh
+646,low_031,counsellor,you could start one obviously you've got steps to find it
+647,low_031,client,right
+648,low_031,counsellor,involved but within two weeks you could find yourself in some type of a group activity
+649,low_031,client,two weeks seems reasonable I think I can do it within two weeks so I would give that a eight
+650,low_031,counsellor,so you would get that in ages yeah so it's something that's pretty important to you
+651,low_031,client,yeah
+652,low_031,counsellor,definitely more than a six or seven and also you're really confident that you can go out there and do that
+653,low_031,client,yeah
+654,low_031,counsellor,what do you see as some of the barriers that might get in your way
+655,low_031,client,um I guess just structuring my time better
+656,low_031,counsellor,structuring your day better
+657,low_031,client,yes yes so really not slacking off and really not saying okay well I'm tired you know now tonight I'll just wait till tomorrow basically that
+658,low_031,counsellor,so finding the time in your day
+659,low_031,client,yeah
+660,low_031,counsellor,able to do or not do this or not
+661,low_031,client,yeah
+662,low_031,counsellor,and how do you see that best in your day how do you see that working in like an evening kind of thing or
+663,low_031,client,the evening yeah yeah right now the way the way just my today is structured with what I need to do in terms of um work and other commitments
+664,low_031,counsellor,okay
+665,low_031,client,evening yeah
+666,low_031,counsellor,so one of the things I hear people frequently will be saying is that the evenings my time to unwind and then I don't have the energy or I don't feel like going out to do something that might be more rigorous how is that for you
+667,low_031,client,I think that would be that would be okay I could always have a cup of coffee beforehand
+668,low_031,counsellor,you can always have a cup of coffee
+669,low_031,client,yes yes
+670,low_031,counsellor,well it would be okay with you I would to touch base maybe after that class starts and just kind of see what you found how it's working and then we can go from there looking at any kind of barriers the one thing I think I would just encourage you with to normalize is to realize about doing things in small doable steps and not feeling like if you haven't done everything for the day that you're
+671,low_031,client,right
+672,low_031,counsellor,the day but but that anymore water you drink or vegetables you've added it's certainly a positive and looking at trend
+673,low_031,client,right
+674,low_031,counsellor,then to be hard on yourself right towards your you know movement toward wellness
+675,low_031,client,right
+676,low_031,counsellor,okay so if we could touch base maybe in three weeks
+677,low_031,client,sure
+678,low_031,counsellor,that would be super I'd really look forward to it I'm really glad you came in
+679,low_031,client,okay thank you
+680,low_033,client,Well my name's Andrea as you know I'm in the marching band I played a tenor sax and involved in music so I'm also in the Jazz Band the Wind Ensemble and yeah that's about okay I'm an IB student
+681,low_033,counsellor,"okay, how long ago did you start playing saxophone"
+682,low_033,client,Well saxophone I started about four years ago but I've been involved in music for about ten years now
+683,low_033,counsellor,Wow that's a long time what other instruments?
+684,low_033,client,I started off on the violin first okay that for like six years once the clarinet double here and there with different things and then I found the one the one per week back
+685,low_033,counsellor,"awesome, and you played tenor sax?"
+686,low_033,client,yeah that's an aside
+687,low_033,counsellor,"Wow, and how long have you been in marching?"
+688,low_033,client,band marching band since freshman year... just a couple years
+689,low_033,counsellor,okay great and how do you like marching band?
+690,low_033,client,it's fun it's a lot of work long summers taught but it's fun
+691,low_033,counsellor,what are your favorite parts about it?
+692,low_033,client,"I really like the group setting. Oh, we're getting to work with my other classmates and things like that. And putting on this entire show, it's very exciting. Very exhilarating once you're in competition."
+693,low_033,counsellor,okay cool cool and you have a lot of friends who are in band with you?
+694,low_033,client,yeah friends outside of Bandar I have them you know to to supper group to have my friends from class and then my friends from Brand from band
+695,low_033,counsellor,okay great and then tell me a little bit about your family?
+696,low_033,client,well I'll have one brother he's older than me about nine years older than me and my parents and my dog
+697,low_033,counsellor,okay what kind of dog do you have?
+698,low_033,client,golden retriever
+699,low_033,counsellor,oh nice
+700,low_033,client,Charlie
+701,low_033,counsellor,Charlie
+702,low_033,client,Yeah
+703,low_033,counsellor,have you had him a long time?
+704,low_033,client,yeah he's about eight years old now
+705,low_033,counsellor,oh gosh okay very cool. and what are your plans for after high school?
+706,low_033,client,uh well I'm planning on going to school I'd like to become a doctor one day
+707,low_033,counsellor,Wow
+708,low_033,client,I'm interested in psychology psychiatry something like that
+709,low_033,counsellor,you've got big dreams.
+710,low_033,client,yeah
+711,low_033,counsellor,Alright have you started thinking about schools or majors? I guess you're thinking about psychology
+712,low_033,client,I haven't really thought too much about which school I mean I everyone wants to shoot for the Ivy League
+713,low_033,counsellor,alright and how about your grades?
+714,low_033,client,they're pretty good you know high three point something
+715,low_033,counsellor,okay good very good. Alright well what are the kinds of things do you do for fun on weekends?
+716,low_033,client,oh I usually go out with my friends. we'll go to the movies or will most likely we'll just meet up at someone's house and just hang out of things
+717,low_033,counsellor,mhm... when you're hanging out is there ever alcohol sometimes?
+718,low_033,client,I'm gonna be Audie sometimes
+719,low_033,counsellor,so how often do you think you drink alcohol?
+720,low_033,client,um um...depending on how much schoolwork there is when there's not it might be like every other weekend or like three weekends out of the month
+721,low_033,counsellor,oh so you're drinking a lot. oh yeah okay and how much are you drinking on the days that you're... on the days that you drink?
+722,low_033,client,um I don't we don't get blackout drunk or anything it's more of like a little tipsy kind of thing I have gotten blackout drunk before but I kind of did that learned my lesson nothing like it
+723,low_033,counsellor,got it. so you've you've had some pretty heavy drinking. what do you thinks the most you've ever had? like how many drinks?
+724,low_033,client,yeah um it was a good amount it was the first time I ever drank and it was three or four cups but it was mixing different things
+725,low_033,counsellor,okay so you don't even know. okay so and then your friends drink too?
+726,low_033,client,yeah yes not all of them.. some of them
+727,low_033,counsellor,"okay, and how much do they typically drink?"
+728,low_033,client,more or less the same amount so right now the most we'll have is maybe like one cup I don't do that one time but sometimes one or two but they can be kind of heavy
+729,low_033,counsellor,okay so it's one cup but let's imagine not what I drink a lot of alcohol in it okay. so gosh you're you're actually really drinking quite a lot you know your level of drinking puts you in what we call a high-risk group so is that surprising to you?
+730,low_033,client,a little bit yeah
+731,low_033,counsellor,so we caught high risk because it means that there's actually quite a bit of chances that you're gonna have some bad consequences from drinking like that so you know things like having car accidents or other accidents or getting in fights or you know sexual assault or health problems or developing alcoholism have you thought about those things?
+732,low_033,client,not too much to be honest I've always thought since it's you know within my small group of friends and we usually sleep over each other the house we don't get into the problems of drinking and driving and possibly sexual assaults and things like that but I haven't really thought about possible alcoholism or anything
+733,low_033,counsellor,"Okay, so it's good because you are not drinking and driving but you're still really drinking a lot and yeah okay so let's let's talk a little bit about that how you might be able to make some changes cuz I think you really need to need to stop drinking like this"
+734,low_033,client,okay
+735,low_033,counsellor,so do you think you could quit drinking? or..
+736,low_033,client,yeah I think I could I don't need it for instance it it is used as a kind of like let's get the party going uh-huh we haven't always had it obviously so I think it would be possible to stop drinking
+737,low_033,counsellor,okay so does that mean you're gonna stop drinking?
+738,low_033,client,um I would probably start off by like because my friends are also involved so I feel like hey guys I don't think I'm gonna drink today and kind of see how that goes
+739,low_033,counsellor,okay cuz you don't sound very much like you think that's gonna work
+740,low_033,client,yeah it's you know it's one thing to control my own drinking and it's another thing when everyone else around me is drinking and then there's like that pressure I was thinking I think I look stupid okay
+741,low_033,counsellor,so how are you gonna quit drinking without your friends thinking you look stupid..
+742,low_033,client,yeah
+743,low_033,counsellor,okay so I mean do you think they're really good friends of yours if they're gonna give you such a hard time?
+744,low_033,client,my close ones I know they wouldn't be you know have a problem with that but the ones that I'm not that close to its but I'll still like hang out with those are probably the ones that I think made ostracize nice or something
+745,low_033,counsellor,it sounds like you might be better off without them though there yeah maybe not very good friends probably
+746,low_033,client,might be too judgmental mm-hmm
+747,low_033,counsellor,so so I think we should set a goal that you're gonna stop drinking and I think you should probably stop as soon as possible like this weekend okay so the way this normally works is you know we set your goal and then I'll have you come back and we'll talk about it again in a couple weeks and make sure that you actually stopped and so what do you think about?
+748,low_033,client,that I think I think the possibility okay so make a good plan like I think I'd be able to follow
+749,low_033,counsellor,okay great so the plan is going to be that you're gonna quit and the friends that you have that you don't think are supportive you're just gonna not hang out with anymore yeah okay and then um you know like are your friends in band drinking?
+750,low_033,client,um not not really the ones that drink more are the ones like my class friends okay my friends we're focused on bands uh-huh can't relieve
+751,low_033,counsellor,okay so that might be good is really just to focus more on band um cuz you know the other big concern I have for you is if you want to go to medical school you're not ever gonna get into medical school if you're drinking like this yeah you know like college is gonna be really hard and especially without those pre-med classes you're not gonna be able handle it. Drinking this much you know have you thought about that?
+752,low_033,client,not too much to be honest yeah
+753,low_033,counsellor,okay so setting this goal then of quitting drinking is gonna be really helpful for you and it sounds like it shouldn't be that tough really especially because you can just stop hanging out with the people who drink a lot since you have some other friends yeah so do you have any questions for me? or...
+754,low_033,client,what should I write yeah I do so what should I say like once let's say I hang out with my friends and I like they why aren't you why aren't you drinking
+755,low_033,counsellor,mm-hmm
+756,low_033,client,like how should I go about that situation
+757,low_033,counsellor,well you know one good option would be to just review with them all the bad things about alcohol you can say you know I thought about it and I realized it's gonna mess up my homework and you know it's really a lot of risk for my health I don't want to become an alcoholic you know I don't want to get liver disease I don't want to end up driving drunk or getting into accidents or getting in fights you know one thing you could bring up is I've heard a lot of stories about kids who you know at parties and they're drunk and acting stupid and then people post stuff on Instagram and you know that's it for their social life it's like over
+758,low_033,client,so and and you know like professional life as well I don't want that biting me yeah but
+759,low_033,counsellor,I think just tell your friends you know you realize there's all these bad things about it and you don't want to do it anymore so you're just not going to okay and then you can tell them to stop - you know then that'd be really good good news
+760,low_033,client,you know as a group we but we all work together to become better yeah
+761,low_033,counsellor,yeah exactly all right any other questions or anything else I can help with?
+762,low_033,client,no I think I think I'm good
+763,low_033,counsellor,okay so like I said I'll plan to meet with you again in a couple weeks and make sure that you actually quit drinking okay all
+764,low_033,client,right sounds good
+765,low_033,counsellor,great
+766,low_080,client,uh yeah I just got off work and apparently they're going smoke-free so I'm I thought I'd stop by the pharmacy here and see what my options are some of my friends have tried nicotine patches and they say they don't work very well I don't really want to quit smoking I just need somebody to get me through the day
+767,low_080,counsellor,so you want nicotine replacement but you don't want to quit smoking
+768,low_080,client,maybe like that during the day nicotine replacement is that I mean do y'all have anything like that
+769,low_080,counsellor,we don't really recommend that the ideas you would use the nicotine replacement to actually quit so then you wouldn't be smoking at work but you also wouldn't be smoking the rest of the time either
+770,low_080,client,well I don't really want to quit I mean I like smoking I'll go like after work they have a beer with my friends not smoke cigarettes I mean it's not really a big deal cigarettes aren't that bad I mean I know that the it's popular to say that smoking is bad for you but you know I like it so I'm gonna keep doing it
+771,low_080,counsellor,okay well smoking really is really bad for you you know it causes things like lung cancer emphysema heart disease
+772,low_080,client,yeah okay oh well what are my options you know I assuming that I'm right what are my options
+773,low_080,counsellor,well to be honest with you you mentioned the patch I can't recommend a patch to you if you're gonna continue smoking that can actually be pretty dangerous for you in order to advise you about this at all I need you to tell me a little bit more about your smoking history and how much you're smoking now
+774,low_080,client,I mean I spent barely a pack a day. I mean I probably smoked about five or six years now. It's not really a lot of cigarettes. But it's sort of hard to get through the day work.
+775,low_080,counsellor,okay well we actually considered cigarettes a day to be a significant amount and in fact I would then recommend to you that you would start on the highest dose of nicotine replacement
+776,low_080,client,sounds good to me the more nicotine the better is there like gum or something I could chew it like while I'm in the office that sounds pretty great
+777,low_080,counsellor,I mean do you have there are some products that you could use to take away some of your cravings and probably the gum would be the best option for you it's not something you would continue to use continuously throughout the day however the gum is something you use just when you have a craving
+778,low_080,client,oh okay well where's that
+779,low_080,counsellor,well we have that here but again the the idea would be for you to actually quit smoking
+780,low_080,client,well I'm probably not gonna buy anything today I just came by to see what my options are I think thanks for the input I mean do you everything else do me other well advice for me
+781,low_080,counsellor,"Aside from the gum, you could try the nicotine lozenge. That would be another option for you. Again, that's not something you'd want to use continuously throughout the day. The nicotine patch is the best for continuous nicotine replacement. But again, that's not something you can use while you're continuing to smoke."
+782,low_080,client,oh okay well thanks i mean i guess that helps a little bit oh maybe i'll be back later Thanks okay

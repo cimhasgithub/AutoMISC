@@ -7,8 +7,10 @@ import numpy as np
 from scipy.stats import norm
 import seaborn as sns
 import matplotlib.pyplot as plt
+from matplotlib.ticker import MaxNLocator
 import hydra
 from hydra.utils import log
+import itertools
 
 manual_fn = 'MIV6.3A_manual.csv' 
 
@@ -41,7 +43,7 @@ def compute_asymptotic_variance_kappa(p0, pe, cm, row_marginals, col_marginals, 
 
 def compute_p_value(kappa, var_kappa):
     z_score = kappa / np.sqrt(var_kappa)
-    log.info(f"Z-score: {z_score}")
+    # log.info(f"Z-score: {z_score}")
     p_value = 2 * (1 - norm.cdf(abs(z_score)))
     return p_value
 
@@ -85,10 +87,10 @@ def cohens_kappa(cfg, auto_anno_path, manual_path, tier, rater):
     av_counsellor = compute_asymptotic_variance_kappa(co_po, co_pe, cm_co, row_marginals_co, col_marginals_co, len(counsellor_human_labels))
     p_co = compute_p_value(kappa_score_counsellor, av_counsellor)
 
-    log.info(f"Cohen's Kappa ({tier} Counsellor Codes): {kappa_score_counsellor:.2f}")
-    log.info(f"Manual Cohen's Kappa ({tier} Counsellor): {man_co:.2f}")
-    log.info(f"Asymptotic Variance ({tier} Counsellor): {av_counsellor}")
-    log.info(f"P-value ({tier} Counsellor): {p_co:.15e}")
+    # log.info(f"Cohen's Kappa ({tier} Counsellor Codes): {kappa_score_counsellor:.2f}")
+    # log.info(f"Manual Cohen's Kappa ({tier} Counsellor): {man_co:.2f}")
+    # log.info(f"Asymptotic Variance ({tier} Counsellor): {av_counsellor}")
+    # log.info(f"P-value ({tier} Counsellor): {p_co:.15e}")
 
     # (Optional) Plot confusion matrix and classification report for counsellor codes
     counsellor_conf_matrix = confusion_matrix(
@@ -101,10 +103,10 @@ def cohens_kappa(cfg, auto_anno_path, manual_path, tier, rater):
     )
 
     total_correct_counsellor = np.trace(counsellor_conf_matrix)
-    log.info(f"Total Correct Predictions (Counsellor): {total_correct_counsellor} / {len(counsellor_human_labels)} = {co_po*100:.2f}%")
+    # log.info(f"Total Correct Predictions (Counsellor): {total_correct_counsellor} / {len(counsellor_human_labels)} = {co_po*100:.2f}%")
 
     plt.figure(figsize=(8, 6))
-    sns.heatmap(counsellor_conf_matrix_df, annot=True, fmt="d", cmap="Blues")
+    sns.heatmap(counsellor_conf_matrix_df, annot=True, fmt="d", cmap="Blues", annot_kws={"fontsize": 16})
     # plt.title(f"Confusion Matrix: {tier} Counsellor Talk")
     plt.xlabel("AutoMISC", fontsize=20)
     plt.ylabel("Consensus Labels", fontsize=20)
@@ -114,7 +116,7 @@ def cohens_kappa(cfg, auto_anno_path, manual_path, tier, rater):
 
     class_report_counsellor = classification_report(counsellor_human_labels, counsellor_automisc_labels, labels=counsellor_codes, output_dict=True, zero_division=0)
     class_report_counsellor_df = pd.DataFrame(class_report_counsellor).transpose()
-    log.info(f"\n{class_report_counsellor_df}")
+    # log.info(f"\n{class_report_counsellor_df}")
 
     # --------------------- Client Calculations ---------------------
     client_human_labels = filtered_human_labels[filtered_human_labels.isin(client_codes)]
@@ -127,10 +129,10 @@ def cohens_kappa(cfg, auto_anno_path, manual_path, tier, rater):
     av_client = compute_asymptotic_variance_kappa(cl_po, cl_pe, cm_cl, row_marginals_cl, col_marginals_cl, len(client_human_labels))
     p_client = compute_p_value(kappa_score_client, av_client)
 
-    log.info(f"Cohen's Kappa ({tier} Client Codes): {kappa_score_client:.2f}")
-    log.info(f"Manual Cohen's Kappa ({tier} Client): {man_cl:.2f}")
-    log.info(f"Asymptotic Variance ({tier} Client): {av_client}")
-    log.info(f"P-value ({tier} Client): {p_client:.15e}")
+    # log.info(f"Cohen's Kappa ({tier} Client Codes): {kappa_score_client:.2f}")
+    # log.info(f"Manual Cohen's Kappa ({tier} Client): {man_cl:.2f}")
+    # log.info(f"Asymptotic Variance ({tier} Client): {av_client}")
+    # log.info(f"P-value ({tier} Client): {p_client:.15e}")
 
     # (Optional) Plot confusion matrix and classification report for client codes
     client_conf_matrix = confusion_matrix(
@@ -142,12 +144,12 @@ def cohens_kappa(cfg, auto_anno_path, manual_path, tier, rater):
         columns=client_codes
     )
     total_correct_client = np.trace(client_conf_matrix)
-    log.info(f"Total Correct Predictions (Client): {total_correct_client}")
-    log.info(f"Total Correct Predictions (Client): {total_correct_client} / {len(client_human_labels)} = {cl_po*100:.2f}%")
+    # log.info(f"Total Correct Predictions (Client): {total_correct_client}")
+    # log.info(f"Total Correct Predictions (Client): {total_correct_client} / {len(client_human_labels)} = {cl_po*100:.2f}%")
 
 
     plt.figure(figsize=(8, 6))
-    sns.heatmap(client_conf_matrix_df, annot=True, fmt="d", cmap="Oranges")
+    sns.heatmap(client_conf_matrix_df, annot=True, fmt="d", cmap="Oranges", annot_kws={"fontsize": 16})
     # plt.title(f"Confusion Matrix: {tier} Client Talk")
     plt.xlabel("AutoMISC", fontsize=20)
     plt.ylabel("Consensus Labels", fontsize=20)
@@ -157,17 +159,70 @@ def cohens_kappa(cfg, auto_anno_path, manual_path, tier, rater):
 
     class_report_client = classification_report(client_human_labels, client_automisc_labels, labels=client_codes, output_dict=True, zero_division=0)
     class_report_client_df = pd.DataFrame(class_report_client).transpose()
-    log.info(f"\n{class_report_client_df}")
+    # log.info(f"\n{class_report_client_df}")
+
+    f1_counsellor = class_report_counsellor["macro avg"]["f1-score"]
+    f1_client = class_report_client["macro avg"]["f1-score"]
 
     class_report_counsellor_df.to_csv(exp_output_dir / f"results/{tier}_counsellor_cls.csv")
     class_report_client_df.to_csv(exp_output_dir / f"results/{tier}_client_cls.csv")
     counsellor_conf_matrix_df.to_csv(exp_output_dir / f"results/{tier}_counsellor_conf_mtx.csv")
     client_conf_matrix_df.to_csv(exp_output_dir / f"results/{tier}_client_conf_mtx.csv")
-    return
+    return kappa_score_counsellor, co_po*100, f1_counsellor, kappa_score_client, cl_po*100, f1_client
+
+def big_table(cfg: DictConfig) -> None:
+
+    manual_path = Path('data/manual') / manual_fn
+    models = ["gpt-4.1-2025-04-14", "gpt-4o-2024-08-06", 'qwen/qwen3-30b-a3b', 'google/gemma-3-12b']
+    class_structures = ['tiered', 'flat']
+    context_turns = [0, 1, 2, 3, 4, 5, 10, 20]
+    res = []
+
+    for model, cstr, nct in itertools.product(models, class_structures, context_turns):
+        auto_anno_path = Path('data/annotated') / (
+            f"{cfg.input_dataset.name}_{cfg.input_dataset.subset}_"
+            f"{cstr}_{model.rsplit('/', 1)[-1]}_{cfg.annotated.context_mode}_{nct}_annotated.csv"
+        )
+        log.info(f"AutoMISC annotations path: {auto_anno_path}")
+        if not auto_anno_path.exists():
+            log.warning(f"Skipping {model}, {cstr}, {nct} as file does not exist: {auto_anno_path}")
+            continue
+
+        row = {
+            'model': model,
+            'class_structure': cstr,
+            'num_context_turns': nct,
+            't1_counsellor_f1': None,
+            't1_counsellor_acc': None,
+            't1_client_f1': None,
+            't1_client_acc': None,
+            't2_counsellor_f1': None,
+            't2_counsellor_acc': None,
+            't2_client_f1': None,
+            't2_client_acc': None
+        }
+
+        if cstr == 'tiered':
+            _, row['t1_counsellor_acc'], row['t1_counsellor_f1'], \
+            _, row['t1_client_acc'], row['t1_client_f1'] = \
+                cohens_kappa(cfg, auto_anno_path, manual_path, "T1", "GT")
+
+        _, row['t2_counsellor_acc'], row['t2_counsellor_f1'], \
+        _, row['t2_client_acc'], row['t2_client_f1'] = \
+        cohens_kappa(cfg, auto_anno_path, manual_path, "T2", "GT")
+        # n_counsellor =
+        row['t2_overall_f1'] = (row['t2_counsellor_f1']*580 + row['t2_client_f1']*241) / 821
+        row['t2_overall_acc'] = (row['t2_counsellor_acc']*580 + row['t2_client_acc']*241) / 821
+        res.append(row)
+
+    df = pd.DataFrame(res)
+    df.to_csv(Path('data/test') / "summary_irr_results.csv", index=False)
+    log.info(f"Saved IRR summary to data/test/summary_irr_results.csv")
+    return df
 
 def IRR(cfg: DictConfig) -> None:
     plt.rcParams["font.family"] = "Times New Roman"
-    plt.rcParams["font.size"] = 20
+    plt.rcParams["font.size"] = 16
     auto_anno_path = Path('data/annotated') / (
         f"{cfg.input_dataset.name}_"
         f"{cfg.input_dataset.subset}_"
@@ -187,8 +242,70 @@ def IRR(cfg: DictConfig) -> None:
         cohens_kappa(cfg, auto_anno_path, manual_path, "T1", "GT") # GT for Ground Truth
         cohens_kappa(cfg, auto_anno_path, manual_path, "T2", "GT") # GT for Ground Truth
     elif cfg.annotated.class_structure == 'flat':
-        log.info('gotta implement flat structure IRR')
+        cohens_kappa(cfg, auto_anno_path, manual_path, "T2", "GT") # GT for Ground Truth
     else:
         pass
+
     
+    # big_table(cfg)
+
+
+
+    df = pd.read_csv(Path('data/test') / "summary_irr_results.csv")
+    df_filtered = df[["model", "class_structure", "num_context_turns", "t2_counsellor_acc", "t2_client_acc", "t2_counsellor_f1", "t2_client_f1"]]
+    df_filtered.replace({'class_structure': {'tiered': 'hierarchical'}}, inplace=True)
+    df_filtered["label"] = df_filtered["model"].str.rsplit('/', n=1).str[-1] + " (" + df_filtered["class_structure"] + ")"
+    df_filtered.replace({'label': {'gpt-4.1-2025-04-14 (hierarchical)':'GPT-4.1 (Hier.)',
+                                   'gpt-4o-2024-08-06 (hierarchical)': 'GPT-4o (Hier.)',
+                                   'qwen3-30b-a3b (hierarchical)': 'Qwen-3-30B (Hier.)',
+                                   'gemma-3-12b (hierarchical)': 'Gemma-3-12B (Hier.)',
+                                   'gpt-4.1-2025-04-14 (flat)': 'GPT-4.1 (Flat)',
+                                   'gpt-4o-2024-08-06 (flat)': 'GPT-4o (Flat)',
+                                   'qwen3-30b-a3b (flat)': 'Qwen-3-30B (Flat)',
+                                   'gemma-3-12b (flat)': 'Gemma-3-12B (Flat)',
+                                   }}, inplace=True)
+
+    # models_to_plot = ['GPT-4.1 (Hierarchical)', 
+    #                   'GPT-4.1 (Flat)'
+    #                   ]
+
+    # df_filtered = df_filtered[df_filtered["label"].isin(models_to_plot)]
+
+    # # Create the subplots
+
+    for met in ["acc", "f1"]:
+        fig, axes = plt.subplots(1, 2, figsize=(14, 6), sharex=True)
+
+        # Plot T2 Counsellor Accuracy
+        for label, group in df_filtered.groupby("label"):
+            axes[0].plot(group["num_context_turns"], group[f"t2_counsellor_{met}"], marker='o', label=label)
+        axes[0].set_xlabel("Number of Context Volleys", fontsize=16)
+        # axes[0].set_ylabel("Counsellor F1 Score", fontsize=16)
+        axes[0].set_ylabel(f"Counsellor {'Acc. (%)' if met == 'acc' else 'F1'}", fontsize=16)
+        # if met == "f1":
+        #     axes[0].set_ylim(0.31, 0.43)
+        
+        # axes[0].set_xticks(context_turns)
+
+        # axes[0].yaxis.set_major_locator(MaxNLocator(integer=True))
+        axes[0].grid(True, which='both', axis='both')
+
+        # Plot T2 Client Accuracy
+        for label, group in df_filtered.groupby("label"):
+            axes[1].plot(group["num_context_turns"], group[f"t2_client_{met}"], marker='o', label=label)
+        # axes[1].set_ylabel("Client F1 Score", fontsize=16)
+        # if met == "f1":
+        #     axes[1].set_ylim(0.38, 0.44)
+        axes[1].set_ylabel(f"Client {'Acc. (%)' if met == 'acc' else 'F1'}", fontsize=16)
+        axes[1].set_xlabel("Number of Context Volleys", fontsize=16)
+        axes[1].legend(loc="best", fontsize=14) 
+        axes[1].set_xticks([0,1,2,3,4,5,10,20])
+        # axes[1].yaxis.set_major_locator(MaxNLocator(integer=True))
+        axes[1].grid(True, which='both', axis='both')
+
+        plt.tight_layout()
+        plt.savefig(Path('data/test') / f"{met}.pdf", format="pdf", bbox_inches='tight')
+        plt.show()
+
+
     return

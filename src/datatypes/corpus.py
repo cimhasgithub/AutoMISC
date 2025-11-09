@@ -72,7 +72,7 @@ class Corpus:
         '''
         conversations: list[Conversation] = []
         dataset_path = Path("data") / f'{self.cfg.input_dataset.name}.csv'
-        df = pd.read_csv(dataset_path)
+        df = pd.read_csv(dataset_path, dtype=str, encoding="utf-8-sig")
         valid_ids = self.filtered_ids(df['conv_id'])
         for id in valid_ids:
             conv_df = df[df['conv_id'] == id]
