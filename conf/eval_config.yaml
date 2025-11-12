@@ -7,7 +7,7 @@ input_dataset:
 n_conversations: 10
 
 annotated:
-  model: openai/gpt-4.1-2025-04-14
+  model: gemma-3-12B-it-qat.gguf
   context_mode: interval
   num_context_turns: 10
   class_structure: tiered

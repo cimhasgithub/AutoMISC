@@ -9,7 +9,7 @@ from hydra.utils import log
 from omegaconf import OmegaConf
 from lmstudio import BaseModel
 import yaml
-from components.utils import call_chat_model, get_provider
+from components.utils import call_chat_model, get_provider, chat_model_llama_cpp
 from tqdm import tqdm
 from components.prompts.loader import render_prompt, render_user_prompt
 
@@ -31,6 +31,12 @@ class Annotator:
         """
         self.cfg = cfg
         self.provider = get_provider(cfg.annotator.model)
+
+        if self.provider == "llama_cpp":
+            llama_model = chat_model_llama_cpp(model_name=cfg.annotator.model) # dont need to reload everytime = waste
+            self.call_chat_model = llama_model.call_model
+        else:
+            self.call_chat_model = call_chat_model
 
     def get_context_excerpt(self, df, utt_idx: int, context_mode: Literal["all", "cumulative", "interval"], num_context_turns: int = 0
                             ) -> str:
@@ -142,7 +148,7 @@ class Annotator:
                                 {'role': 'user', 'content': user_prompt}
                             ]
                             # print(f"t1_messages: {t1_messages}")
-                            t1 = call_chat_model(
+                            t1 = self.call_chat_model(
                                 messages=t1_messages,
                                 model=self.cfg.annotator.model, 
                                 provider=self.provider,
@@ -156,13 +162,14 @@ class Annotator:
                                 {'role': 'system', 'content': t2_system_prompt},
                                 {'role': 'user', 'content': user_prompt}
                             ]
-                            t2 = call_chat_model(
+                            t2 = self.call_chat_model(
                                 messages=t2_messages,
                                 model=self.cfg.annotator.model, 
                                 provider=self.provider,
                                 response_format=CounsellorUtterance_t2 if speaker=="counsellor" else ClientUtterance_t2,
                                 temperature=self.cfg.annotator.temperature
                             )
+                            
                             # print(f"t2: {t2}")
                             output_rows.append({
                                 **row.to_dict(),
@@ -178,7 +185,7 @@ class Annotator:
                                 {'role': 'user', 'content': user_prompt}
                             ]
                             # print(f"messages: {messages}")
-                            res = call_chat_model(
+                            res = self.call_chat_model(
                                 messages=messages,
                                 model=self.cfg.annotator.model, 
                                 provider=self.provider,

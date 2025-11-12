@@ -14,8 +14,6 @@ import logging
 import lmstudio as lms
 
 from components.LL_CPP import VALID_MODELS as LLCPP_VALID_MODELS
-#from huggingface_hub import login
-#login(token="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")
 
 def validate_config(cfg) -> None:
     for model_name in [cfg.parser.model, cfg.annotator.model]:

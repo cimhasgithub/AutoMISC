@@ -9,9 +9,9 @@ import os
 
 os.environ["GGML_METAL_VERBOSE"] = "0" # this verbosity gets annoying 
 
-VALID_MODELS = {"gemma-3-12b-it-q4_0.gguf","google/gemma-3-12b"}
+VALID_MODELS = {"gemma-3-12B-it-qat.gguf","gemma-3-12b-it-q4_0.gguf"}
 
-lookup = {"gemma-3-12b-it-q4_0.gguf" : ("google/gemma-3-12b-it-qat-q4_0-gguf","gemma-3-12b-it-q4_0.gguf"),}
+lookup = {"gemma-3-12b-it-q4_0.gguf" : ("lmstudio-community/gemma-3-12B-it-qat-GGUF","gemma-3-12B-it-QAT-Q4_0.gguf"),}
 
 class LL_cpp:
     def __init__(self, model_str):

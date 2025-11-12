@@ -5,11 +5,11 @@ input_dataset:
 n_conversations: null
 
 parser:
-  model: gemma-3-12b-it-q4_0.gguf # gpt-4o-2024-08-06
+  model: gemma-3-12B-it-qat.gguf # gpt-4o-2024-08-06
   temperature: 0.0
 
 annotator:
-  model: gemma-3-12b-it-q4_0.gguf # gpt-4.1-2025-04-14
+  model: gemma-3-12B-it-qat.gguf # gpt-4.1-2025-04-14
   context_mode: interval
   num_context_turns: 3
   class_structure: tiered

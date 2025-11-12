@@ -67,3 +67,19 @@ def call_chat_model(
 
     else:
         raise ValueError(f"Provider '{provider}' not recognized. Use 'openai' or 'lmstudio'.")
+
+
+
+class chat_model_llama_cpp:
+    def __init__(self, model_name):
+        self.model_llama_cpp = LL_cpp(model_name)
+    
+    def call_model(self, messages, response_format, temperature,model = None,provider=None):
+        completion = self.model_llama_cpp(
+        messages=messages,
+        response_format=response_format,
+        temperature=temperature
+        )
+                                    
+        return completion
+
