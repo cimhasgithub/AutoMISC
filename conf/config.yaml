@@ -13,6 +13,5 @@ annotator:
   context_mode: interval
   num_context_turns: 3
   class_structure: tiered
+  n_processes : 4
   temperature: 0.0
-
-

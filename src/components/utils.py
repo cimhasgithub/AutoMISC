@@ -55,14 +55,14 @@ def call_chat_model(
                                        
         return completion.parsed
 
-    elif provider == "llama_cpp":
-        completion = model_llama_cpp(
-            messages=messages,
-            response_format=response_format,
-            temperature=temperature
-            )
-                                       
-        return completion
+    #elif provider == "llama_cpp":
+    #    completion = model_llama_cpp(
+    #        messages=messages,
+    #        response_format=response_format,
+    #        temperature=temperature
+    #        )
+    #                                   
+    #    return completion
 
 
     else:
