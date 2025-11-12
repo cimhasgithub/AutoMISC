@@ -13,6 +13,10 @@ import openai
 import logging
 import lmstudio as lms
 
+from components.LL_CPP import VALID_MODELS as LLCPP_VALID_MODELS
+#from huggingface_hub import login
+#login(token="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")
+
 def validate_config(cfg) -> None:
     for model_name in [cfg.parser.model, cfg.annotator.model]:
         try:
@@ -30,7 +34,7 @@ def validate_config(cfg) -> None:
         else:
             log.warning("OPENAI_API_KEY not set; skipping OpenAI model validation")
 
-        if model_name not in openai_models and model_name not in lms_models:
+        if model_name not in openai_models and model_name not in lms_models and model_name not in LLCPP_VALID_MODELS: 
             log.info(f"Available LM Studio models: {lms_models}")
             log.info(f"Available OpenAI models: {openai_models}")
             raise ValueError(f"Model '{model_name}' not found in OpenAI or LM Studio models.")

@@ -6,27 +6,34 @@ from pydantic import BaseModel
 import lmstudio as lms
 import openai
 from hydra.utils import log
+from components.LL_CPP import LL_cpp, VALID_MODELS  # custom wrapper
 
-def get_provider(model: str) -> Literal['openai', 'lmstudio']:
+def get_provider(model: str) -> Literal['openai', 'lmstudio', 'llama_cpp']:
     lms_models = {m.model_key for m in lms.list_downloaded_models("llm")}
     openai_models = {m.id for m in openai.models.list().data}
+    llm_cpp_models = VALID_MODELS
+
     if model in openai_models:
         return 'openai'
     elif model in lms_models:
         return 'lmstudio'
+    elif model in llm_cpp_models:
+        return 'llama_cpp'
     else:
-        raise ValueError(f"Model '{model}' not found in OpenAI or LM Studio models.")
+        raise ValueError(f"Model '{model}' not found in OpenAI, LM Studio, or llama_cpp models.")
 
 def call_chat_model(
     messages: list[dict],
     model: str,
-    provider: Literal['openai', 'lmstudio'] = 'openai',
+    provider: Literal['openai', 'lmstudio', 'llama_cpp'] = 'openai',
     temperature: float = 0.0,
     response_format: Optional[Type[BaseModel]] = None,
     **kwargs,
 ) -> BaseModel | str:
     """
     """
+    if provider == "llama_cpp":
+        model_llama_cpp = LL_cpp(model)
     if provider == 'openai':
         if openai is None:
             raise ImportError("openai library is required for openai models")
@@ -47,5 +54,16 @@ def call_chat_model(
             )
                                        
         return completion.parsed
+
+    elif provider == "llama_cpp":
+        completion = model_llama_cpp(
+            messages=messages,
+            response_format=response_format,
+            temperature=temperature
+            )
+                                       
+        return completion
+
+
     else:
         raise ValueError(f"Provider '{provider}' not recognized. Use 'openai' or 'lmstudio'.")
